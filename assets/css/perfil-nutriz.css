@@ -1,0 +1,4147 @@
+/* ==========================================================
+   PERFIL — NUTRIZ
+   Estilos específicos desta tela.
+   ========================================================== */
+
+#screen-perfil-nutriz .sidebar-avatar-wrap{
+  text-align: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+#screen-perfil-nutriz .sidebar-avatar{
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  margin: 0 auto 8px;
+}
+#screen-perfil-nutriz .sidebar-avatar-name{
+  font-weight: 700;
+  font-size: 13px;
+}
+#screen-perfil-nutriz .sidebar-avatar-sub{
+  font-size: 11px;
+  color: #cfe0ee;
+  margin-top: 2px;
+}
+#screen-perfil-nutriz .sidebar-status-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 3px 11px;
+  border-radius: 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #8fd3a8;
+}
+#screen-perfil-nutriz .sidebar-status-pill::before{
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4fd18a;
+}
+#screen-perfil-nutriz .side-menu-label{
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #8fb3d6;
+  margin: 0 0 8px 6px;
+  font-weight: 700;
+}
+#screen-perfil-nutriz .app-shell{
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  min-height: 100vh;
+}
+@media (max-width: 760px) {
+#screen-perfil-nutriz .app-shell{
+    grid-template-columns: 1fr;
+  }
+}
+#screen-perfil-nutriz .sidebar{
+  background: #00458b;
+  color: #fff;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+}
+#screen-perfil-nutriz .sidebar-brand{
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+#screen-perfil-nutriz .sidebar-user{
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  font-size: 12.5px;
+}
+#screen-perfil-nutriz .sidebar-user .u-name{
+  font-weight: 700;
+}
+#screen-perfil-nutriz .sidebar-user .u-status{
+  color: #8fd3a8;
+  font-size: 11px;
+  margin-top: 2px;
+}
+#screen-perfil-nutriz .side-menu{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+#screen-perfil-nutriz .side-menu li a{
+  display: block;
+  padding: 9px 10px;
+  border-radius: 3px;
+  color: #cfe0ee;
+  font-size: 12.5px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+#screen-perfil-nutriz .side-menu li a:hover{
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  text-decoration: none;
+}
+#screen-perfil-nutriz .side-menu li a.active{
+  background: #54b2e3;
+  color: #fff;
+}
+#screen-perfil-nutriz .sidebar-logout{
+  font-size: 12px;
+  color: #cfe0ee;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+#screen-perfil-nutriz .sidebar-logout:hover{
+  color: #fff;
+}
+#screen-perfil-nutriz .main-area{
+  padding: 24px 28px 40px;
+}
+#screen-perfil-nutriz .greeting-bar{
+  background: #fff;
+  border: 1px solid #cfd8e0;
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+}
+#screen-perfil-nutriz .greeting-bar h2{
+  font-size: 16px;
+  color: #00458b;
+}
+#screen-perfil-nutriz .greeting-bar .sub{
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+#screen-perfil-nutriz .panel-tab{
+  display: none;
+}
+#screen-perfil-nutriz .panel-tab.active{
+  display: block;
+}
+#screen-perfil-nutriz /* jornada guiada */
+.journey-track{
+  background: #fff;
+  border: 1px solid #cfd8e0;
+  border-radius: 4px;
+  padding: 26px 20px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 18px;
+}
+#screen-perfil-nutriz .journey-track::before{
+  content: "";
+  position: absolute;
+  top: 44px;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: #d3dbe2;
+}
+#screen-perfil-nutriz .journey-step{
+  text-align: center;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+#screen-perfil-nutriz .journey-step .circle{
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #c3ccd4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  font-size: 18px;
+  color: #8a97a3;
+}
+#screen-perfil-nutriz .journey-step.done .circle{
+  border-color: #1b7f79;
+  background: #eaf7ee;
+  color: #1b7f79;
+}
+#screen-perfil-nutriz .journey-step.active .circle{
+  border-color: #00458b;
+  background: #eaf3fb;
+  color: #00458b;
+}
+#screen-perfil-nutriz .journey-step .jtitle{
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #00458b;
+}
+#screen-perfil-nutriz .journey-step .jdesc{
+  font-size: 10.5px;
+  color: #8a97a3;
+  margin-top: 4px;
+  max-width: 130px;
+  margin-inline: auto;
+  line-height: 1.4;
+}
+#screen-perfil-nutriz .stat-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+@media (max-width: 600px) {
+#screen-perfil-nutriz .stat-row{
+    grid-template-columns: 1fr;
+  }
+}
+#screen-perfil-nutriz .stat-card{
+  background: #fff;
+  border: 1px solid #cfd8e0;
+  border-radius: 4px;
+  padding: 16px 18px;
+}
+#screen-perfil-nutriz .stat-card .num{
+  font-size: 28px;
+  font-weight: 700;
+  color: #00458b;
+}
+#screen-perfil-nutriz .stat-card .label{
+  font-size: 11.5px;
+  color: #666;
+  margin-top: 2px;
+}
+#screen-perfil-nutriz .card{
+  background: #fff;
+  border: 1px solid #cfd8e0;
+  border-radius: 4px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+#screen-perfil-nutriz .card h3{
+  font-size: 14px;
+  color: #00458b;
+  margin-bottom: 12px;
+}
+#screen-perfil-nutriz table{
+  width: 100%;
+  border-collapse: collapse;
+}
+#screen-perfil-nutriz th{
+  text-align: left;
+  font-size: 10.5px;
+  color: #8a97a3;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 6px 8px;
+  border-bottom: 1.5px solid #d3dbe2;
+}
+#screen-perfil-nutriz td{
+  padding: 10px 8px;
+  font-size: 12.5px;
+  border-bottom: 1px solid #e5e9ed;
+}
+#screen-perfil-nutriz .badge{
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+}
+#screen-perfil-nutriz .badge-success{
+  background: #eaf7ee;
+  color: #1b7f79;
+}
+#screen-perfil-nutriz .badge-warning{
+  background: #fdf3df;
+  color: #a5750c;
+}
+#screen-perfil-nutriz .badge-danger{
+  background: #fbe9e9;
+  color: #b23c3c;
+}
+#screen-perfil-nutriz .two-panel{
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 20px;
+}
+@media (max-width: 760px) {
+#screen-perfil-nutriz .two-panel{
+    grid-template-columns: 1fr;
+  }
+}
+#screen-perfil-nutriz .mini-calendar table{
+  text-align: center;
+  width: 100%;
+}
+#screen-perfil-nutriz .mini-calendar th{
+  text-align: center;
+  padding: 4px 2px;
+  font-size: 10px;
+}
+#screen-perfil-nutriz .mini-calendar td{
+  padding: 1px;
+  border: none;
+}
+#screen-perfil-nutriz .mini-calendar .day{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 12px;
+  margin: 0 auto;
+  color: #222;
+  cursor: pointer;
+}
+#screen-perfil-nutriz .mini-calendar .day.selected{
+  background: #00458b;
+  color: #fff;
+  font-weight: 700;
+}
+#screen-perfil-nutriz .mini-calendar .day.available{
+  background: #eaf3fb;
+  color: #00458b;
+  font-weight: 700;
+}
+#screen-perfil-nutriz .mini-calendar .day.empty{
+  visibility: hidden;
+}
+#screen-perfil-nutriz .legend-dot{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: #666;
+  margin-top: 10px;
+}
+#screen-perfil-nutriz .legend-dot::before{
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #54b2e3;
+}
+#screen-perfil-nutriz .notif-item{
+  display: flex;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e9ed;
+}
+#screen-perfil-nutriz .notif-item:last-child{
+  border-bottom: none;
+}
+#screen-perfil-nutriz .notif-dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #54b2e3;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+#screen-perfil-nutriz .notif-item .ntext{
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+#screen-perfil-nutriz .notif-item .ntime{
+  font-size: 10.5px;
+  color: #8a97a3;
+  margin-top: 2px;
+}
+#screen-perfil-nutriz .stars{
+  color: #e0a72e;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+#screen-perfil-nutriz .feedback-item{
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e9ed;
+}
+#screen-perfil-nutriz .feedback-item:last-child{
+  border-bottom: none;
+}
+#screen-perfil-nutriz .feedback-item .fdate{
+  font-size: 10.5px;
+  color: #8a97a3;
+}
+#screen-perfil-nutriz .feedback-item .fcomment{
+  font-size: 12.5px;
+  margin-top: 2px;
+}
+#screen-perfil-nutriz .field-view{
+  margin-bottom: 14px;
+}
+#screen-perfil-nutriz .field-view label{
+  display: block;
+  font-size: 10px;
+  color: #8a97a3;
+  letter-spacing: 0.03em;
+  margin-bottom: 3px;
+}
+#screen-perfil-nutriz .field-view .val{
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #222;
+}
+#screen-perfil-nutriz .support-cards{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+@media (max-width: 760px) {
+#screen-perfil-nutriz .support-cards{
+    grid-template-columns: 1fr;
+  }
+}
+#screen-perfil-nutriz .support-card .s-icon{
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+#screen-perfil-nutriz .support-card .s-title{
+  font-weight: 700;
+  color: #00458b;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+#screen-perfil-nutriz .support-card .s-desc{
+  font-size: 11.5px;
+  color: #666;
+  line-height: 1.5;
+}
+
+#screen-perfil-nutriz .feedback-page {
+  width: 100%;
+  padding-top: 6px;
+}
+
+#screen-perfil-nutriz .feedback-header {
+  margin-bottom: 18px;
+}
+
+#screen-perfil-nutriz .feedback-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #0d5aa6;
+  font-weight: 800;
+}
+
+#screen-perfil-nutriz .feedback-header p {
+  margin: 6px 0 0;
+  color: #5a6f82;
+  font-size: 14px;
+}
+
+#screen-perfil-nutriz .feedback-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 20px;
+}
+
+#screen-perfil-nutriz .feedback-form-panel,
+#screen-perfil-nutriz .feedback-list-panel {
+  background: rgba(255,255,255,0.42);
+  border: 1px solid #dfeaf3;
+  border-radius: 18px;
+  padding: 18px 20px 16px;
+  box-shadow: 0 2px 10px rgba(16, 78, 132, 0.04);
+}
+
+#screen-perfil-nutriz .feedback-cta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #dfeef7;
+  border: 1px solid #d3eaf9;
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+}
+
+#screen-perfil-nutriz .feedback-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #edf7ff;
+  color: #1f75c5;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+#screen-perfil-nutriz .feedback-badge svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+#screen-perfil-nutriz .feedback-cta-copy h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #0e5ca8;
+  font-weight: 800;
+}
+
+#screen-perfil-nutriz .feedback-cta-copy p {
+  margin: 6px 0 0;
+  color: #56708d;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#screen-perfil-nutriz .feedback-field {
+  margin-bottom: 18px;
+}
+
+#screen-perfil-nutriz .feedback-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #5e7388;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+#screen-perfil-nutriz .select-wrap {
+  position: relative;
+}
+
+#screen-perfil-nutriz .select-wrap select,
+#screen-perfil-nutriz .feedback-field textarea {
+  width: 100%;
+  border: 1px solid #d2e0eb;
+  border-radius: 10px;
+  background: #f9fcff;
+  color: #21394c;
+  font-size: 14px;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+#screen-perfil-nutriz .select-wrap select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 38px;
+}
+
+#screen-perfil-nutriz .caret {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #0c6ab6;
+  font-size: 18px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+#screen-perfil-nutriz .star-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 30px;
+}
+
+#screen-perfil-nutriz .star {
+  border: 0;
+  background: transparent;
+  padding: 0 2px;
+  margin: 0;
+  font: inherit;
+  font-size: 28px;
+  line-height: 1;
+  color: #d9e4ed;
+  cursor: pointer;
+  transition: transform .12s ease, color .12s ease;
+}
+
+#screen-perfil-nutriz .star:hover,
+#screen-perfil-nutriz .star.hovered,
+#screen-perfil-nutriz .star.active {
+  color: #f1b83b;
+  transform: scale(1.08);
+}
+
+#screen-perfil-nutriz .star:focus-visible {
+  outline: 2px solid #0a84d5;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+#screen-perfil-nutriz .star:not(.active) {
+  color: #d9e4ed;
+}
+
+#screen-perfil-nutriz .rating-text {
+  margin-left: 10px;
+  color: #214d76;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+#screen-perfil-nutriz .feedback-field textarea {
+  resize: vertical;
+  min-height: 76px;
+}
+
+#screen-perfil-nutriz .counter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6px;
+  color: #7a8ea4;
+  font-size: 12px;
+}
+
+#screen-perfil-nutriz .feedback-submit {
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #0a84d5, #0b6db3);
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 13px 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(11, 109, 179, 0.18);
+}
+
+#screen-perfil-nutriz .feedback-submit span {
+  font-size: 12px;
+}
+
+#screen-perfil-nutriz .feedback-submit:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+#screen-perfil-nutriz .feedback-form-message {
+  min-height: 20px;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#screen-perfil-nutriz .feedback-form-message.success {
+  color: #198754;
+}
+
+#screen-perfil-nutriz .feedback-form-message.error {
+  color: #c0395a;
+}
+
+#screen-perfil-nutriz .feedback-thanks {
+  margin-top: 24px;
+  background: #f7eaf1;
+  border: 1px solid #ecc9d8;
+  border-radius: 14px;
+  padding: 18px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#screen-perfil-nutriz .feedback-thanks-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #f8d9e7;
+  color: #d85c8a;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+#screen-perfil-nutriz .feedback-thanks h4 {
+  margin: 0;
+  color: #cb4e7f;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+#screen-perfil-nutriz .feedback-thanks p {
+  margin: 4px 0 0;
+  color: #7b5b6d;
+  font-size: 13px;
+}
+
+#screen-perfil-nutriz .feedback-list-header {
+  margin-bottom: 16px;
+}
+
+#screen-perfil-nutriz .feedback-list-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #0d5aa6;
+  font-weight: 800;
+}
+
+#screen-perfil-nutriz .feedback-list-header p {
+  margin: 6px 0 0;
+  color: #5a6f82;
+  font-size: 13px;
+}
+
+#screen-perfil-nutriz .feedback-item-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border: 1px solid #dfeaf3;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.4);
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+
+#screen-perfil-nutriz .soft-purple {
+  background: rgba(240, 236, 255, 0.7);
+}
+
+#screen-perfil-nutriz .soft-green {
+  background: rgba(235, 247, 239, 0.7);
+}
+
+#screen-perfil-nutriz .mini-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: #edf6ff;
+  color: #3c7fc5;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+#screen-perfil-nutriz .feedback-item-main {
+  flex: 1;
+}
+
+#screen-perfil-nutriz .feedback-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+#screen-perfil-nutriz .stars-small {
+  color: #f5b944;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+#screen-perfil-nutriz .feedback-date {
+  font-size: 12px;
+  color: #6d7c8f;
+  font-weight: 700;
+}
+
+#screen-perfil-nutriz .feedback-item-title {
+  font-size: 16px;
+  color: #1f3e5e;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+#screen-perfil-nutriz .feedback-item-sub {
+  color: #7a8ea5;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+#screen-perfil-nutriz .feedback-item-text {
+  color: #2d4662;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#screen-perfil-nutriz .feedback-contact-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #dfeaf3;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.38);
+  padding: 12px 14px;
+  margin-top: 10px;
+}
+
+#screen-perfil-nutriz .feedback-contact-icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #ebf5ff;
+  color: #0b6db3;
+  font-size: 18px;
+}
+
+#screen-perfil-nutriz .feedback-contact-copy {
+  flex: 1;
+}
+
+#screen-perfil-nutriz .feedback-contact-copy h4 {
+  margin: 0 0 4px;
+  color: #164a7a;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+#screen-perfil-nutriz .feedback-contact-copy p {
+  margin: 0;
+  color: #586f86;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+#screen-perfil-nutriz .feedback-contact-box button {
+  border: 1px solid #9ecfe9;
+  background: #f5fbff;
+  color: #0a6db3;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  #screen-perfil-nutriz .feedback-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  #screen-perfil-nutriz .feedback-form-panel,
+  #screen-perfil-nutriz .feedback-list-panel {
+    padding: 16px 14px;
+  }
+
+  #screen-perfil-nutriz .feedback-cta {
+    align-items: flex-start;
+  }
+
+  #screen-perfil-nutriz .feedback-cta-copy h3 {
+    font-size: 17px;
+  }
+
+  #screen-perfil-nutriz .feedback-submit {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #screen-perfil-nutriz .feedback-thanks {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  #screen-perfil-nutriz .feedback-item-card,
+  #screen-perfil-nutriz .feedback-contact-box {
+    flex-direction: column;
+  }
+
+  #screen-perfil-nutriz .feedback-contact-box button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  #screen-perfil-nutriz .feedback-header h2 {
+    font-size: 17px;
+  }
+
+  #screen-perfil-nutriz .feedback-header p,
+  #screen-perfil-nutriz .feedback-cta-copy p,
+  #screen-perfil-nutriz .feedback-item-sub,
+  #screen-perfil-nutriz .feedback-item-text,
+  #screen-perfil-nutriz .feedback-contact-copy p {
+    font-size: 12px;
+  }
+
+  #screen-perfil-nutriz .feedback-item-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  #screen-perfil-nutriz .star-row {
+    flex-wrap: wrap;
+    gap: 2px 4px;
+  }
+
+  #screen-perfil-nutriz .rating-text {
+    margin-left: 0;
+    display: block;
+    width: 100%;
+  }
+}
+
+#screen-perfil-nutriz .dados-page {
+  width: 100%;
+  padding-top: 8px;
+}
+
+/* Barra cinza — exclusiva da aba "Meus dados".
+   Nas outras abas, #screen-perfil-nutriz/.main-area têm altura automática
+   (crescem com o conteúdo) e por isso nunca ultrapassam a viewport. A aba
+   "Meus dados" é a única com conteúdo alto o suficiente para ultrapassar
+   a viewport, o que empurra a rolagem para o documento e expõe a barra de
+   rolagem nativa do navegador. A correção limita a altura apenas desta
+   aba (".panel-tab[data-panel-tab='dados']"), para que ela role
+   internamente, com a barra ocultada visualmente — sem alterar
+   #screen-perfil-nutriz, .main-area ou qualquer outra aba. */
+#screen-perfil-nutriz .panel-tab[data-panel-tab="dados"] {
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#screen-perfil-nutriz .panel-tab[data-panel-tab="dados"]::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Mesma barra cinza, agora identificada também na aba "Agendamento":
+   o conteúdo dessa aba também ultrapassa a viewport em telas comuns de
+   notebook, expondo a rolagem nativa do navegador pelo mesmo motivo
+   explicado acima. Mesma correção, escopada apenas a esta aba. */
+#screen-perfil-nutriz .panel-tab[data-panel-tab="agendamento"] {
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#screen-perfil-nutriz .panel-tab[data-panel-tab="agendamento"]::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+#screen-perfil-nutriz .dados-header {
+  margin-bottom: 16px;
+}
+
+#screen-perfil-nutriz .dados-header h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #0d5aa6;
+  font-weight: 700;
+}
+
+#screen-perfil-nutriz .dados-header p {
+  margin: 6px 0 0;
+  color: #5a6f82;
+  font-size: 14px;
+}
+
+#screen-perfil-nutriz .dados-card {
+  background: rgba(255,255,255,0.45);
+  border: 1px solid #dfeaf3;
+  border-radius: 18px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 10px rgba(16, 78, 132, 0.04);
+}
+
+#screen-perfil-nutriz .dados-card-profile {
+  background: #dfeef7;
+  border-color: #cfe1ee;
+}
+
+#screen-perfil-nutriz .dados-profile-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+#screen-perfil-nutriz .dados-profile-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #e7f5ff;
+  border: 1px solid #bfe0f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1f75c5;
+}
+
+#screen-perfil-nutriz .dados-profile-avatar svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+#screen-perfil-nutriz .dados-label {
+  font-size: 11px;
+  color: #3e7bb2;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+#screen-perfil-nutriz .dados-name {
+  font-size: 27px;
+  color: #123c75;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+#screen-perfil-nutriz .dados-sub {
+  margin-top: 6px;
+  font-size: 15px;
+  color: #4d6a87;
+  max-width: 640px;
+}
+
+#screen-perfil-nutriz .dados-section-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+#screen-perfil-nutriz .dados-section-title h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1f7cc4;
+  font-weight: 800;
+}
+
+#screen-perfil-nutriz .dados-section-title p {
+  margin: 4px 0 0;
+  color: #6c88a0;
+  font-size: 13px;
+}
+
+#screen-perfil-nutriz .dados-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #dfeef9;
+  border: 1px solid #cfe2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a6fbd;
+  flex-shrink: 0;
+}
+
+#screen-perfil-nutriz .dados-badge svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+#screen-perfil-nutriz .dados-badge-alert {
+  background: #ffeaf0;
+  border-color: #ffd0db;
+  color: #db4a70;
+}
+
+#screen-perfil-nutriz .dados-badge-shield {
+  background: #ebf9f0;
+  border-color: #cfeee0;
+  color: #2d9d6e;
+}
+
+#screen-perfil-nutriz .dados-badge-support {
+  background: #f3f1ff;
+  border-color: #e2ddff;
+  color: #6b5bd3;
+}
+
+#screen-perfil-nutriz .dados-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px 44px;
+}
+
+#screen-perfil-nutriz .dados-col {
+  display: grid;
+  gap: 18px;
+}
+
+#screen-perfil-nutriz .dados-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#screen-perfil-nutriz .dados-field span {
+  color: #8397aa;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+#screen-perfil-nutriz .dados-field strong {
+  font-size: 17px;
+  color: #1b2e42;
+  font-weight: 700;
+}
+
+#screen-perfil-nutriz .dados-btn {
+  margin-top: 18px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #0a88d7, #0a6ebe);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 18px;
+  box-shadow: 0 6px 16px rgba(10, 110, 190, 0.2);
+  cursor: pointer;
+}
+
+#screen-perfil-nutriz .dados-btn-outline {
+  background: none;
+  color: #0b6db3;
+  border: 1px solid #7ec0e8;
+  box-shadow: none;
+}
+
+#screen-perfil-nutriz .dados-btn-success {
+  background: linear-gradient(180deg, #25b77a, #1c9d69);
+  box-shadow: 0 6px 16px rgba(25, 159, 110, 0.2);
+}
+
+#screen-perfil-nutriz .dados-address {
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #21394c;
+  background: rgba(239,245,249,0.9);
+  border: 1px solid #dfeaf3;
+  margin-bottom: 14px;
+}
+
+#screen-perfil-nutriz .dados-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+#screen-perfil-nutriz .half-card {
+  min-height: 220px;
+}
+
+#screen-perfil-nutriz .small-title {
+  margin-bottom: 22px;
+}
+
+#screen-perfil-nutriz .password-field {
+  padding-top: 10px;
+}
+
+#screen-perfil-nutriz .password-field strong {
+  letter-spacing: 0.12em;
+  font-size: 18px;
+}
+
+#screen-perfil-nutriz .contact-card {
+  background: rgba(255,255,255,0.5);
+}
+
+#screen-perfil-nutriz .dados-support-copy {
+  color: #526b7f;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 10px 0 18px;
+}
+
+@media (max-width: 900px) {
+  #screen-perfil-nutriz .dados-grid,
+  #screen-perfil-nutriz .dados-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #screen-perfil-nutriz .dados-name {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  #screen-perfil-nutriz .dados-profile-head {
+    align-items: flex-start;
+  }
+
+  #screen-perfil-nutriz .dados-header h2 {
+    font-size: 20px;
+  }
+
+  #screen-perfil-nutriz .dados-card {
+    padding: 16px 14px;
+  }
+}
+
+/* ==========================================================
+   NUTRIZ — NOVO MENU COMPACTO + JORNADA MODERNA
+   ========================================================== */
+#screen-perfil-nutriz {
+  --navy: #00458b;
+  --navy-dark: #073f7c;
+  --blue: #16aee8;
+  --blue-soft: #e4f5fd;
+  --page: #f6fbfe;
+  --ink: #063f88;
+}
+#screen-perfil-nutriz .app-shell.nutriz-shell {
+  height: 100vh;
+  overflow: hidden;
+  display:grid;
+  grid-template-columns:84px minmax(0,1fr);
+  min-height:100vh;
+  background:#f7fbfd;
+  transition:grid-template-columns .28s ease;
+}
+#screen-perfil-nutriz .app-shell.nutriz-shell.menu-open {
+  grid-template-columns:230px minmax(0,1fr);
+}
+#screen-perfil-nutriz .nutriz-sidebar {
+  height: 100vh;
+  overflow: hidden;
+  position:relative;
+  z-index:20;
+  width:84px;
+  min-height:100vh;
+  padding:10px 6px;
+  background:#fff;
+  color:var(--navy);
+  border-right:1px solid #e3edf4;
+  box-shadow:4px 0 18px rgba(16,86,130,.06);
+  transition:width .28s ease, padding .28s ease;
+}
+#screen-perfil-nutriz .menu-open .nutriz-sidebar { width:230px; padding:10px 8px; }
+#screen-perfil-nutriz .sidebar-logo-btn {
+  width:100%; height:80px; border:0; background:transparent; padding:4px;
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+}
+#screen-perfil-nutriz .sidebar-logo-btn img { width:66px; height:auto; display:block; object-fit:contain; }
+#screen-perfil-nutriz .menu-open .sidebar-logo-btn { height:72px; border-bottom:1px solid #e9f0f5; margin-bottom:8px; }
+#screen-perfil-nutriz .menu-open .sidebar-logo-btn img { width:118px; }
+#screen-perfil-nutriz .sidebar-profile {
+  max-height:0; opacity:0; overflow:hidden; text-align:center; transition:max-height .25s ease,opacity .2s ease,padding .25s ease;
+}
+#screen-perfil-nutriz .menu-open .sidebar-profile { max-height:145px; opacity:1; padding:8px 4px 12px; }
+#screen-perfil-nutriz .sidebar-avatar { width:48px;height:48px;border:2px solid var(--navy);color:var(--navy);font-size:14px;margin:0 auto 5px; }
+#screen-perfil-nutriz .sidebar-avatar-name { color:var(--navy);font-size:13px;font-weight:700; }
+#screen-perfil-nutriz .sidebar-avatar-sub { color:#65819b;font-size:10.5px; }
+#screen-perfil-nutriz .sidebar-status-pill { background:#e7f8ee;color:#2b9b59;padding:3px 10px;font-size:10px; }
+#screen-perfil-nutriz .side-menu-label { color:#7190aa; font-size:9px; margin:4px 0 7px 10px; opacity:0; transition:opacity .2s; }
+#screen-perfil-nutriz .menu-open .side-menu-label { opacity:1; }
+#screen-perfil-nutriz .side-menu { flex:1; padding:0; margin:0; }
+#screen-perfil-nutriz .side-menu li a {
+  height:43px; padding:0 11px; margin:3px 0; border-radius:9px; color:#00458b;
+  display:flex; align-items:center; gap:13px; white-space:nowrap; font-size:11.5px; font-weight:600;
+  transition:background .2s ease,color .2s ease;
+}
+#screen-perfil-nutriz .side-menu li a svg,
+#screen-perfil-nutriz .sidebar-logout svg { width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 21px; }
+#screen-perfil-nutriz .side-menu li a span,
+#screen-perfil-nutriz .sidebar-logout span { opacity:0; transform:translateX(-5px); transition:opacity .18s,transform .18s; }
+#screen-perfil-nutriz .menu-open .side-menu li a span,
+#screen-perfil-nutriz .menu-open .sidebar-logout span { opacity:1; transform:none; }
+#screen-perfil-nutriz .side-menu li a:hover { background:#f0f8fd;color:#00458b;text-decoration:none; }
+#screen-perfil-nutriz .side-menu li a.active { background:#dff2fb;color:#00458b; }
+#screen-perfil-nutriz .sidebar-logout { margin-top:auto;border-top:1px solid #e7eef4;padding:15px 11px 8px;display:flex;align-items:center;gap:13px;color:#12529a;font-size:11.5px;font-weight:600;cursor:pointer;white-space:nowrap; }
+#screen-perfil-nutriz .sidebar-logout:hover { color:#063f88; }
+#screen-perfil-nutriz .main-area { min-width:0; padding:0 18px 28px; background:linear-gradient(180deg,#f8fcfe 0%,#f4fbfe 100%); height: 100vh;
+  overflow-y: auto;}
+#screen-perfil-nutriz .topbar-mini { height:58px; display:flex;align-items:center;justify-content:space-between;padding:0 4px 0 8px; position:sticky; top:0; z-index:60; background:linear-gradient(180deg,#f8fcfe 0%,#f8fcfe 88%,rgba(248,252,254,.96) 100%); }
+#screen-perfil-nutriz .topbar-spacer { flex:1; }
+#screen-perfil-nutriz .topbar-actions { display:flex;align-items:center;gap:18px; }
+#screen-perfil-nutriz .pill-back { background:#18afe8;color:#fff;border-radius:5px;padding:5px 10px;font-size:10.5px;font-weight:700;cursor:pointer; }
+#screen-perfil-nutriz .bell-btn { position:relative;width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:#064c93;cursor:pointer; }
+#screen-perfil-nutriz .bell-btn svg { width:18px;height:18px;fill:currentColor; }
+#screen-perfil-nutriz .bell-dot { position:absolute;top:3px;right:3px;width:6px;height:6px;border-radius:50%;background:#e32939;border:1px solid #fff; }
+#screen-perfil-nutriz .greeting-bar { background:transparent;border:0;border-radius:0;padding:0 6px;margin:0 0 14px; }
+#screen-perfil-nutriz .greeting-bar h1 { font-size:24px;line-height:1.15;color:#073f8c; }
+#screen-perfil-nutriz .greeting-bar .sub { font-size:14px;color:#164c91;margin-top:4px; }
+#screen-perfil-nutriz .journey-card { position:relative; }
+#screen-perfil-nutriz .journey-heading { position:relative;z-index:5; }
+#screen-perfil-nutriz .journey-watermark { position:absolute;pointer-events:none;max-width:none; }
+#screen-perfil-nutriz .journey-heart { position:absolute;line-height:1;font-weight:200;opacity:.9; }
+#screen-perfil-nutriz .journey-line { position:absolute;transform-origin:left center;z-index:1; }
+#screen-perfil-nutriz .modern-step { position:absolute;z-index:3;text-align:center; }
+#screen-perfil-nutriz .modern-step.journey-step .circle { border:0;border-radius:50%;color:#fff;margin:0 auto 7px;position:relative;display:flex;align-items:center;justify-content:center; }
+#screen-perfil-nutriz .modern-step .circle svg { fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round; }
+#screen-perfil-nutriz .modern-step .info-dot { position:absolute;border-radius:50%;color:#fff;font-size:10px;font-weight:700;font-style:normal;display:flex;align-items:center;justify-content:center; }
+#screen-perfil-nutriz .modern-step .jtitle { font-weight:700; }
+#screen-perfil-nutriz .journey-tip { position:absolute;background:#c7edff;color:#00458b;border-radius:10px;padding:12px 14px;font-size:10.5px;line-height:1.42;box-shadow:0 8px 20px rgba(0,93,155,.12);z-index:7;text-align:left;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(6px);transition:opacity .18s ease, transform .18s ease, visibility .18s ease; }
+#screen-perfil-nutriz .journey-tip.show { opacity:1;visibility:visible;pointer-events:auto;transform:none; }
+#screen-perfil-nutriz .tip-exame { width:215px;left:-18px;top:-138px; }
+#screen-perfil-nutriz .tip-agenda { width:212px;left:-236px;top:-8px; }
+#screen-perfil-nutriz .tip-coleta { width:206px;left:-232px;top:-42px; }
+#screen-perfil-nutriz .tip-final { width:216px;left:-234px;top:-62px; }
+#screen-perfil-nutriz .modern-stats { gap:12px;margin-top:12px;margin-bottom:0; }
+#screen-perfil-nutriz .modern-stats .stat-card { background:#fff;border:1px solid #e0edf4;border-radius:10px;padding:13px 15px;box-shadow:0 5px 14px rgba(17,100,150,.04); }
+#screen-perfil-nutriz .modern-stats .stat-card .num { font-size:24px;color:#00458b; }
+#screen-perfil-nutriz .modern-stats .stat-card .label { font-size:10.5px;color:#52708b; }
+@media(max-width:900px){
+  #screen-perfil-nutriz .tip-exame{width:190px;left:-10px;top:-124px;}
+  #screen-perfil-nutriz .tip-agenda{width:186px;left:-198px;}
+  #screen-perfil-nutriz .tip-coleta{width:182px;left:-196px;}
+  #screen-perfil-nutriz .tip-final{width:190px;left:-198px;}
+}
+@media(max-width:680px){
+  #screen-perfil-nutriz .app-shell.nutriz-shell{grid-template-columns:84px minmax(0,1fr);}
+  #screen-perfil-nutriz .main-area{padding:0 10px 20px;}
+  #screen-perfil-nutriz .greeting-bar h1{font-size:20px;}
+  #screen-perfil-nutriz .journey-card{min-height:auto;padding-top:20px;padding-bottom:20px;}
+  #screen-perfil-nutriz .journey-watermark{left:5%;top:100px;max-width:90%;}
+  #screen-perfil-nutriz .journey-line{display:none;}
+  #screen-perfil-nutriz .modern-step{position:static !important;width:auto !important;margin:0 0 26px;}
+  #screen-perfil-nutriz .journey-tip{position:static !important;width:auto !important;max-width:280px;margin:8px auto 0;transform:none;display:none;}
+  #screen-perfil-nutriz .journey-tip.show{display:block;}
+  #screen-perfil-nutriz .modern-stats{grid-template-columns:1fr 1fr;}
+}
+
+
+/* ==========================================================
+   JORNADA GUIADA — BALÃO DE EXPLICAÇÃO INTERATIVO
+   ========================================================== */
+
+#screen-perfil-nutriz .modern-step .info-dot{
+  appearance:none;
+  -webkit-appearance:none;
+  border:0;
+  padding:0;
+  cursor:pointer;
+  text-align:center;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+#screen-perfil-nutriz .modern-step .info-dot:hover,
+#screen-perfil-nutriz .modern-step .info-dot.selected{
+  transform:scale(1.12);
+}
+
+/* Jornada guiada — espaçamento entre etapas e explicação à esquerda */
+#screen-perfil-nutriz .journey-line { pointer-events:none; opacity:.95; }
+#screen-perfil-nutriz .modern-step .circle { z-index:4; }
+#screen-perfil-nutriz .modern-step .info-dot { z-index:6; cursor:pointer; border:0; padding:0; }
+#screen-perfil-nutriz .journey-tip { box-sizing:border-box; }
+
+
+/* ==========================================================
+   LACTARE — CONFORMIDADE DE MARCA + JORNADA ENRIQUECIDA
+   Regras aplicadas somente ao perfil Nutriz.
+   ========================================================== */
+#screen-perfil-nutriz {
+  --lactare-blue: #00458b;
+  --lactare-light-blue: #54b2e3;
+  --lactare-soft: #edf8fd;
+  --lactare-ink: #123f6e;
+  --lactare-border: #d7ebf5;
+  --lactare-green: #1b7f79;
+  --title-font: "Loos Normal Bold", Arial, Helvetica, sans-serif;
+  --body-font: "Public Sans", Arial, Helvetica, sans-serif;
+}
+
+#screen-perfil-nutriz,
+#screen-perfil-nutriz button,
+#screen-perfil-nutriz input,
+#screen-perfil-nutriz select,
+#screen-perfil-nutriz textarea {
+  font-family: var(--body-font);
+}
+
+#screen-perfil-nutriz h1,
+#screen-perfil-nutriz h2,
+#screen-perfil-nutriz h3,
+#screen-perfil-nutriz .jtitle,
+#screen-perfil-nutriz .pill-back,
+#screen-perfil-nutriz .journey-kicker,
+#screen-perfil-nutriz .impact-copy > span {
+  font-family: var(--title-font);
+}
+
+#screen-perfil-nutriz .app-shell.nutriz-shell {
+  grid-template-columns: 136px minmax(0, 1fr);
+}
+
+#screen-perfil-nutriz .app-shell.nutriz-shell.menu-open {
+  grid-template-columns: 250px minmax(0, 1fr);
+}
+
+#screen-perfil-nutriz .nutriz-sidebar {
+  width: 136px;
+  padding: 10px 8px;
+  background: #fff;
+  color: var(--lactare-blue);
+  border-right: 1px solid #e4eef4;
+}
+
+#screen-perfil-nutriz .menu-open .nutriz-sidebar {
+  width: 250px;
+  padding: 10px 10px;
+}
+
+#screen-perfil-nutriz .sidebar-logo-btn {
+  height: 86px;
+  padding: 2px;
+}
+
+#screen-perfil-nutriz .sidebar-logo-btn img {
+  width: 128px;
+  max-width: 128px;
+  height: auto;
+}
+
+#screen-perfil-nutriz .menu-open .sidebar-logo-btn {
+  height: 82px;
+}
+
+#screen-perfil-nutriz .menu-open .sidebar-logo-btn img {
+  width: 128px;
+}
+
+#screen-perfil-nutriz .side-menu li a {
+  color: var(--lactare-blue);
+}
+
+#screen-perfil-nutriz .side-menu li a:hover {
+  background: #eef8fd;
+  color: var(--lactare-blue);
+}
+
+#screen-perfil-nutriz .side-menu li a.active {
+  background: #e1f3fb;
+  color: var(--lactare-blue);
+}
+
+#screen-perfil-nutriz .sidebar-logout {
+  color: var(--lactare-blue);
+  border-top-color: #e1edf3;
+}
+
+#screen-perfil-nutriz .main-area {
+  background: linear-gradient(180deg, #fbfdfe 0%, #f3fafd 100%);
+}
+
+#screen-perfil-nutriz .greeting-bar h1,
+#screen-perfil-nutriz .journey-heading h2 {
+  color: var(--lactare-blue);
+}
+
+#screen-perfil-nutriz .greeting-bar .sub,
+#screen-perfil-nutriz .journey-heading p {
+  color: #285d89;
+}
+
+#screen-perfil-nutriz .pill-back {
+  background: var(--lactare-light-blue);
+}
+
+#screen-perfil-nutriz .modern-step .info-dot {
+  font-family: var(--body-font);
+}
+
+#screen-perfil-nutriz .modern-step .info-dot:hover,
+#screen-perfil-nutriz .modern-step .info-dot.selected {
+  background: var(--lactare-blue);
+  box-shadow: 0 2px 8px rgba(0, 69, 139, .22);
+}
+
+#screen-perfil-nutriz .journey-tip {
+  background: #dff3fc;
+  color: var(--lactare-blue);
+  border: 1px solid #c7e7f4;
+}
+
+/* Conteúdo complementar: explica o destino da doação sem duplicar o menu. */
+#screen-perfil-nutriz .journey-impact {
+  margin-top: 16px;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid var(--lactare-border);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(17, 100, 150, .045);
+}
+
+#screen-perfil-nutriz .journey-impact-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 13px;
+}
+
+#screen-perfil-nutriz .journey-kicker {
+  display: inline-block;
+  margin-bottom: 4px;
+  color: var(--lactare-light-blue);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+#screen-perfil-nutriz .journey-impact-heading h2 {
+  margin: 0;
+  color: var(--lactare-blue);
+  font-size: 18px;
+  line-height: 1.15;
+}
+
+#screen-perfil-nutriz .journey-impact-heading p {
+  margin: 4px 0 0;
+  color: #64819a;
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+#screen-perfil-nutriz .journey-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(220px, .9fr);
+  gap: 10px;
+}
+
+#screen-perfil-nutriz .impact-card {
+  min-height: 145px;
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  padding: 14px;
+  border: 1px solid #e2eff5;
+  border-radius: 11px;
+  background: #fbfdfe;
+}
+
+#screen-perfil-nutriz .impact-icon {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: #e5f6fd;
+  color: var(--lactare-blue);
+}
+
+#screen-perfil-nutriz .impact-icon svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#screen-perfil-nutriz .impact-card h3 {
+  margin: 1px 0 5px;
+  color: var(--lactare-blue);
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+#screen-perfil-nutriz .impact-card p {
+  margin: 0;
+  color: #5d768c;
+  font-size: 10.5px;
+  line-height: 1.48;
+}
+
+#screen-perfil-nutriz .impact-message {
+  position: relative;
+  overflow: hidden;
+  min-height: 145px;
+  display: grid;
+  grid-template-columns: 78px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 14px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #00458b 0%, #54b2e3 100%);
+  color: #fff;
+}
+
+#screen-perfil-nutriz .impact-visual {
+  position: relative;
+  width: 72px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#screen-perfil-nutriz .impact-halo {
+  position: absolute;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.28);
+}
+
+#screen-perfil-nutriz .impact-baby-icon {
+  position: relative;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#screen-perfil-nutriz .impact-heart {
+  position: absolute;
+  right: 0;
+  top: 3px;
+  z-index: 3;
+  color: #dff7ff;
+  font-size: 34px;
+  line-height: 1;
+}
+
+#screen-perfil-nutriz .impact-copy > span {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  opacity: .82;
+}
+
+#screen-perfil-nutriz .impact-copy h3 {
+  margin: 5px 0 5px;
+  color: #fff;
+  font-size: 19px;
+  line-height: 1.05;
+}
+
+#screen-perfil-nutriz .impact-copy p {
+  margin: 0;
+  color: rgba(255,255,255,.9);
+  font-size: 10.5px;
+  line-height: 1.45;
+}
+
+@media (max-width: 1180px) {
+  #screen-perfil-nutriz .app-shell.nutriz-shell {
+    grid-template-columns: 136px minmax(0, 1fr);
+  }
+  #screen-perfil-nutriz .app-shell.nutriz-shell.menu-open {
+    grid-template-columns: 230px minmax(0, 1fr);
+  }
+  #screen-perfil-nutriz .journey-impact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #screen-perfil-nutriz .impact-message {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  #screen-perfil-nutriz .app-shell.nutriz-shell,
+  #screen-perfil-nutriz .app-shell.nutriz-shell.menu-open {
+    grid-template-columns: 136px minmax(0, 1fr);
+  }
+  #screen-perfil-nutriz .nutriz-sidebar,
+  #screen-perfil-nutriz .menu-open .nutriz-sidebar {
+    width: 136px;
+  }
+  #screen-perfil-nutriz .sidebar-logo-btn img,
+  #screen-perfil-nutriz .menu-open .sidebar-logo-btn img {
+    width: 128px;
+  }
+  #screen-perfil-nutriz .side-menu li a {
+    justify-content: center;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  #screen-perfil-nutriz .journey-impact-grid {
+    grid-template-columns: 1fr;
+  }
+  #screen-perfil-nutriz .impact-message {
+    grid-column: auto;
+  }
+}
+
+/* ==========================================================
+   MENU LATERAL — REFINO DOS ÍCONES
+   Ícones mais consistentes, legíveis e próximos de um sistema
+   visual moderno, mantendo a identidade azul da Lactare.
+   ========================================================== */
+#screen-perfil-nutriz .side-menu li a {
+  position: relative;
+  box-sizing: border-box;
+  height: 46px;
+  min-height: 46px;
+  padding: 0 10px;
+  margin: 3px 0;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--lactare-blue);
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: background .18s ease, color .18s ease, transform .18s ease;
+}
+
+#screen-perfil-nutriz .side-menu li a svg,
+#screen-perfil-nutriz .sidebar-logout svg {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  flex: 0 0 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
+  transition: transform .18s ease, stroke-width .18s ease;
+}
+
+#screen-perfil-nutriz .side-menu li a:hover svg {
+  transform: scale(1.06);
+  stroke-width: 2.15;
+}
+
+#screen-perfil-nutriz .side-menu li a.active {
+  background: #e1f3fb;
+  color: var(--lactare-blue);
+  font-weight: 700;
+  box-shadow: inset 3px 0 0 var(--lactare-light-blue);
+}
+
+#screen-perfil-nutriz .side-menu li a.active svg {
+  stroke-width: 2.15;
+}
+
+#screen-perfil-nutriz .side-menu li a:hover:not(.active) {
+  background: #f1f9fd;
+  color: #00458b;
+}
+
+/* Estado recolhido: o ícone vira o ponto focal do menu. */
+#screen-perfil-nutriz .nutriz-sidebar:not(.menu-open) .side-menu li a {
+  width: 68px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  gap: 0;
+}
+
+#screen-perfil-nutriz .nutriz-sidebar:not(.menu-open) .side-menu li a.active {
+  box-shadow: none;
+  background: #dff2fb;
+}
+
+#screen-perfil-nutriz .nutriz-sidebar:not(.menu-open) .side-menu li a:hover:not(.active) {
+  background: #eef8fd;
+}
+
+
+
+/* Estado aberto: ícone alinhado ao texto, com ritmo visual uniforme. */
+
+#screen-perfil-nutriz .menu-open .side-menu li a {
+    width: 100% !important;
+    height: 44px !important;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding-left: 68px;
+    padding-right: 11px;
+
+    margin: 0;
+    gap: 13px;
+    border-radius: 10px;
+
+    color: #00458b;
+    text-decoration: none;
+}
+
+#screen-perfil-nutriz .menu-open .side-menu li a svg {
+  width: 21px;
+  height: 21px;
+  min-width: 21px;
+  flex-basis: 21px;
+}
+
+#screen-perfil-nutriz .menu-open .side-menu li a span {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: nowrap;
+  width: auto;
+  max-width: none;
+  display: block;
+}
+
+/* Logout segue o mesmo peso visual dos demais ícones. */
+
+#screen-perfil-nutriz .sidebar-logout {
+  min-height: 44px;
+  padding: 12px 11px 7px;
+  gap: 12px;
+  font-size: 11.5px;
+  border-top: 1px solid #e1edf3;
+}
+
+#screen-perfil-nutriz .sidebar-logout svg {
+  width: 21px;
+  height: 21px;
+  min-width: 21px;
+  flex-basis: 21px;
+}
+
+#screen-perfil-nutriz .sidebar-logout:hover svg {
+  transform: translateX(2px);
+}
+
+/* Logo continua sendo o próprio controle de abrir/fechar. */
+#screen-perfil-nutriz .sidebar-logo-btn {
+  cursor: pointer;
+  transition: background .18s ease, transform .18s ease;
+}
+
+#screen-perfil-nutriz .sidebar-logo-btn:hover {
+  background: #f4fbfe;
+}
+
+#screen-perfil-nutriz .sidebar-logo-btn:focus-visible {
+  outline: 2px solid var(--lactare-light-blue);
+  outline-offset: -2px;
+}
+
+/* ==========================================================
+   AJUSTE FINAL — REFERÊNCIA VISUAL 01:54
+   Menu fechado por padrão + dashboard fiel à referência.
+   ========================================================== */
+#screen-perfil-nutriz {
+  --ref-blue:#00458b;
+  --ref-cyan:#24afe8;
+  --ref-soft:#eaf8fe;
+  --ref-border:#d9ebf4;
+  font-family:"Public Sans",Arial,Helvetica,sans-serif;
+}
+#screen-perfil-nutriz .app-shell.nutriz-shell,
+#screen-perfil-nutriz .app-shell.nutriz-shell.menu-open{
+  grid-template-columns:70px minmax(0,1fr);
+  min-height:100vh;
+  background:#f7fbfd;
+}
+#screen-perfil-nutriz .nutriz-sidebar,
+#screen-perfil-nutriz .menu-open .nutriz-sidebar{
+  width:70px;
+  min-height:100vh;
+  padding:8px 5px;
+  box-sizing:border-box;
+  background:#fff;
+  border-right:1px solid #e3edf4;
+  box-shadow:3px 0 14px rgba(16,86,130,.05);
+}
+#screen-perfil-nutriz .menu-open .nutriz-sidebar{width:218px;padding:8px 7px;}
+#screen-perfil-nutriz .sidebar-logo-btn{height:92px;padding:3px;border:0;background:transparent;}
+#screen-perfil-nutriz .sidebar-logo-btn img{width:58px;height:auto;}
+#screen-perfil-nutriz .menu-open .sidebar-logo-btn{height:82px;margin-bottom:7px;border-bottom:1px solid #e9f0f5;}
+#screen-perfil-nutriz .menu-open .sidebar-logo-btn img{width:112px;}
+#screen-perfil-nutriz .side-menu-label{display:none;}
+#screen-perfil-nutriz .side-menu{padding:0;margin:0;}
+#screen-perfil-nutriz .side-menu li a{width:52px;height:48px;margin:3px auto;padding:0;gap:0;justify-content:center;border-radius:10px;color:#00458b;}
+#screen-perfil-nutriz .side-menu li a svg{width:24px;height:24px;min-width:24px;flex:0 0 24px;stroke-width:1.9;}
+#screen-perfil-nutriz .side-menu li a span{display:none;}
+#screen-perfil-nutriz .side-menu li a.active{background:#e1f4fc;box-shadow:none;}
+#screen-perfil-nutriz .side-menu li a:hover:not(.active){background:#f0f9fd;}
+#screen-perfil-nutriz .menu-open .side-menu li a{width:100%;height:44px;padding:0 11px;gap:13px;justify-content:flex-start;}
+#screen-perfil-nutriz .menu-open .side-menu li a span{display:block;opacity:1;transform:none;font-size:11px;}
+#screen-perfil-nutriz .menu-open .side-menu li a svg{width:21px;height:21px;min-width:21px;flex-basis:21px;}
+#screen-perfil-nutriz .sidebar-logout{height:45px;min-height:45px;margin-top:auto;padding:10px 7px 5px;border-top:1px solid #e3edf4;display:flex;align-items:center;justify-content:center;gap:0;color:#00458b;}
+#screen-perfil-nutriz .sidebar-logout svg{width:23px;height:23px;min-width:23px;}
+#screen-perfil-nutriz .sidebar-logout span{display:none;}
+#screen-perfil-nutriz .menu-open .sidebar-logout{justify-content:flex-start;gap:13px;padding-left:11px;}
+#screen-perfil-nutriz .menu-open .sidebar-logout span{display:block;opacity:1;transform:none;font-size:11px;}
+#screen-perfil-nutriz .main-area{padding:0 28px 30px;min-width:0;background:linear-gradient(180deg,#fbfdfe 0%,#f3fafd 100%);}
+#screen-perfil-nutriz .topbar-mini{height:58px;padding:0 2px 0 7px;}
+#screen-perfil-nutriz .topbar-actions{gap:18px;}
+#screen-perfil-nutriz .pill-back{height:34px;box-sizing:border-box;display:flex;align-items:center;padding:0 14px;border-radius:8px;background:#54b2e3;font-size:12px;}
+#screen-perfil-nutriz .bell-btn{width:38px;height:38px;border-radius:50%;background:#eef8fd;}
+#screen-perfil-nutriz .bell-btn svg{width:20px;height:20px;}
+#screen-perfil-nutriz .bell-dot{top:5px;right:5px;width:6px;height:6px;background:#e3263e;}
+#screen-perfil-nutriz .greeting-bar{padding:0 4px;margin:0 0 16px;}
+#screen-perfil-nutriz .greeting-bar h1{margin:0;color:#064b99;font-size:29px;line-height:1.1;font-weight:700;letter-spacing:-.6px;}
+#screen-perfil-nutriz .greeting-bar .sub{margin-top:5px;color:#00458b;font-size:16px;line-height:1.2;}
+#screen-perfil-nutriz .journey-line{height:0;border-top:2px dashed #59c4f4;}
+
+#screen-perfil-nutriz .modern-step .info-dot{left:-30px;bottom:-20px;width:16px;height:16px;line-height:36px;background:#54b2e3;}
+
+#screen-perfil-nutriz .journey-impact{margin-top:17px;padding:18px 20px 17px;border:1px solid #d9ebf4;border-radius:14px;background:#fff;box-shadow:none;}
+#screen-perfil-nutriz .journey-impact-heading{margin-bottom:12px;}
+#screen-perfil-nutriz .journey-kicker{font-size:10px;color:#54b2e3;letter-spacing:.14em;margin-bottom:3px;}
+#screen-perfil-nutriz .journey-impact-heading h2{font-size:23px;line-height:1.1;color:#00458b;}
+#screen-perfil-nutriz .journey-impact-heading p{font-size:14px;margin-top:5px;color:#26588f;}
+#screen-perfil-nutriz .journey-impact-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+#screen-perfil-nutriz .impact-card{min-height:126px;padding:13px 14px;gap:12px;border:1px solid #dcecf4;border-radius:11px;background:#fff;box-sizing:border-box;}
+#screen-perfil-nutriz .impact-icon{width:46px;height:46px;flex-basis:46px;border-radius:50%;background:#e7f6fc;color:#0875c9;}
+#screen-perfil-nutriz .impact-icon svg{width:24px;height:24px;stroke-width:1.7;}
+#screen-perfil-nutriz .impact-card h3{margin:3px 0 5px;font-size:13px;color:#00458b;}
+#screen-perfil-nutriz .impact-card p{font-size:11px;line-height:1.45;color:#53779a;}
+#screen-perfil-nutriz .dashboard-bottom{display:grid;grid-template-columns:minmax(0,2.15fr) minmax(260px,.95fr);gap:16px;margin-top:16px;}
+#screen-perfil-nutriz .transform-card{min-height:170px;border:1px solid #d9ebf4;border-radius:14px;background:linear-gradient(110deg,#fff 0%,#eef9fd 100%);display:flex;align-items:center;justify-content:space-between;padding:20px 24px;box-sizing:border-box;overflow:hidden;}
+#screen-perfil-nutriz .transform-copy{max-width:67%;}
+#screen-perfil-nutriz .transform-copy h2{margin:0;color:#00458b;font-size:23px;line-height:1.15;}
+#screen-perfil-nutriz .heart-solid{font-size:31px;vertical-align:-2px;margin-right:9px;}
+#screen-perfil-nutriz .transform-copy p{margin:13px 0 14px;color:#00458b;font-size:14px;line-height:1.45;max-width:600px;}
+#screen-perfil-nutriz .learn-more{border:0;border-radius:9px;background:#54b2e3;color:#fff;font-size:13px;font-weight:700;padding:10px 19px;cursor:pointer;}
+#screen-perfil-nutriz .learn-more span{font-size:21px;vertical-align:-2px;margin-left:8px;}
+#screen-perfil-nutriz .transform-illustration{width:190px;height:150px;display:flex;align-items:center;justify-content:center;color:#75c9f4;}
+#screen-perfil-nutriz .transform-illustration svg{width:180px;height:150px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+#screen-perfil-nutriz .stats-stack{display:grid;grid-template-rows:1fr 1fr;gap:10px;}
+#screen-perfil-nutriz .stat-modern{border:1px solid #d9ebf4;border-radius:14px;background:#fff;padding:14px 16px;display:flex;align-items:center;gap:15px;box-sizing:border-box;}
+#screen-perfil-nutriz .stat-icon{width:54px;height:54px;flex:0 0 54px;border-radius:50%;background:#e7f6fc;color:#0759ad;display:flex;align-items:center;justify-content:center;}
+#screen-perfil-nutriz .stat-icon svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+#screen-perfil-nutriz .stat-modern strong{display:block;color:#00458b;font-size:29px;line-height:1.05;}
+#screen-perfil-nutriz .stat-modern span{display:block;color:#00458b;font-size:13px;line-height:1.35;margin-top:5px;}
+#screen-perfil-nutriz .next-step-card small{display:block;color:#00458b;font-size:12px;margin-bottom:3px;}
+#screen-perfil-nutriz .next-step-card strong{font-size:22px;text-transform:lowercase;}
+#screen-perfil-nutriz .next-step-card span{font-size:12px;margin-top:4px;}
+#screen-perfil-nutriz .dashboard-footer-cards{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,1fr);gap:16px;margin-top:16px;}
+#screen-perfil-nutriz .quote-card,.more-lives-card{min-height:112px;border:1px solid #d9ebf4;border-radius:14px;background:linear-gradient(110deg,#fff,#eef9fd);box-sizing:border-box;}
+#screen-perfil-nutriz .quote-card{position:relative;display:flex;align-items:center;padding:20px 28px;color:#00458b;font-size:19px;font-style:italic;font-weight:600;overflow:hidden;}
+#screen-perfil-nutriz .quote-line{position:absolute;right:30px;bottom:-4px;font-size:62px;color:#76cdf5;font-weight:300;}
+#screen-perfil-nutriz .more-lives-card{display:flex;align-items:center;gap:14px;padding:17px 20px;}
+#screen-perfil-nutriz .leaf-icon{width:52px;height:52px;flex:0 0 52px;border-radius:50%;background:#e7f6fc;color:#0875c9;display:flex;align-items:center;justify-content:center;}
+#screen-perfil-nutriz .leaf-icon svg{width:29px;height:29px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+#screen-perfil-nutriz .more-lives-card h3{margin:0;color:#00458b;font-size:18px;}
+#screen-perfil-nutriz .more-lives-card p{margin:6px 0 0;color:#00458b;font-size:12.5px;line-height:1.35;}
+@media(max-width:1180px){
+  #screen-perfil-nutriz .app-shell.nutriz-shell,#screen-perfil-nutriz .app-shell.nutriz-shell.menu-open{grid-template-columns:70px minmax(0,1fr);}
+  #screen-perfil-nutriz .nutriz-sidebar{width:70px;}
+  #screen-perfil-nutriz .menu-open .nutriz-sidebar{width:218px;}
+  #screen-perfil-nutriz .dashboard-bottom{grid-template-columns:1fr;}
+  #screen-perfil-nutriz .stats-stack{grid-template-columns:1fr 1fr;grid-template-rows:1fr;}
+}
+@media(max-width:760px){
+  #screen-perfil-nutriz .app-shell.nutriz-shell,#screen-perfil-nutriz .app-shell.nutriz-shell.menu-open{grid-template-columns:70px minmax(0,1fr);}
+  #screen-perfil-nutriz .menu-open .nutriz-sidebar{width:70px;}
+  #screen-perfil-nutriz .main-area{padding:0 12px 22px;}
+  #screen-perfil-nutriz .greeting-bar h1{font-size:22px;}
+  #screen-perfil-nutriz .greeting-bar .sub{font-size:13px;}
+  #screen-perfil-nutriz .journey-card{height:auto;min-height:520px;}
+  #screen-perfil-nutriz .journey-line{display:none;}
+  #screen-perfil-nutriz .modern-step{position:static!important;width:auto!important;margin:30px auto!important;}
+  #screen-perfil-nutriz .journey-watermark{left:5%;top:120px;max-width:90%;}
+  #screen-perfil-nutriz .journey-impact-grid{grid-template-columns:1fr;}
+  #screen-perfil-nutriz .stats-stack,#screen-perfil-nutriz .dashboard-footer-cards{grid-template-columns:1fr;}
+  #screen-perfil-nutriz .transform-copy{max-width:100%;}
+  #screen-perfil-nutriz .transform-illustration{display:none;}
+}
+
+/* Foto da doadora na jornada — recorte lateral inspirado na referência. */
+#screen-perfil-nutriz .journey-photo{position:absolute;right:0;top:0;width:31%;height:100%;overflow:hidden;z-index:2;pointer-events:none;}
+#screen-perfil-nutriz .journey-photo img{position:absolute;right:-4%;top:0;width:112%;height:100%;object-fit:cover;object-position:58% 46%;display:block;}
+#screen-perfil-nutriz .journey-photo-fade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(235,248,253,1) 0%,rgba(235,248,253,.62) 16%,rgba(235,248,253,.08) 42%,rgba(235,248,253,0) 70%);}
+#screen-perfil-nutriz .journey-photo-copy{position:absolute;left:-28%;top:31%;z-index:3;color:#00458b;font-family:"Public Sans",Arial,sans-serif;font-size:17px;line-height:1.45;font-style:italic;text-align:center;transform:rotate(-5deg);}
+#screen-perfil-nutriz .journey-photo-copy span{color:#23afe8;font-style:normal;}
+@media(max-width:760px){#screen-perfil-nutriz .journey-photo{width:55%;opacity:.55;}#screen-perfil-nutriz .journey-photo-copy{display:none;}}
+
+
+/* ==========================================================
+   AJUSTE FINAL — UMA ÚNICA TELA / JORNADA + FOTO SEPARADAS
+   ========================================================== */
+#screen-perfil-nutriz {
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  background: #f5fafc;
+}
+#screen-perfil-nutriz .app-shell.nutriz-shell,
+#screen-perfil-nutriz .app-shell.nutriz-shell.menu-open {
+  height: 100vh;
+  min-height: 100vh;
+  grid-template-columns: 70px minmax(0, 1fr);
+  overflow: hidden;
+}
+#screen-perfil-nutriz .nutriz-sidebar,
+#screen-perfil-nutriz .menu-open .nutriz-sidebar {
+  height: 100vh;
+  min-height: 100vh;
+  width: 70px;
+  overflow: hidden;
+}
+#screen-perfil-nutriz .main-area {
+  height: 100vh;
+  min-height: 0;
+  box-sizing: border-box;
+  padding: 0 20px 14px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+#screen-perfil-nutriz .main-area::-webkit-scrollbar { display:none; }
+#screen-perfil-nutriz .topbar-mini { height: 48px; }
+#screen-perfil-nutriz .pill-back { height: 32px; padding: 0 13px; font-size: 11.5px; }
+#screen-perfil-nutriz .bell-btn { width: 36px; height: 36px; }
+#screen-perfil-nutriz .greeting-bar { margin: 0 3px 10px; padding: 0; }
+#screen-perfil-nutriz .greeting-bar h1 { font-size: 27px; }
+#screen-perfil-nutriz .greeting-bar .sub { margin-top: 3px; font-size: 14px; }
+
+/* A área azul da jornada fica à esquerda; a fotografia possui sua própria área. */
+#screen-perfil-nutriz .journey-card {
+  height: 300px;
+  min-height: 300px;
+  padding: 15px 18px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: linear-gradient(135deg,#effaff 0%,#e8f7fd 100%);
+  border: 1px solid #d7ebf5;
+  border-radius: 14px;
+  box-shadow: 0 7px 18px rgba(17,100,150,.04);
+}
+#screen-perfil-nutriz .journey-heading h2 { font-size: 20px; margin:0; color:#00458b; line-height:1.15; }
+#screen-perfil-nutriz .journey-heading p { font-size: 12.5px; margin: 3px 0 0; color:#00458b; }
+#screen-perfil-nutriz .journey-watermark { width: 400px; left: 20%; top: 35px; opacity:.07; }
+#screen-perfil-nutriz .journey-heart { right: 17px; top: 9px; font-size: 50px; color:#6bc9f6; }
+
+/* Nenhum conector invade a fotografia. */
+#screen-perfil-nutriz .step-exame { left: 5%; top: 69%; width: 125px; }
+#screen-perfil-nutriz .step-agenda { left: 34%; top: 19%; width: 125px; }
+#screen-perfil-nutriz .step-coleta { left: 50%; top: 67%; width: 125px; }
+#screen-perfil-nutriz .step-final { left: 64%; right: auto; top: 27%; width: 125px; }
+#screen-perfil-nutriz .modern-step.journey-step .circle { width: 54px; height: 54px; background:#00458b; box-shadow:none; }
+#screen-perfil-nutriz .modern-step .circle svg { width: 27px; height: 27px; stroke-width:1.8; }
+#screen-perfil-nutriz .modern-step .jtitle { font-size: 11px; color:#064b99; line-height:1.22; }
+
+/* Foto em coluna própria, sem ser coberta pelo caminho da jornada. */
+#screen-perfil-nutriz .journey-photo {
+  width: 28%;
+  z-index: 5;
+  border-radius: 0 13px 13px 0;
+}
+#screen-perfil-nutriz .journey-photo img {
+  right: -2%;
+  width: 106%;
+  object-position: 57% 45%;
+}
+#screen-perfil-nutriz .journey-photo-fade {
+  background: linear-gradient(90deg, rgba(235,248,253,.12) 0%, rgba(235,248,253,0) 20%, rgba(0,0,0,0) 100%);
+}
+#screen-perfil-nutriz .journey-photo-copy { display:none; }
+
+/* Caminho do leite mais compacto para caber na mesma tela. */
+#screen-perfil-nutriz .journey-impact {
+  margin-top: 12px;
+  padding: 14px 18px 13px;
+}
+#screen-perfil-nutriz .journey-impact-heading { margin-bottom: 8px; }
+#screen-perfil-nutriz .journey-kicker { font-size: 9px; }
+#screen-perfil-nutriz .journey-impact-heading h2 { font-size: 20px; }
+#screen-perfil-nutriz .journey-impact-heading p { font-size: 12px; margin-top: 3px; }
+#screen-perfil-nutriz .journey-impact-grid { gap: 10px; }
+#screen-perfil-nutriz .impact-card { min-height: 104px; padding: 11px 12px; gap: 10px; }
+#screen-perfil-nutriz .impact-icon { width: 42px; height: 42px; flex-basis: 42px; }
+#screen-perfil-nutriz .impact-icon svg { width: 21px; height: 21px; }
+#screen-perfil-nutriz .impact-card h3 { font-size: 12px; margin: 2px 0 4px; }
+#screen-perfil-nutriz .impact-card p { font-size: 10px; line-height: 1.35; }
+
+/* Bloco final permanece no dashboard, mas sem rodapé extra. */
+#screen-perfil-nutriz .dashboard-bottom {
+  margin-top: 12px;
+  gap: 12px;
+}
+#screen-perfil-nutriz .transform-card { min-height: 132px; padding: 15px 18px; }
+#screen-perfil-nutriz .transform-copy { max-width: 68%; }
+#screen-perfil-nutriz .transform-copy h2 { font-size: 19px; }
+#screen-perfil-nutriz .heart-solid { font-size: 27px; margin-right: 7px; }
+#screen-perfil-nutriz .transform-copy p { margin: 8px 0 9px; font-size: 11.5px; line-height: 1.35; }
+#screen-perfil-nutriz .learn-more { padding: 8px 16px; font-size: 11.5px; }
+#screen-perfil-nutriz .transform-illustration { width: 150px; height: 115px; }
+#screen-perfil-nutriz .transform-illustration svg { width: 145px; height: 120px; }
+#screen-perfil-nutriz .stats-stack { gap: 8px; }
+#screen-perfil-nutriz .stat-modern { min-height: 62px; padding: 10px 13px; gap: 11px; }
+#screen-perfil-nutriz .stat-icon { width: 44px; height: 44px; flex-basis: 44px; }
+#screen-perfil-nutriz .stat-icon svg { width: 24px; height: 24px; }
+#screen-perfil-nutriz .stat-modern strong { font-size: 23px; }
+#screen-perfil-nutriz .stat-modern span { font-size: 10.5px; margin-top: 2px; }
+#screen-perfil-nutriz .next-step-card small { font-size: 10px; margin-bottom: 1px; }
+#screen-perfil-nutriz .next-step-card strong { font-size: 18px; }
+#screen-perfil-nutriz .next-step-card span { font-size: 10px; margin-top: 1px; }
+
+/* Não renderiza o rodapé antigo da tela. */
+#screen-perfil-nutriz .dashboard-footer-cards { display:none !important; }
+
+@media (max-width: 1180px) {
+  #screen-perfil-nutriz .journey-card { height: 285px; min-height: 285px; }
+  #screen-perfil-nutriz .dashboard-bottom { grid-template-columns: minmax(0, 1.7fr) minmax(230px, .9fr); }
+  #screen-perfil-nutriz .transform-copy { max-width: 72%; }
+}
+
+
+/* ==========================================================
+   AJUSTE FINAL — MENU ABERTO + CTA EXTERNO + ALINHAMENTO
+   ========================================================== */
+#screen-perfil-nutriz .app-shell.nutriz-shell {
+  grid-template-columns: 70px minmax(0, 1fr);
+}
+
+#screen-perfil-nutriz .app-shell.nutriz-shell.menu-open {
+  grid-template-columns: 218px minmax(0, 1fr);
+}
+
+#screen-perfil-nutriz .nutriz-sidebar {
+  width: 70px;
+  padding: 8px 7px;
+  box-sizing: border-box;
+}
+
+#screen-perfil-nutriz .menu-open .nutriz-sidebar {
+  width: 218px;
+  padding: 8px 7px;
+}
+
+#screen-perfil-nutriz .sidebar-logo-btn {
+  height: 92px;
+  padding: 3px;
+  border: 0;
+  background: transparent;
+}
+
+#screen-perfil-nutriz .sidebar-logo-btn img {
+  width: 58px;
+}
+
+#screen-perfil-nutriz .menu-open .sidebar-logo-btn {
+  height: 82px;
+  margin-bottom: 7px;
+  border-bottom: 1px solid #e9f0f5;
+}
+
+#screen-perfil-nutriz .menu-open .sidebar-logo-btn img {
+  width: 112px;
+}
+
+/* Todos os itens do menu ficam rigorosamente na mesma linha/alinhamento. */
+#screen-perfil-nutriz .side-menu {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#screen-perfil-nutriz .side-menu li {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#screen-perfil-nutriz .side-menu li a {
+  box-sizing: border-box;
+  width: 52px;
+  height: 48px;
+  margin: 3px auto;
+  padding: 0;
+  gap: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: #00458b;
+  line-height: 1;
+}
+
+#screen-perfil-nutriz .side-menu li a svg {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  flex: 0 0 24px;
+  stroke-width: 1.9;
+}
+
+#screen-perfil-nutriz .side-menu li a span {
+  display: none;
+}
+
+#screen-perfil-nutriz .side-menu li a.active {
+  background: #e1f4fc;
+}
+
+#screen-perfil-nutriz .menu-open .side-menu li a {
+  width: 100%;
+  height: 44px;
+  margin: 2px 0;
+  padding: 0 11px;
+  gap: 13px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#screen-perfil-nutriz .menu-open .side-menu li a svg {
+  width: 21px;
+  height: 21px;
+  min-width: 21px;
+  flex: 0 0 21px;
+}
+
+#screen-perfil-nutriz .menu-open .side-menu li a span {
+  display: block;
+  opacity: 1;
+  transform: none;
+  font-size: 11px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+#screen-perfil-nutriz .menu-open .side-menu-label {
+  opacity: 1;
+}
+
+#screen-perfil-nutriz .learn-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  text-decoration: none;
+  border: 0;
+  border-radius: 9px;
+  background: #54b2e3;
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+#screen-perfil-nutriz .learn-more:hover {
+  background: #159fd8;
+  color: #fff;
+  text-decoration: none;
+}
+
+#screen-perfil-nutriz .learn-more span {
+  font-size: 17px;
+  line-height: 1;
+  margin: 0;
+}
+/* Conectores da jornada com espaço visual entre os ícones e as linhas. */
+
+#screen-perfil-nutriz .line-1 {
+  left: 14.5%;
+  top: 67.2%;
+  width: 23.5%;
+  transform: rotate(-19.4deg);
+}
+
+#screen-perfil-nutriz .line-2 {
+  left: 42.0%;
+  top: 36.1%;
+  width: 9.0%;
+  transform: rotate(33.5deg);
+}
+
+#screen-perfil-nutriz .line-3 {
+  left: 55.0%;
+  top: 69.0%;
+  width: 10.5%;
+  transform: rotate(-15.2deg);
+}
+
+#screen-perfil-nutriz .step-exame { left: 1.5%; top: 64.0%; width: 115px; }
+#screen-perfil-nutriz .step-kit { left: 22.0%; top: 12.0%; width: 115px; }
+#screen-perfil-nutriz .step-agenda { left: 39.5%; top: 64.0%; width: 115px; }
+#screen-perfil-nutriz .step-coleta { left: 54.5%; top: 18.0%; width: 115px; }
+#screen-perfil-nutriz .step-final { left: 65.5%; top: 64.0%; width: 115px; }
+
+@media (max-width: 1180px) {
+  #screen-perfil-nutriz .app-shell.nutriz-shell.menu-open {
+    grid-template-columns: 218px minmax(0, 1fr);
+  }
+}
+
+/* ==========================================================
+   MENU ABERTO — MESMA ÁREA PARA TODOS OS ITENS
+   ========================================================== */
+
+#screen-perfil-nutriz .menu-open .side-menu {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#screen-perfil-nutriz .menu-open .side-menu li {
+    width: 100%;
+    display: block;
+    margin: 2px 0;
+}
+
+/* Todos os itens possuem exatamente a mesma área */
+#screen-perfil-nutriz .menu-open .side-menu li a {
+    width: 50%;
+    height: 44px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 0 11px;
+    margin: 0;
+
+    gap: 13px;
+    border-radius: 10px;
+
+    color: #00458b;
+    text-decoration: none;
+}
+
+/* Item selecionado */
+#screen-perfil-nutriz .menu-open .side-menu li a.active {
+    width: 50%;
+    background: #e1f3fb;
+}
+
+/* Ícone */
+#screen-perfil-nutriz .menu-open .side-menu li a svg {
+    width: 50px;
+    height: 21px;
+    min-width: 21px;
+    flex: 0 0 21px;
+}
+
+/* Texto */
+#screen-perfil-nutriz .menu-open .side-menu li a span {
+    display: block;
+    width: auto;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: nowrap;
+}
+
+/* ==========================================================
+   MENU — SEM TRANSIÇÃO AO TROCAR DE ABA
+   ========================================================== */
+
+#screen-perfil-nutriz .side-menu li a,
+#screen-perfil-nutriz .side-menu li a svg,
+#screen-perfil-nutriz .side-menu li a span {
+    transition: none !important;
+    transform: none !important;
+}
+#screen-perfil-nutriz .menu-open .side-menu li a,
+#screen-perfil-nutriz .menu-open .side-menu li a.active {
+    width: 100% !important;
+    height: 44px !important;
+    box-sizing: border-box;
+}
+
+/* Fundo ocupa toda a largura */
+#screen-perfil-nutriz .menu-open .side-menu li a {
+    width: 100% !important;
+    box-sizing: border-box;
+    
+    /* conteúdo mais para o centro */
+    padding-left: 40px !important;
+    padding-right: 11px !important;
+}
+
+/* Ativo mantém exatamente o mesmo tamanho dos outros */
+#screen-perfil-nutriz .menu-open .side-menu li a.active {
+    width: 100% !important;
+    box-sizing: border-box;
+    background: #e1f3fb !important;
+}
+
+#screen-perfil-nutriz .nutriz-sidebar:not(.menu-open) .side-menu li a {
+    width: calc(120% - 10px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box;
+}
+
+/* ==========================================================
+   ESPAÇO LATERAL DO ITEM ATIVO — MENU FECHADO E ABERTO
+   ========================================================== */
+
+/* Menu fechado */
+#screen-perfil-nutriz .nutriz-sidebar:not(.menu-open) .side-menu li a {
+    width: calc(100% - 10px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box;
+}
+
+/* Menu aberto */
+#screen-perfil-nutriz .menu-open .side-menu li a {
+    width: calc(100% - 10px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box;
+}
+
+/* Mantém o azul somente no item selecionado */
+#screen-perfil-nutriz .menu-open .side-menu li a.active {
+    width: calc(100% - 10px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* ==========================================================
+   NUTRIZ — RESPONSIVIDADE FINAL
+   ========================================================== */
+
+#screen-perfil-nutriz,
+#screen-perfil-nutriz .app-shell.nutriz-shell,
+#screen-perfil-nutriz .main-area {
+  min-width: 0;
+}
+
+#screen-perfil-nutriz {
+  min-height: 100svh;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+#screen-perfil-nutriz .app-shell.nutriz-shell,
+#screen-perfil-nutriz .app-shell.nutriz-shell.menu-open {
+  min-height: 100svh;
+  height: auto;
+  overflow: visible;
+}
+
+#screen-perfil-nutriz .main-area {
+  min-height: 100svh;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+#screen-perfil-nutriz .journey-card,
+#screen-perfil-nutriz .journey-impact,
+#screen-perfil-nutriz .dashboard-bottom,
+#screen-perfil-nutriz .dashboard-bottom > * {
+  min-width: 0;
+}
+
+#screen-perfil-nutriz .transform-copy,
+#screen-perfil-nutriz .stats-stack {
+  min-width: 0;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #screen-perfil-nutriz .app-shell.nutriz-shell,
+  #screen-perfil-nutriz .app-shell.nutriz-shell.menu-open {
+    grid-template-columns: 70px minmax(0, 1fr);
+  }
+
+  #screen-perfil-nutriz .main-area {
+    padding-inline: 14px;
+  }
+
+  #screen-perfil-nutriz .journey-card {
+    height: 300px;
+    min-height: 300px;
+  }
+
+  #screen-perfil-nutriz .journey-photo {
+    width: 30%;
+  }
+
+  #screen-perfil-nutriz .step-exame { left: 1%; }
+  #screen-perfil-nutriz .step-kit { left: 20%; }
+  #screen-perfil-nutriz .step-agenda { left: 37%; }
+  #screen-perfil-nutriz .step-coleta { left: 52%; }
+  #screen-perfil-nutriz .step-final { left: 64%; }
+
+  #screen-perfil-nutriz .dashboard-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  #screen-perfil-nutriz .transform-copy {
+    max-width: 72%;
+  }
+}
+
+/* Correção pontual: entre 1024px e 1280px o card da jornada ainda não é
+   largo o suficiente para o step-final (left:64%) respirar antes da foto.
+   Só este step é reposicionado; os demais e o restante do layout não mudam. */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  #screen-perfil-nutriz .step-final {
+    left: 64%;
+  }
+}
+
+@media (max-width: 767px) {
+  #screen-perfil-nutriz .app-shell.nutriz-shell,
+  #screen-perfil-nutriz .app-shell.nutriz-shell.menu-open {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 100svh;
+  }
+
+  #screen-perfil-nutriz .nutriz-sidebar,
+  #screen-perfil-nutriz .menu-open .nutriz-sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  #screen-perfil-nutriz .sidebar-logo-btn,
+  #screen-perfil-nutriz .menu-open .sidebar-logo-btn {
+    flex: 0 0 52px;
+    width: 52px;
+    height: 48px;
+    margin: 0;
+    padding: 3px;
+    border: 0;
+  }
+
+  #screen-perfil-nutriz .sidebar-logo-btn img,
+  #screen-perfil-nutriz .menu-open .sidebar-logo-btn img {
+    width: 46px;
+  }
+
+  #screen-perfil-nutriz .side-menu-label,
+  #screen-perfil-nutriz .sidebar-profile,
+  #screen-perfil-nutriz .sidebar-logout {
+    display: none;
+  }
+
+  #screen-perfil-nutriz .side-menu,
+  #screen-perfil-nutriz .menu-open .side-menu {
+    display: flex;
+    flex: 1 0 auto;
+    width: auto;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  #screen-perfil-nutriz .side-menu li,
+  #screen-perfil-nutriz .menu-open .side-menu li {
+    flex: 0 0 auto;
+    width: auto;
+    margin: 0;
+  }
+
+  #screen-perfil-nutriz .side-menu li a,
+  #screen-perfil-nutriz .menu-open .side-menu li a,
+  #screen-perfil-nutriz .nutriz-sidebar:not(.menu-open) .side-menu li a {
+    width: 46px !important;
+    height: 44px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-content: center;
+    border-radius: 9px;
+  }
+
+  #screen-perfil-nutriz .side-menu li a span,
+  #screen-perfil-nutriz .menu-open .side-menu li a span {
+    display: none;
+  }
+
+  #screen-perfil-nutriz .side-menu li a svg,
+  #screen-perfil-nutriz .menu-open .side-menu li a svg {
+    width: 21px;
+    height: 21px;
+    min-width: 21px;
+    flex-basis: 21px;
+  }
+
+  #screen-perfil-nutriz .main-area {
+    min-height: 0;
+    padding: 0 12px 28px;
+  }
+
+  #screen-perfil-nutriz .topbar-mini {
+    height: 48px;
+    padding-inline: 2px;
+  }
+
+  #screen-perfil-nutriz .topbar-actions {
+    gap: 8px;
+  }
+
+  #screen-perfil-nutriz .greeting-bar {
+    margin-inline: 0;
+  }
+
+  #screen-perfil-nutriz .greeting-bar h1 {
+    font-size: clamp(21px, 6vw, 27px);
+  }
+
+  #screen-perfil-nutriz .greeting-bar .sub {
+    font-size: 12.5px;
+  }
+
+  #screen-perfil-nutriz .journey-card {
+    height: auto;
+    min-height: 0;
+    padding: 16px;
+    overflow: hidden;
+  }
+
+  #screen-perfil-nutriz .journey-photo {
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .14;
+    z-index: 0;
+    border-radius: 13px;
+  }
+
+  #screen-perfil-nutriz .journey-photo img {
+    width: 100%;
+    height: 100%;
+    right: 0;
+    object-position: 60% 40%;
+  }
+
+  #screen-perfil-nutriz .journey-photo-fade {
+    display: none;
+  }
+
+  #screen-perfil-nutriz .journey-heading {
+    z-index: 3;
+  }
+
+  #screen-perfil-nutriz .journey-line {
+    display: none;
+  }
+
+  #screen-perfil-nutriz .modern-step,
+  #screen-perfil-nutriz .step-exame,
+  #screen-perfil-nutriz .step-kit,
+  #screen-perfil-nutriz .step-agenda,
+  #screen-perfil-nutriz .step-coleta,
+  #screen-perfil-nutriz .step-final {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    width: min(100%, 260px) !important;
+    margin: 22px auto !important;
+    z-index: 4;
+  }
+
+  #screen-perfil-nutriz .journey-watermark {
+    left: 50%;
+    top: 120px;
+    width: min(360px, 95%);
+    max-width: 95%;
+    transform: translateX(-50%);
+  }
+
+  #screen-perfil-nutriz .journey-impact-grid,
+  #screen-perfil-nutriz .stats-stack,
+  #screen-perfil-nutriz .dashboard-footer-cards {
+    grid-template-columns: 1fr;
+  }
+
+  #screen-perfil-nutriz .dashboard-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  #screen-perfil-nutriz .transform-card {
+    min-height: 0;
+    padding: 16px;
+  }
+
+  #screen-perfil-nutriz .transform-copy {
+    max-width: 100%;
+  }
+
+  #screen-perfil-nutriz .transform-illustration {
+    display: none;
+  }
+
+  #screen-perfil-nutriz table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 380px) {
+  #screen-perfil-nutriz .main-area {
+    padding-inline: 10px;
+  }
+
+  #screen-perfil-nutriz .nutriz-sidebar,
+  #screen-perfil-nutriz .menu-open .nutriz-sidebar {
+    padding-inline: 7px;
+  }
+
+  #screen-perfil-nutriz .sidebar-logo-btn,
+  #screen-perfil-nutriz .menu-open .sidebar-logo-btn {
+    flex-basis: 46px;
+    width: 46px;
+  }
+
+  #screen-perfil-nutriz .sidebar-logo-btn img,
+  #screen-perfil-nutriz .menu-open .sidebar-logo-btn img {
+    width: 40px;
+  }
+
+  #screen-perfil-nutriz .side-menu {
+    gap: 4px;
+  }
+
+  #screen-perfil-nutriz .side-menu li a,
+  #screen-perfil-nutriz .menu-open .side-menu li a,
+  #screen-perfil-nutriz .nutriz-sidebar:not(.menu-open) .side-menu li a {
+    width: 42px !important;
+    height: 42px !important;
+  }
+}
+
+/* ==========================================================
+   MENU LATERAL RETRÁTIL — DESKTOP
+   Expande automaticamente ao passar o mouse.
+   A logo não controla mais a abertura/fechamento do menu.
+   ========================================================== */
+@media (min-width: 1024px) {
+  #screen-perfil-nutriz .app-shell.nutriz-shell {
+    grid-template-columns: 70px minmax(0, 1fr);
+    transition: grid-template-columns 0.8s ease;
+  }
+
+  #screen-perfil-nutriz .nutriz-sidebar {
+    width: 70px;
+    min-width: 70px;
+    max-width: 70px;
+    box-sizing: border-box;
+    padding: 8px 5px;
+    overflow: hidden;
+    transition: width 0.8s ease, min-width 0.8s ease, max-width 0.8s ease, padding 0.8s ease;
+  }
+
+  /* Estado expandido por hover */
+  #screen-perfil-nutriz .app-shell.nutriz-shell:has(.nutriz-sidebar:hover) {
+    grid-template-columns: 230px minmax(0, 1fr);
+  }
+
+  #screen-perfil-nutriz .nutriz-sidebar:hover {
+    width: 230px;
+    min-width: 230px;
+    max-width: 230px;
+    padding: 8px 7px;
+  }
+
+  /* Logo */
+  #screen-perfil-nutriz .sidebar-logo-btn {
+    height: 82px;
+    width: 100%;
+    padding: 3px;
+    border: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: height 0.8s ease, margin-bottom 0.8s ease;
+  }
+
+  #screen-perfil-nutriz .sidebar-logo-btn img {
+    width: 58px;
+    height: auto;
+    transition: width 0.8s ease;
+  }
+
+  #screen-perfil-nutriz .nutriz-sidebar:hover .sidebar-logo-btn {
+    height: 82px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid #e9f0f5;
+  }
+
+  #screen-perfil-nutriz .nutriz-sidebar:hover .sidebar-logo-btn img {
+    width: 112px;
+  }
+
+  /* Rótulo MENU */
+  #screen-perfil-nutriz .side-menu-label {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  #screen-perfil-nutriz .nutriz-sidebar:hover .side-menu-label {
+    display: block;
+    opacity: 1;
+  }
+
+  /* Itens: ícone + nome */
+  #screen-perfil-nutriz .side-menu li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  #screen-perfil-nutriz .nutriz-sidebar:hover .side-menu li a {
+    width: calc(100% - 10px) !important;
+    height: 44px !important;
+    margin: 2px auto !important;
+    padding: 0 11px !important;
+    justify-content: flex-start;
+    gap: 13px;
+  }
+
+  #screen-perfil-nutriz .side-menu li a span,
+  #screen-perfil-nutriz .sidebar-logout span {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-8px);
+    white-space: nowrap;
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease !important;
+  }
+
+  #screen-perfil-nutriz .nutriz-sidebar:hover .side-menu li a span,
+  #screen-perfil-nutriz .nutriz-sidebar:hover .sidebar-logout span {
+    display: block !important;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    font-size: 11px;
+  }
+
+  #screen-perfil-nutriz .nutriz-sidebar:hover .side-menu li a svg {
+    width: 21px;
+    height: 21px;
+    min-width: 21px;
+    flex: 0 0 21px;
+  }
+
+  /* Logout */
+  #screen-perfil-nutriz .nutriz-sidebar:hover .sidebar-logout {
+    justify-content: flex-start;
+    gap: 13px;
+    padding-left: 11px;
+  }
+
+  /* Evita que regras antigas de .menu-open interfiram no novo hover. */
+  #screen-perfil-nutriz .nutriz-sidebar:hover .side-menu li a,
+  #screen-perfil-nutriz .nutriz-sidebar:hover .side-menu li a.active {
+    width: calc(100% - 10px) !important;
+  }
+}
+
+
+/* ==========================================================
+   AGENDAMENTO — APOIO E RECURSOS
+   ========================================================== */
+#screen-perfil-nutriz .agendamento-support-banner {
+  position: relative;
+  min-height: 112px;
+  margin-bottom: 14px;
+  padding: 16px 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #d7edf7;
+  border-radius: 12px;
+  background: linear-gradient(105deg, #e9f8fd 0%, #f4fbff 58%, #e6f6fc 100%);
+  display: flex;
+  align-items: center;
+}
+
+#screen-perfil-nutriz .support-banner-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 72%;
+}
+
+#screen-perfil-nutriz .support-banner-kicker {
+  display: block;
+  margin-bottom: 4px;
+  color: #00458b;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+#screen-perfil-nutriz .support-banner-copy h2 {
+  margin: 0;
+  color: #00458b;
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+#screen-perfil-nutriz .support-banner-copy p {
+  max-width: 760px;
+  margin: 5px 0 0;
+  color: #285d89;
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+
+#screen-perfil-nutriz .support-banner-art {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 34%;
+  min-width: 250px;
+  pointer-events: none;
+}
+
+#screen-perfil-nutriz .support-banner-wave {
+  position: absolute;
+  left: -5%;
+  top: 26px;
+  width: 76%;
+  height: 62px;
+  border-top: 1.6px solid #54b2e3;
+  border-radius: 50%;
+  transform: rotate(-8deg);
+  opacity: .75;
+}
+
+#screen-perfil-nutriz .support-banner-heart {
+  position: absolute;
+  right: 7%;
+  bottom: 12px;
+  color: #54b2e3;
+  font-size: 44px;
+  line-height: 1;
+  font-weight: 300;
+  opacity: .82;
+}
+
+#screen-perfil-nutriz .support-banner-words {
+  position: absolute;
+  right: 14%;
+  top: 17px;
+  color: #00458b;
+  font-family: "Public Sans", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.18;
+  transform: rotate(-3deg);
+}
+
+/* ==========================================================
+   AGENDAMENTO — SERVIÇOS, COMUNIDADE E APOIO
+   ========================================================== */
+#screen-perfil-nutriz .agendamento-main-card {
+  align-items: stretch;
+}
+
+#screen-perfil-nutriz .section-title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+#screen-perfil-nutriz .section-icon,
+#screen-perfil-nutriz .after-booking-icon,
+#screen-perfil-nutriz .resource-icon,
+#screen-perfil-nutriz .footer-message-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+#screen-perfil-nutriz .section-icon {
+  width: 48px;
+  height: 48px;
+  background: #e1f4fc;
+  color: #00458b;
+}
+
+#screen-perfil-nutriz .section-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#screen-perfil-nutriz .section-title-with-icon h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #00458b;
+}
+
+#screen-perfil-nutriz .section-title-with-icon p {
+  margin: 3px 0 0;
+  color: #285d89;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+#screen-perfil-nutriz .after-booking-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #e5f6fd;
+  color: #00458b;
+}
+
+#screen-perfil-nutriz .after-booking-icon {
+  width: 40px;
+  height: 40px;
+  background: #cceefb;
+  color: #00458b;
+}
+
+#screen-perfil-nutriz .after-booking-icon svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#screen-perfil-nutriz .after-booking-note strong,
+#screen-perfil-nutriz .after-booking-note span {
+  display: block;
+}
+
+#screen-perfil-nutriz .after-booking-note strong {
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+#screen-perfil-nutriz .after-booking-note span {
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+
+#screen-perfil-nutriz .agendamento-resources {
+  margin-top: 18px;
+}
+
+#screen-perfil-nutriz .resources-heading {
+  margin-bottom: 10px;
+}
+
+#screen-perfil-nutriz .resources-heading h2 {
+  margin: 0;
+  color: #00458b;
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+#screen-perfil-nutriz .resources-heading p {
+  margin: 3px 0 0;
+  color: #285d89;
+  font-size: 12px;
+}
+
+#screen-perfil-nutriz .resource-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+#screen-perfil-nutriz .resource-card {
+  min-width: 0;
+  min-height: 235px;
+  padding: 14px 13px 13px;
+  box-sizing: border-box;
+  border: 1px solid #d8eaf3;
+  border-radius: 12px;
+  color: #00458b;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+#screen-perfil-nutriz .resource-card::after {
+  content: "";
+  position: absolute;
+  width: 105px;
+  height: 105px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  right: -57px;
+  bottom: -65px;
+  opacity: .18;
+}
+
+#screen-perfil-nutriz .resource-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(17, 100, 150, .09);
+  text-decoration: none;
+}
+
+#screen-perfil-nutriz .resource-card-blue { background: #eef9fd; }
+#screen-perfil-nutriz .resource-card-pink { background: #fff1fb; color: #7041a5; }
+#screen-perfil-nutriz .resource-card-green { background: #effaf6; color: #087f73; }
+#screen-perfil-nutriz .resource-card-lilac { background: #f5f1ff; color: #6842a7; }
+
+#screen-perfil-nutriz .resource-icon {
+  width: 42px;
+  height: 42px;
+  background: rgba(255,255,255,.62);
+  border: 1px solid rgba(255,255,255,.8);
+}
+
+#screen-perfil-nutriz .resource-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#screen-perfil-nutriz .resource-card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#screen-perfil-nutriz .resource-card h3 {
+  margin: 0 0 7px;
+  color: currentColor;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+#screen-perfil-nutriz .resource-card p {
+  margin: 0;
+  color: #164c91;
+  font-size: 10.8px;
+  line-height: 1.42;
+}
+
+#screen-perfil-nutriz .resource-link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 32px;
+  margin-top: auto;
+  padding: 7px 11px;
+  box-sizing: border-box;
+  border: 1.5px solid currentColor !important;
+  border-radius: 8px;
+  background: currentColor !important;
+  color: #fff !important;
+  text-decoration: none;
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 1.1;
+  cursor: pointer;
+  transition: background-color .16s ease, color .16s ease, border-color .16s ease, transform .16s ease, box-shadow .16s ease;
+}
+
+/* Cor preenchida de cada botão no estado normal */
+#screen-perfil-nutriz .resource-card-blue .resource-link {
+  background: #00458b !important;
+  border-color: #00458b !important;
+}
+
+#screen-perfil-nutriz .resource-card-pink .resource-link {
+  background: #7041a5 !important;
+  border-color: #7041a5 !important;
+}
+
+#screen-perfil-nutriz .resource-card-green .resource-link {
+  background: #087f73 !important;
+  border-color: #087f73 !important;
+}
+
+#screen-perfil-nutriz .resource-card-lilac .resource-link {
+  background: #6842a7 !important;
+  border-color: #6842a7 !important;
+}
+
+#screen-perfil-nutriz .resource-link b {
+  font-size: 15px;
+  line-height: 1;
+}
+
+#screen-perfil-nutriz .resource-link:hover,
+#screen-perfil-nutriz .resource-link:focus-visible,
+#screen-perfil-nutriz .resource-link:active {
+  background: transparent !important;
+  color: currentColor !important;
+  border-color: currentColor !important;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+#screen-perfil-nutriz .resource-link:hover b,
+#screen-perfil-nutriz .resource-link:focus-visible b,
+#screen-perfil-nutriz .resource-link:active b {
+  color: currentColor !important;
+}
+
+#screen-perfil-nutriz .resource-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+#screen-perfil-nutriz .resource-testimonial,
+#screen-perfil-nutriz .resource-small-note {
+  display: block;
+  margin-top: 8px;
+  padding: 7px 8px;
+  border-radius: 9px;
+  background: rgba(255,255,255,.68);
+  color: #164c91;
+  font-size: 9.2px;
+  line-height: 1.35;
+}
+
+#screen-perfil-nutriz .resource-testimonial {
+  font-style: italic;
+}
+
+
+@media (max-width: 1100px) {
+  #screen-perfil-nutriz .support-banner-copy {
+    max-width: 82%;
+  }
+
+  #screen-perfil-nutriz .support-banner-art {
+    width: 30%;
+    min-width: 190px;
+  }
+
+  #screen-perfil-nutriz .resource-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  #screen-perfil-nutriz .agendamento-support-banner {
+    min-height: 0;
+    padding: 15px 16px;
+  }
+
+  #screen-perfil-nutriz .support-banner-copy {
+    max-width: 100%;
+  }
+
+  #screen-perfil-nutriz .support-banner-copy h2 {
+    font-size: 18px;
+  }
+
+  #screen-perfil-nutriz .support-banner-copy p {
+    font-size: 10.5px;
+    max-width: 100%;
+  }
+
+  #screen-perfil-nutriz .support-banner-art {
+    display: none;
+  }
+
+  #screen-perfil-nutriz .resource-cards {
+    grid-template-columns: 1fr;
+  }
+  #screen-perfil-nutriz .resource-card {
+    min-height: 0;
+  }
+}
+
+/* ===== Registro de coleta — novo layout visual ===== */
+#screen-perfil-nutriz .registro-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#screen-perfil-nutriz .registro-page-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: 58px;
+  padding: 2px 4px 0;
+}
+
+#screen-perfil-nutriz .registro-page-head h2 {
+  margin: 0;
+  color: #00458b;
+  font-size: 25px;
+  line-height: 1.08;
+  font-weight: 800;
+}
+
+#screen-perfil-nutriz .registro-page-head p {
+  margin: 5px 0 0;
+  color: #00458b;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+#screen-perfil-nutriz .registro-head-art {
+  position: relative;
+  min-width: 190px;
+  height: 62px;
+  color: #00458b;
+  text-align: right;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.05;
+  padding-right: 35px;
+  box-sizing: border-box;
+}
+
+#screen-perfil-nutriz .registro-head-art b { font-weight: 600; }
+#screen-perfil-nutriz .registro-head-art i {
+  position: absolute;
+  right: 0;
+  top: 7px;
+  color: #54b2e3;
+  font-size: 45px;
+  font-style: normal;
+  line-height: 1;
+}
+
+#screen-perfil-nutriz .registro-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.9fr;
+  gap: 12px;
+}
+
+#screen-perfil-nutriz .registro-info-card,
+#screen-perfil-nutriz .registro-important-card {
+  min-width: 0;
+  min-height: 88px;
+  border: 1px solid #dceaf3;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 14px;
+  box-sizing: border-box;
+}
+
+#screen-perfil-nutriz .registro-info-card h3,
+#screen-perfil-nutriz .registro-important-card h3 {
+  margin: 0 0 5px;
+  font-size: 13.5px;
+  line-height: 1.2;
+  color: #00458b;
+}
+
+#screen-perfil-nutriz .registro-info-card p,
+#screen-perfil-nutriz .registro-important-card p {
+  margin: 0;
+  color: #164c91;
+  font-size: 10.5px;
+  line-height: 1.42;
+}
+
+#screen-perfil-nutriz .registro-info-lilac { background: #f7f0ff; border-color: #e9dcfa; }
+#screen-perfil-nutriz .registro-info-green { background: #f0faef; border-color: #dcefd8; }
+#screen-perfil-nutriz .registro-info-pink { background: #fff1fa; border-color: #f5dce9; }
+#screen-perfil-nutriz .registro-important-card { background: #edf8fd; border-color: #d4eaf5; }
+
+#screen-perfil-nutriz .registro-info-icon {
+  flex: 0 0 54px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.68);
+  border: 2px solid rgba(255,255,255,.92);
+  box-shadow: 0 1px 4px rgba(0,69,139,.05);
+}
+
+#screen-perfil-nutriz .registro-info-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+#screen-perfil-nutriz .registro-info-lilac .registro-info-icon { color: #7041d8; background: #f0dcff; }
+#screen-perfil-nutriz .registro-info-green .registro-info-icon { color: #27b34a; background: #e5f8d8; }
+#screen-perfil-nutriz .registro-info-pink .registro-info-icon { color: #e76ebc; background: #ffe0f2; }
+#screen-perfil-nutriz .registro-important-card .registro-info-icon { color: #00458b; background: #d7effb; }
+
+#screen-perfil-nutriz .registro-main-grid {
+  display: grid;
+  grid-template-columns: 1.02fr 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
+
+#screen-perfil-nutriz .registro-form-card,
+#screen-perfil-nutriz .registro-calendar-card {
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #d6e3eb;
+  border-radius: 9px;
+  padding: 14px 20px 18px;
+  box-sizing: border-box;
+}
+
+#screen-perfil-nutriz .registro-section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+#screen-perfil-nutriz .registro-title-icon {
+  position: relative;
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #dff3fd;
+  display: grid;
+  place-items: center;
+  color: #00458b;
+}
+#screen-perfil-nutriz .registro-title-icon svg { width: 27px; height: 27px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+#screen-perfil-nutriz .registro-title-icon span { position: absolute; right: 4px; bottom: 2px; font-size: 18px; font-weight: 700; }
+#screen-perfil-nutriz .registro-section-title h3 { margin: 0; color: #00458b; font-size: 17px; }
+#screen-perfil-nutriz .registro-section-title p { margin: 4px 0 0; color: #164c91; font-size: 10.5px; }
+
+#screen-perfil-nutriz .registro-fields { display: flex; flex-direction: column; gap: 8px; }
+#screen-perfil-nutriz .registro-fields .field { margin: 0; }
+#screen-perfil-nutriz .registro-fields .field label {
+  display: block;
+  margin-bottom: 5px;
+  color: #657b8f;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+#screen-perfil-nutriz .registro-fields input,
+#screen-perfil-nutriz .registro-fields select,
+#screen-perfil-nutriz .registro-fields textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #cbd9e3;
+  border-radius: 5px;
+  background: #fff;
+  color: #303840;
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+}
+#screen-perfil-nutriz .registro-fields input,
+#screen-perfil-nutriz .registro-fields select { height: 39px; padding: 0 12px; }
+#screen-perfil-nutriz .registro-fields textarea { min-height: 66px; resize: vertical; padding: 10px 12px; }
+#screen-perfil-nutriz .registro-fields input:focus,
+#screen-perfil-nutriz .registro-fields select:focus,
+#screen-perfil-nutriz .registro-fields textarea:focus { border-color: #54b2e3; box-shadow: 0 0 0 2px rgba(84,178,227,.12); }
+#screen-perfil-nutriz .registro-fields textarea::placeholder { color: #7f95aa; }
+
+#screen-perfil-nutriz .registro-input-icon { position: relative; }
+#screen-perfil-nutriz .registro-input-icon input { padding-right: 42px; }
+#screen-perfil-nutriz .registro-input-icon svg {
+  position: absolute; width: 20px; height: 20px; right: 10px; top: 9px;
+  fill: none; stroke: #00458b; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+  pointer-events: none;
+}
+#screen-perfil-nutriz .registro-submit {
+  width: 100%;
+  min-height: 43px;
+  margin-top: 1px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: #00458b;
+  border-color: #00458b;
+  font-size: 12px;
+  font-weight: 700;
+}
+#screen-perfil-nutriz .registro-submit span { font-size: 20px; line-height: 1; }
+#screen-perfil-nutriz .nutriz-book-message {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+#screen-perfil-nutriz .nutriz-book-message.success { color: #168b54; }
+#screen-perfil-nutriz .nutriz-book-message.error { color: #c94b4b; }
+
+#screen-perfil-nutriz .registro-calendar-card { padding: 18px 20px 18px; }
+#screen-perfil-nutriz .registro-calendar-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+#screen-perfil-nutriz .registro-calendar-head h3 { margin: 0; color: #00458b; font-size: 18px; }
+#screen-perfil-nutriz .registro-calendar-nav { display: flex; gap: 9px; }
+#screen-perfil-nutriz .registro-calendar-nav button {
+  width: 39px; height: 39px; border: 0; border-radius: 7px; background: #eef8fd; color: #00458b; font-size: 28px; line-height: 1; cursor: pointer;
+}
+#screen-perfil-nutriz .registro-calendar-nav button:hover { background: #dff2fb; }
+#screen-perfil-nutriz .registro-calendar-card .mini-calendar { margin-top: 2px; }
+#screen-perfil-nutriz .registro-calendar-card .mini-calendar th { padding: 5px 2px 7px; color: #71869a; font-size: 10px; border-bottom: 1px solid #d8e3ea; }
+#screen-perfil-nutriz .registro-calendar-card .mini-calendar td { padding: 2px 1px; height: 34px; }
+#screen-perfil-nutriz .registro-calendar-card .mini-calendar .day { width: 31px; height: 31px; font-size: 12px; }
+
+#screen-perfil-nutriz .registro-calendar-legend { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 8px; color: #65758a; font-size: 10.5px; }
+#screen-perfil-nutriz .registro-calendar-legend span { display: inline-flex; align-items: center; gap: 6px; }
+#screen-perfil-nutriz .registro-calendar-legend i { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+#screen-perfil-nutriz .registro-calendar-legend i.selected { background: #00458b; }
+#screen-perfil-nutriz .registro-calendar-legend i.available { background: #aee2f8; }
+#screen-perfil-nutriz .registro-calendar-legend i.unavailable { background: #c7cdd4; }
+
+#screen-perfil-nutriz .registro-after-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+  padding: 12px 14px;
+  border-radius: 7px;
+  background: #eaf8fe;
+}
+#screen-perfil-nutriz .registro-after-icon {
+  flex: 0 0 47px; width: 47px; height: 47px; border-radius: 50%; background: #cceefd; display: grid; place-items: center; color: #00458b;
+}
+#screen-perfil-nutriz .registro-after-icon svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+#screen-perfil-nutriz .registro-after-card h4 { margin: 0 0 3px; color: #00458b; font-size: 13px; }
+#screen-perfil-nutriz .registro-after-card p { margin: 0; color: #164c91; font-size: 10.5px; line-height: 1.4; }
+
+#screen-perfil-nutriz .registro-thanks-card {
+  position: relative;
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 30px 12px 175px;
+  box-sizing: border-box;
+  border-radius: 9px;
+  background: #eaf8fe;
+  overflow: hidden;
+}
+#screen-perfil-nutriz .registro-thanks-card h3 { margin: 0 0 4px; color: #00458b; font-size: 17px; }
+#screen-perfil-nutriz .registro-thanks-card p { margin: 0; color: #164c91; font-size: 11px; }
+#screen-perfil-nutriz .registro-thanks-art { position: absolute; left: 28px; bottom: -2px; width: 115px; height: 75px; border: 2px solid #54b2e3; border-bottom: 0; border-radius: 60% 60% 0 0; opacity: .8; }
+#screen-perfil-nutriz .registro-thanks-art::before { content: ""; position: absolute; width: 39px; height: 39px; left: 34px; top: 10px; border: 2px solid #54b2e3; border-radius: 50%; }
+#screen-perfil-nutriz .registro-thanks-art span { position: absolute; right: -3px; top: 3px; color: #00458b; font-size: 33px; }
+#screen-perfil-nutriz .registro-thanks-heart { margin-left: auto; color: #54b2e3; font-size: 67px; line-height: .8; transform: rotate(-7deg); }
+
+@media (max-width: 1100px) {
+  #screen-perfil-nutriz .registro-info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #screen-perfil-nutriz .registro-important-card { grid-column: span 2; }
+}
+
+@media (max-width: 820px) {
+  #screen-perfil-nutriz .registro-main-grid { grid-template-columns: 1fr; }
+  #screen-perfil-nutriz .registro-head-art { display: none; }
+}
+
+@media (max-width: 600px) {
+  #screen-perfil-nutriz .registro-page-head h2 { font-size: 21px; }
+  #screen-perfil-nutriz .registro-page-head p { font-size: 10.5px; }
+  #screen-perfil-nutriz .registro-info-grid { grid-template-columns: 1fr; }
+  #screen-perfil-nutriz .registro-important-card { grid-column: auto; }
+  #screen-perfil-nutriz .registro-form-card,
+  #screen-perfil-nutriz .registro-calendar-card { padding: 13px; }
+  #screen-perfil-nutriz .registro-thanks-card { padding: 12px 15px 12px 105px; }
+  #screen-perfil-nutriz .registro-thanks-art { left: 8px; width: 82px; }
+  #screen-perfil-nutriz .registro-thanks-heart { display: none; }
+}
+
+/* ===== Histórico de doações — visual renovado ===== */
+#screen-perfil-nutriz .history-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#screen-perfil-nutriz .history-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+#screen-perfil-nutriz .history-summary-card {
+  min-height: 102px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 18px;
+  border: 1px solid rgba(0, 69, 139, .12);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+#screen-perfil-nutriz .history-summary-blue { background: #eef8ff; }
+#screen-perfil-nutriz .history-summary-green { background: #f1fbf3; }
+#screen-perfil-nutriz .history-summary-pink { background: #fff2f8; }
+#screen-perfil-nutriz .history-summary-yellow { background: #fffaf0; }
+
+#screen-perfil-nutriz .history-summary-icon {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(84, 178, 227, .15);
+  color: #0062b8;
+}
+#screen-perfil-nutriz .history-summary-green .history-summary-icon { background: #dcf6e2; color: #18a957; }
+#screen-perfil-nutriz .history-summary-pink .history-summary-icon { background: #ffe0ee; color: #e91e83; }
+#screen-perfil-nutriz .history-summary-yellow .history-summary-icon { background: #ffedc4; color: #e9a000; }
+#screen-perfil-nutriz .history-summary-icon svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+
+#screen-perfil-nutriz .history-summary-card strong {
+  display: block;
+  color: #00458b;
+  font-size: 26px;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+#screen-perfil-nutriz .history-summary-card span,
+#screen-perfil-nutriz .history-summary-card small {
+  display: block;
+}
+#screen-perfil-nutriz .history-summary-card span {
+  color: #00458b;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+#screen-perfil-nutriz .history-summary-card small {
+  margin-top: 4px;
+  color: #5f7b99;
+  font-size: 11px;
+}
+
+#screen-perfil-nutriz .history-table-card {
+  border: 1px solid rgba(0, 69, 139, .14);
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+}
+#screen-perfil-nutriz .history-table-title { padding: 17px 22px 9px; }
+#screen-perfil-nutriz .history-table-title h3 {
+  margin: 0;
+  color: #00458b;
+  font-size: 20px;
+}
+#screen-perfil-nutriz .history-table-wrap { padding: 0 20px; overflow-x: auto; }
+#screen-perfil-nutriz .history-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+}
+#screen-perfil-nutriz .history-table th {
+  padding: 11px 12px;
+  text-align: left;
+  color: #5c7895;
+  font-size: 12px;
+  font-weight: 700;
+  border-bottom: 1px solid #dce7f0;
+}
+#screen-perfil-nutriz .history-table td {
+  padding: 12px;
+  color: #152f48;
+  border-bottom: 1px solid #edf2f6;
+  vertical-align: middle;
+}
+#screen-perfil-nutriz .history-table tbody tr:nth-child(even) { background: #f8fbfe; }
+#screen-perfil-nutriz .history-table tbody tr:last-child td { border-bottom: 0; }
+
+#screen-perfil-nutriz .history-date,
+#screen-perfil-nutriz .history-volume {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+}
+#screen-perfil-nutriz .history-date > svg,
+#screen-perfil-nutriz .history-volume > svg {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  fill: none;
+  stroke: #0057ad;
+  stroke-width: 1.8;
+}
+#screen-perfil-nutriz .history-date strong,
+#screen-perfil-nutriz .history-date small { display: block; }
+#screen-perfil-nutriz .history-date strong { font-size: 14px; }
+#screen-perfil-nutriz .history-date small { margin-top: 2px; color: #6b849d; font-size: 11px; }
+#screen-perfil-nutriz .history-volume { font-size: 14px; font-weight: 600; }
+
+#screen-perfil-nutriz .history-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 245px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+#screen-perfil-nutriz .history-status svg { width: 22px; height: 22px; flex: 0 0 22px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+#screen-perfil-nutriz .history-status strong,
+#screen-perfil-nutriz .history-status small { display: block; }
+#screen-perfil-nutriz .history-status strong { font-size: 13px; }
+#screen-perfil-nutriz .history-status small { margin-top: 2px; font-size: 10.5px; opacity: .9; }
+#screen-perfil-nutriz .history-status-warning { background: #fff6dc; color: #bd7900; }
+#screen-perfil-nutriz .history-status-success { background: #eafaf0; color: #0c9160; }
+
+#screen-perfil-nutriz .history-table-footer {
+  padding: 10px 22px 15px;
+  color: #29445e;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#screen-perfil-nutriz .history-thanks-card {
+  min-height: 104px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 28px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #eef9ff 0%, #eaf8ff 100%);
+  border: 1px solid rgba(84, 178, 227, .16);
+  box-sizing: border-box;
+}
+#screen-perfil-nutriz .history-thanks-card strong { color: #0055ac; font-size: 20px; line-height: 1.2; }
+#screen-perfil-nutriz .history-thanks-card p { margin: 6px 0 0; color: #18558b; font-size: 13px; line-height: 1.45; }
+#screen-perfil-nutriz .history-thanks-art {
+  width: 125px;
+  height: 62px;
+  flex: 0 0 125px;
+  position: relative;
+  border-bottom: 0;
+  border-radius: 70% 70% 0 0;
+  transform: translateY(18px);
+}
+#screen-perfil-nutriz .history-thanks-art::before {
+  content: '♡';
+  position: absolute;
+  right: 8px;
+  top: -15px;
+  color: #0065bd;
+  font-size: 38px;
+}
+#screen-perfil-nutriz .history-thanks-art span { display: none; }
+#screen-perfil-nutriz .history-thanks-heart {
+  margin-left: auto;
+  color: #54b2e3;
+  font-size: 48px;
+  line-height: 1;
+}
+
+@media (max-width: 1050px) {
+  #screen-perfil-nutriz .history-summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  #screen-perfil-nutriz .history-summary-grid { grid-template-columns: 1fr; }
+  #screen-perfil-nutriz .history-summary-card { min-height: 88px; }
+  #screen-perfil-nutriz .history-table-title { padding-left: 16px; }
+  #screen-perfil-nutriz .history-table-wrap { padding: 0 10px; }
+  #screen-perfil-nutriz .history-thanks-card { padding: 14px 16px; gap: 8px; }
+  #screen-perfil-nutriz .history-thanks-art { display: none; }
+  #screen-perfil-nutriz .history-thanks-heart { font-size: 38px; }
+}
+
+
+/* =========================
+   NOTIFICAÇÕES — REDESIGN
+   ========================= */
+#screen-perfil-nutriz .notifications-heading{
+  margin:0 0 20px;
+  padding:0 2px;
+}
+#screen-perfil-nutriz .notifications-heading h1{
+  margin:0;
+  color:#00458b;
+  font-size:30px;
+  line-height:1.12;
+  font-weight:700;
+  letter-spacing:-.5px;
+}
+#screen-perfil-nutriz .notifications-heading p{
+  margin:5px 0 0;
+  color:#164c91;
+  font-size:15px;
+  line-height:1.35;
+}
+#screen-perfil-nutriz .notifications-page{width:100%;box-sizing:border-box;}
+#screen-perfil-nutriz .notifications-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:4px 0 18px;}
+#screen-perfil-nutriz .notification-filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+#screen-perfil-nutriz .notification-filter{height:44px;padding:0 15px;border:1px solid #d9e8f3;border-radius:12px;background:#fff;color:#00458b;font:600 14px/1 "Public Sans",Arial,sans-serif;display:inline-flex;align-items:center;gap:9px;cursor:pointer;transition:.18s ease;}
+#screen-perfil-nutriz .notification-filter svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;}
+#screen-perfil-nutriz .notification-filter span{min-width:24px;height:24px;padding:0 7px;border-radius:20px;background:#e8f4fb;display:inline-flex;align-items:center;justify-content:center;font-size:12px;}
+#screen-perfil-nutriz .notification-filter.active{background:#54b2e3;border-color:#54b2e3;color:#fff;box-shadow:0 5px 14px rgba(84,178,227,.16);}
+#screen-perfil-nutriz .notification-filter.active span{background:#fff;color:#00458b;}
+#screen-perfil-nutriz .notification-filter:hover:not(.active){background:#f3faff;transform:translateY(-1px);}
+#screen-perfil-nutriz .mark-notifications-read{border:0;background:transparent;color:#00458b;font:600 13px/1 "Public Sans",Arial,sans-serif;cursor:pointer;white-space:nowrap;padding:8px 4px;}
+#screen-perfil-nutriz .mark-notifications-read:hover{text-decoration:underline;}
+#screen-perfil-nutriz .notifications-list{display:flex;flex-direction:column;gap:10px;max-width:100%;}
+#screen-perfil-nutriz .notification-card{min-height:92px;box-sizing:border-box;border:1px solid #dce8f1;border-radius:16px;background:#fff;display:grid;grid-template-columns:76px minmax(0,1fr) auto 12px 20px;align-items:center;gap:16px;padding:14px 20px;box-shadow:0 2px 8px rgba(16,86,130,.035);transition:.18s ease;}
+#screen-perfil-nutriz .notification-card:hover{border-color:#c8deec;box-shadow:0 6px 18px rgba(16,86,130,.08);transform:translateY(-1px);}
+#screen-perfil-nutriz .notification-card.unread{background:linear-gradient(90deg,#f5fbff 0%,#fff 70%);}
+#screen-perfil-nutriz .notification-icon{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+#screen-perfil-nutriz .notification-icon svg{width:29px;height:29px;fill:none;stroke:currentColor;stroke-width:1.8;}
+#screen-perfil-nutriz .notification-icon-green{background:#e4f8ee;color:#0caf72;}
+#screen-perfil-nutriz .notification-icon-blue{background:#e5f3ff;color:#0875c9;}
+#screen-perfil-nutriz .notification-icon-yellow{background:#fff4d8;color:#ed9b00;}
+#screen-perfil-nutriz .notification-icon-pink{background:#fde5f1;color:#ec2180;}
+#screen-perfil-nutriz .notification-copy{min-width:0;}
+#screen-perfil-nutriz .notification-copy strong{display:block;color:#00458b;font-size:17px;line-height:1.3;font-weight:700;}
+#screen-perfil-nutriz .notification-copy p{margin:5px 0 0;color:#637a92;font-size:14px;line-height:1.35;}
+#screen-perfil-nutriz .notification-card time{color:#5e7289;font-size:13px;white-space:nowrap;}
+#screen-perfil-nutriz .notification-status-dot{width:11px;height:11px;border-radius:50%;background:#00458b;display:block;}
+#screen-perfil-nutriz .notification-status-dot.muted{background:#aebdca;}
+#screen-perfil-nutriz .notification-arrow{font-size:29px;line-height:1;color:#7890a7;font-weight:300;text-align:center;}
+#screen-perfil-nutriz .notification-card.is-read .notification-status-dot{background:#b8c5d0;}
+@media(max-width:900px){
+  #screen-perfil-nutriz .notifications-toolbar{align-items:flex-start;flex-direction:column;}
+  #screen-perfil-nutriz .notification-card{grid-template-columns:64px minmax(0,1fr) 14px 18px;padding:13px 15px;gap:12px;}
+  #screen-perfil-nutriz .notification-card time{grid-column:2;grid-row:2;font-size:11px;margin-top:-8px;}
+  #screen-perfil-nutriz .notification-status-dot{grid-column:3;grid-row:1;}
+  #screen-perfil-nutriz .notification-arrow{grid-column:4;grid-row:1;}
+}
+@media(max-width:620px){
+  #screen-perfil-nutriz .notification-filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;}
+  #screen-perfil-nutriz .notification-filter{justify-content:center;min-width:0;padding:0 8px;font-size:12px;}
+  #screen-perfil-nutriz .notification-filter:first-child{grid-column:span 2;}
+  #screen-perfil-nutriz .notification-card{grid-template-columns:52px minmax(0,1fr) 14px 16px;min-height:86px;padding:11px;}
+  #screen-perfil-nutriz .notification-icon{width:48px;height:48px;}
+  #screen-perfil-nutriz .notification-icon svg{width:24px;height:24px;}
+  #screen-perfil-nutriz .notification-copy strong{font-size:14px;}
+  #screen-perfil-nutriz .notification-copy p{font-size:12px;}
+}
+
+/* CORREÇÃO DEFINITIVA — OCULTAR A BARRA CINZA NO MEUS DADOS */
+/* A barra cinza que aparece no extremo direito é a scrollbar.
+   Ela fica invisível, mas a rolagem continua funcionando. */
+#screen-perfil-nutriz,
+#screen-perfil-nutriz *,
+#screen-perfil-nutriz .app-shell,
+#screen-perfil-nutriz .main-area,
+#screen-perfil-nutriz .panel-tab,
+#screen-perfil-nutriz .panel-tab.active {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+#screen-perfil-nutriz::-webkit-scrollbar,
+#screen-perfil-nutriz *::-webkit-scrollbar,
+#screen-perfil-nutriz .app-shell::-webkit-scrollbar,
+#screen-perfil-nutriz .main-area::-webkit-scrollbar,
+#screen-perfil-nutriz .panel-tab::-webkit-scrollbar,
+#screen-perfil-nutriz .panel-tab.active::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+    background: transparent !important;
+}
+
+/* ==========================================================
+   PONTOS DE DOAÇÃO — MAPA E BUSCA POR CEP
+   ========================================================== */
+#screen-perfil-nutriz .pontos-page{padding:0 2px 30px;box-sizing:border-box;}
+#screen-perfil-nutriz .pontos-heading{display:flex;align-items:center;justify-content:space-between;gap:22px;margin:2px 0 16px;padding:20px 24px;border:1px solid #d9edf7;border-radius:16px;background:linear-gradient(105deg,#eefaff 0%,#f8fcff 62%,#edf8fd 100%);overflow:hidden;position:sticky;top:58px;z-index:50;box-shadow:0 5px 14px rgba(16,86,130,.06);}
+#screen-perfil-nutriz .pontos-kicker{display:block;margin-bottom:4px;color:#49a9dc;font-size:10px;font-weight:800;letter-spacing:.14em;}
+#screen-perfil-nutriz .pontos-heading h2{margin:0;color:#06488e;font-size:25px;line-height:1.15;}
+#screen-perfil-nutriz .pontos-heading p{max-width:760px;margin:6px 0 0;color:#356589;font-size:13px;line-height:1.45;}
+#screen-perfil-nutriz .pontos-heading-icon{width:70px;height:70px;flex:0 0 70px;border-radius:20px;background:#fff;display:grid;place-items:center;color:#0875c9;box-shadow:0 7px 18px rgba(15,112,170,.08);}
+#screen-perfil-nutriz .pontos-heading-icon svg{width:39px;height:39px;fill:none;stroke:currentColor;stroke-width:1.6;}
+#screen-perfil-nutriz .pontos-search-card{display:grid;grid-template-columns:minmax(260px,1fr) 48px minmax(360px,1.15fr);align-items:center;gap:16px;padding:16px;border:1px solid #dceaf3;border-radius:15px;background:#fff;box-shadow:0 4px 15px rgba(16,86,130,.035);}
+#screen-perfil-nutriz .pontos-search-intro{grid-column:1 / -1;padding:2px 2px 4px;}
+#screen-perfil-nutriz .pontos-search-intro h3{margin:0;color:#06488e;font-size:18px;line-height:1.2;}
+#screen-perfil-nutriz .pontos-search-intro p{margin:5px 0 0;color:#68839a;font-size:11.5px;line-height:1.4;}
+#screen-perfil-nutriz .location-action{min-height:68px;border:1px solid #d8edf8;border-radius:13px;background:#eaf8fe;color:#06488e;display:flex;align-items:center;gap:12px;padding:10px 15px;text-align:left;cursor:pointer;transition:.18s ease;}
+#screen-perfil-nutriz .location-action:hover{border-color:#9dd9f2;background:#e2f5fc;transform:translateY(-1px);}
+#screen-perfil-nutriz .location-action-icon{width:42px;height:42px;flex:0 0 42px;border-radius:50%;background:#fff;color:#0875c9;display:grid;place-items:center;}
+#screen-perfil-nutriz .location-action-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;}
+#screen-perfil-nutriz .location-action strong{display:block;font-size:14px;}
+#screen-perfil-nutriz .location-action small{display:block;margin-top:4px;color:#5f7d97;font-size:10.5px;}
+#screen-perfil-nutriz .search-or{text-align:center;color:#7e9ab0;font-size:11px;font-weight:800;}
+#screen-perfil-nutriz .cep-search label{display:block;margin:0 0 6px;color:#496c87;font-size:11px;font-weight:700;}
+#screen-perfil-nutriz .cep-row{display:flex;gap:10px;}
+#screen-perfil-nutriz .cep-row input{height:46px;min-width:0;flex:1;border:1px solid #cfe1ec;border-radius:11px;padding:0 14px;color:#164c91;font:600 14px "Public Sans",Arial,sans-serif;outline:none;box-sizing:border-box;}
+#screen-perfil-nutriz .cep-row input:focus{border-color:#54b2e3;box-shadow:0 0 0 3px rgba(84,178,227,.12);}
+#screen-perfil-nutriz .cep-row button{height:46px;border:0;border-radius:11px;padding:0 17px;background:#0055a9;color:#fff;font:700 12px "Public Sans",Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;white-space:nowrap;}
+#screen-perfil-nutriz .cep-row button:hover{background:#00458b;}
+#screen-perfil-nutriz .cep-row button svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;}
+#screen-perfil-nutriz .pontos-filters{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:15px 0 10px;}
+#screen-perfil-nutriz .pontos-filters>strong{margin-right:3px;color:#174f83;font-size:13px;}
+#screen-perfil-nutriz .ponto-filter{height:37px;border:1px solid #d7e7f0;border-radius:20px;background:#fff;color:#225681;padding:0 14px;display:inline-flex;align-items:center;gap:7px;font:600 11.5px "Public Sans",Arial,sans-serif;cursor:pointer;transition:.18s ease;}
+#screen-perfil-nutriz .ponto-filter:hover{border-color:#9ccde5;background:#f5fbfe;}
+#screen-perfil-nutriz .ponto-filter.active{border-color:#0055a9;background:#0055a9;color:#fff;}
+#screen-perfil-nutriz .filter-dot,#screen-perfil-nutriz .legend-dot{width:10px;height:10px;display:inline-block;border-radius:50%;background:#168ee5;}
+#screen-perfil-nutriz .dot-lactare{background:#8b45e8!important}.dot-parceiro{background:#ed3f86!important}.dot-banco{background:#168ee5!important}.dot-apoio{background:#24ad74!important}
+#screen-perfil-nutriz .pontos-status{min-height:18px;margin:0 0 10px;padding:0 2px;color:#5f7b94;font-size:11px;line-height:1.4;}
+#screen-perfil-nutriz .pontos-status.success{color:#168a5c}.pontos-status.error{color:#c33d55}.pontos-status.loading{color:#0875c9}
+#screen-perfil-nutriz .pontos-content-grid{display:grid;grid-template-columns:minmax(390px,.95fr) minmax(430px,1.25fr);gap:14px;min-height:500px;}
+#screen-perfil-nutriz .pontos-list-panel,#screen-perfil-nutriz .pontos-map-wrap{border:1px solid #dceaf3;border-radius:15px;background:#fff;overflow:hidden;box-shadow:0 4px 15px rgba(16,86,130,.035);}
+#screen-perfil-nutriz .pontos-list-panel{display:flex;flex-direction:column;min-width:0;}
+#screen-perfil-nutriz .pontos-list-head{padding:16px 18px 10px;border-bottom:1px solid #edf3f7;}
+#screen-perfil-nutriz .pontos-list-head h3{margin:0;color:#06488e;font-size:18px;}
+#screen-perfil-nutriz .pontos-list-head p{margin:4px 0 0;color:#68839a;font-size:11px;}
+#screen-perfil-nutriz .pontos-list{padding:9px;overflow:auto;max-height:500px;}
+#screen-perfil-nutriz .ponto-card{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:10px;align-items:center;margin-bottom:8px;padding:10px;border:1px solid #e0edf4;border-radius:12px;background:#fff;cursor:pointer;transition:.18s ease;}
+#screen-perfil-nutriz .ponto-card:last-child{margin-bottom:0}.ponto-card:hover,#screen-perfil-nutriz .ponto-card.selected{border-color:#9fd8ef;background:#f7fcff;box-shadow:0 4px 12px rgba(22,142,229,.08);}
+#screen-perfil-nutriz .ponto-card-icon{width:40px;height:40px;border-radius:50%;background:color-mix(in srgb,var(--ponto-cor) 12%,white);color:var(--ponto-cor);display:grid;place-items:center;}
+#screen-perfil-nutriz .ponto-card-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;}
+#screen-perfil-nutriz .ponto-card-title-row{display:flex;align-items:center;gap:7px;min-width:0;}
+#screen-perfil-nutriz .ponto-card-title-row h4{margin:0;color:#0a4d8e;font-size:12px;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#screen-perfil-nutriz .ponto-card-title-row span{flex:0 0 auto;border-radius:10px;padding:3px 6px;background:#eef7fc;color:#0875c9;font-size:8px;font-weight:800;}
+#screen-perfil-nutriz .ponto-card-main p{display:flex;align-items:center;gap:5px;margin:5px 0 0;color:#68839a;font-size:9.5px;line-height:1.25;}
+#screen-perfil-nutriz .ponto-card-main p svg{width:12px;height:12px;flex:0 0 12px;fill:none;stroke:#4c8bb7;stroke-width:1.8;}
+#screen-perfil-nutriz .ponto-card-side{display:flex;flex-direction:column;align-items:flex-end;gap:7px;white-space:nowrap;}
+#screen-perfil-nutriz .ponto-card-side strong{color:#15548a;font-size:10.5px;}
+#screen-perfil-nutriz .ponto-card-side button{border:1px solid #a9dcef;border-radius:9px;background:#fff;color:#0875c9;padding:6px 8px;font:700 9px "Public Sans",Arial,sans-serif;cursor:pointer;}
+#screen-perfil-nutriz .ponto-card-side button:hover{background:#eefaff;}
+#screen-perfil-nutriz .pontos-map-wrap{position:relative;min-height:500px;}
+#screen-perfil-nutriz #pontosMap{width:100%;height:100%;min-height:500px;z-index:1;}
+#screen-perfil-nutriz .map-legend{position:absolute;right:14px;bottom:14px;z-index:500;display:flex;flex-direction:column;gap:7px;min-width:190px;padding:12px 14px;border:1px solid rgba(213,228,238,.95);border-radius:12px;background:rgba(255,255,255,.96);box-shadow:0 5px 18px rgba(15,72,111,.13);}
+#screen-perfil-nutriz .map-legend strong{color:#123f6d;font-size:12px;margin-bottom:1px}.map-legend span{display:flex;align-items:center;gap:7px;color:#49677f;font-size:9.5px}.map-legend .legend-dot{width:9px;height:9px;flex:0 0 9px}
+#screen-perfil-nutriz .ponto-map-marker-wrap{background:transparent;border:0;}.ponto-map-marker{width:32px;height:32px;border-radius:50% 50% 50% 0;display:grid;place-items:center;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.2);}.ponto-map-marker span{color:#fff;font-size:8px;transform:rotate(45deg)}
+#screen-perfil-nutriz .leaflet-popup-content{margin:12px 14px;color:#355a76;font:12px "Public Sans",Arial,sans-serif;line-height:1.45}.leaflet-popup-content strong{color:#06488e;font-size:12.5px}.leaflet-popup-content small{color:#70879a}
+@media(max-width:1050px){
+  #screen-perfil-nutriz .pontos-search-card{grid-template-columns:1fr}.pontos-search-card .search-or{display:none}.pontos-content-grid{grid-template-columns:1fr!important}.pontos-map-wrap{min-height:450px}#screen-perfil-nutriz #pontosMap{min-height:450px}.pontos-list{max-height:none!important}
+}
+@media(max-width:700px){
+  #screen-perfil-nutriz .pontos-heading{padding:16px}.pontos-heading-icon{display:none}.pontos-heading h2{font-size:21px!important}.pontos-heading p{font-size:12px!important}.cep-row{flex-direction:column}.cep-row button{width:100%}.pontos-filters{align-items:stretch}.ponto-filter{flex:1;justify-content:center}.pontos-content-grid{grid-template-columns:1fr!important}.ponto-card{grid-template-columns:38px minmax(0,1fr)}.ponto-card-side{grid-column:2;align-items:flex-start;flex-direction:row}.ponto-card-title-row span{display:none}.pontos-map-wrap{min-height:400px}#screen-perfil-nutriz #pontosMap{min-height:400px}.map-legend{right:8px;bottom:8px;min-width:150px}.pontos-list-head{padding:13px}.pontos-list{padding:7px}
+}
+
+/* ==========================================================
+   DOADORA — MENU E TOPO FIXOS DURANTE A ROLAGEM
+   O conteúdo rola somente dentro da área principal.
+   O menu lateral e o topo permanecem visíveis.
+   ========================================================== */
+@media (min-width: 1024px) {
+  #screen-perfil-nutriz {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  #screen-perfil-nutriz .app-shell.nutriz-shell,
+  #screen-perfil-nutriz .app-shell.nutriz-shell.menu-open {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    overflow: hidden !important;
+    grid-template-columns: 70px minmax(0, 1fr) !important;
+  }
+
+  /* Quando o mouse entra no menu, ele continua expandindo normalmente,
+     mas agora permanece preso à tela enquanto o conteúdo rola. */
+  #screen-perfil-nutriz .app-shell.nutriz-shell:has(.nutriz-sidebar:hover) {
+    grid-template-columns: 230px minmax(0, 1fr) !important;
+  }
+
+  #screen-perfil-nutriz .nutriz-sidebar {
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    align-self: start !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    z-index: 1000 !important;
+    overflow: hidden !important;
+  }
+
+  /* A rolagem acontece aqui, e não na página inteira. */
+  #screen-perfil-nutriz .main-area {
+    height: 100vh !important;
+    min-height: 0 !important;
+    max-height: 100vh !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    scrollbar-width: none !important;
+    padding-top: 0 !important;
+  }
+
+  #screen-perfil-nutriz .main-area::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+  }
+
+  /* Acesso ao site + notificações ficam presos no topo da área de conteúdo. */
+  #screen-perfil-nutriz .topbar-mini {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 900 !important;
+    height: 58px !important;
+    min-height: 58px !important;
+    margin: 0 -1px 0 !important;
+    padding: 8px 2px 8px 0 !important;
+    background: rgba(248, 252, 254, 0.96) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
+  #screen-perfil-nutriz .topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  #screen-perfil-nutriz .greeting-bar {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* ==========================================================
+   PONTOS DE DOAÇÃO — CABEÇALHO FIXO SEM CARD
+   O cabeçalho da página fica fixo, mas o card de busca,
+   filtros, lista e mapa continuam rolando normalmente.
+   ========================================================== */
+#screen-perfil-nutriz .pontos-heading{
+  position: sticky !important;
+  top: 58px !important;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  margin: -2px 0 18px !important;
+  padding: 8px 2px 12px !important;
+  border: 0 !important;
+  border-bottom: 1px solid #dceaf3 !important;
+  border-radius: 0 !important;
+  background: #f7fbfd !important;
+  box-shadow: 0 3px 10px rgba(16,86,130,.035) !important;
+  overflow: visible !important;
+}
+
+#screen-perfil-nutriz .pontos-heading-icon{
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  border-radius: 14px;
+  background: #eaf7fd;
+  box-shadow: none;
+}
+
+#screen-perfil-nutriz .pontos-heading-icon svg{
+  width: 27px;
+  height: 27px;
+}
+
+/* Nada abaixo do título fica fixo. */
+#screen-perfil-nutriz .pontos-search-card,
+#screen-perfil-nutriz .pontos-filters,
+#screen-perfil-nutriz .pontos-status,
+#screen-perfil-nutriz .pontos-content-grid,
+#screen-perfil-nutriz .pontos-list-panel,
+#screen-perfil-nutriz .pontos-map-wrap{
+  position: static !important;
+}
+
+#screen-perfil-nutriz .pontos-search-card{
+  top: auto !important;
+  z-index: auto !important;
+}
+
+@media (max-width: 760px){
+  #screen-perfil-nutriz .pontos-heading{
+    top: 52px !important;
+    padding: 7px 0 10px !important;
+  }
+}
+
+/* ===== Jornada personalizada (estado real da doadora) ===== */
+#screen-perfil-nutriz .jornada-etapas{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:0 0 18px;padding:0;}
+#screen-perfil-nutriz .jetapa{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border:1px solid #d8eaf3;border-radius:12px;background:#fff;min-width:0;}
+#screen-perfil-nutriz .jetapa-ico{font-size:13px;font-weight:800;color:#54b2e3;}
+#screen-perfil-nutriz .jetapa-nome{font-size:11.5px;font-weight:800;color:#00458b;}
+#screen-perfil-nutriz .jetapa-txt{font-size:10.5px;line-height:1.3;color:#426782;}
+#screen-perfil-nutriz .jetapa.is-done{background:#f1faf5;border-color:#cdebd9;}
+#screen-perfil-nutriz .jetapa.is-done .jetapa-ico{color:#147448;}
+#screen-perfil-nutriz .jetapa.is-next{border-color:#00458b;background:#eaf3fb;}
+#screen-perfil-nutriz .jetapa.is-review .jetapa-ico,#screen-perfil-nutriz .jetapa.is-scheduled .jetapa-ico{color:#9a6800;}
+#screen-perfil-nutriz .jetapa.is-refused{background:#fff5f7;border-color:#f3c9d3;}
+#screen-perfil-nutriz .jetapa.is-refused .jetapa-ico{color:#a52e4c;}
+#screen-perfil-nutriz .jetapa.is-locked{background:#f6f8fa;}
+#screen-perfil-nutriz .jetapa.is-locked .jetapa-nome,#screen-perfil-nutriz .jetapa.is-locked .jetapa-txt{color:#8a97a3;}
+@media(max-width:700px){#screen-perfil-nutriz .jornada-etapas{grid-template-columns:repeat(2,1fr);}}
+#screen-perfil-nutriz .modern-step .jstate{font-size:10px;font-weight:700;margin-top:3px;color:#426782;line-height:1.25;}
+#screen-perfil-nutriz .modern-step.journey-step.is-done .circle{background:#147448;}
+#screen-perfil-nutriz .modern-step.journey-step.is-next .circle{box-shadow:0 0 0 4px rgba(84,178,227,.35);}
+#screen-perfil-nutriz .modern-step.journey-step.is-locked .circle{background:#9fb3c4;}
+#screen-perfil-nutriz .modern-step.is-locked .jtitle,#screen-perfil-nutriz .modern-step.is-locked .jstate{color:#8a97a3;}
+#screen-perfil-nutriz .history-empty,#screen-perfil-nutriz .notifications-empty,#screen-perfil-nutriz .feedback-empty{padding:22px 12px;text-align:center;color:#426782;font-size:13px;}
+#screen-perfil-nutriz .notifications-empty,#screen-perfil-nutriz .feedback-empty{border:1px dashed #cfe1ec;border-radius:14px;background:#fff;}
+
+
+/* Notificações da doadora: apenas affordance de clique/teclado (sem alterar o visual) */
+#screen-perfil-nutriz .bell-btn:focus-visible,
+#screen-perfil-nutriz .notification-card:focus-visible{outline:2px solid #54b2e3;outline-offset:2px;}
+#screen-perfil-nutriz .notification-card{cursor:pointer;}

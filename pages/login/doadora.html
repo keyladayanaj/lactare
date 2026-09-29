@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lactech — Login Doadora</title>
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/images/lactare-logo.png"
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/login-doadora.css">
+</head>
+
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="icon-bell" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M12 2a1 1 0 0 1 1 1v1.06c3.39.49 6 3.4 6 6.94v4l1.6 2.13a1 1 0 0 1-.8 1.6H5.2a1 1 0 0 1-.8-1.6L6 15v-4c0-3.53 2.61-6.45 6-6.94V3a1 1 0 0 1 1-1Zm0 19.5A2.5 2.5 0 0 1 9.5 19h5A2.5 2.5 0 0 1 12 21.5Z" />
+      </symbol>
+    </defs>
+  </svg>
+  <section class="screen active" id="screen-login">
+    <div class="login-wrap login-doadora">
+      <img alt="Lactare" class="login-watermark" src="../../assets/images/lactare-logo.png" />
+      <div class="login-left">
+        <h1>
+          Solidariedade<br />
+          que nutre,<br />
+          vida que cresce
+        </h1>
+      </div>
+      <div class="login-right">
+        <div class="login-box">
+          <div class="login-tagline">
+            Juntas fazemos a diferença
+          </div>
+          <div class="field">
+            <input autocomplete="username" id="doadora-user" placeholder="Usuário" type="text" />
+          </div>
+          <div class="field password-field">
+            <input autocomplete="current-password" id="doadora-pass" placeholder="Senha" type="password" />
+            <button class="password-toggle" type="button" aria-label="Mostrar senha"
+              onclick="togglePasswordVisibility('doadora-pass', this)">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"></path>
+                <circle cx="12" cy="12" r="2.5"></circle>
+              </svg>
+            </button>
+          </div>
+          <div class="forgot-row">
+            <span class="link" role="button" tabindex="0" onclick="goToRecuperarSenha()">Esqueci minha senha</span>
+          </div>
+          <div class="login-error" hidden="" id="doadora-login-error">
+            Usuário ou senha inválidos.
+          </div>
+          <button class="btn btn-primary btn-block" onclick="loginDoadora()" type="button">
+            ENTRAR
+          </button>
+          <div class="login-footnote">
+            Ainda não tem conta?
+            <span class="link" onclick="goToCadastro()">
+              Cadastre-se
+            </span>
+          </div>
+          <div class="login-guide">
+            <span class="link" onclick="goToLoginApoio()">
+              Acesso da Rede de Apoio
+            </span>
+          </div>
+          <div class="login-guide">
+            <span class="link" onclick="goToLoginEquipe()">
+              Acesso da Equipe Lactare
+            </span>
+          </div>
+          <div class="team-access login-links-row">
+            <span class="link-sm" onclick="goToLoginApoio()">
+              Acesso da Rede de Apoio
+            </span>
+            <span class="link-sm" onclick="goToLoginEquipe()">
+              Acesso da Equipe Lactare
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHATBOT LACTARE -->
+  <div class="lactare-chatbot" id="lactare-chatbot" aria-live="polite">
+    <button class="lactare-chat-toggle" id="lactare-chat-toggle" type="button" aria-label="Abrir Assistente Lactare" onclick="toggleLactareChat()">
+      <svg class="chat-bubble-svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 11.5a8 8 0 0 1-8 8 8.9 8.9 0 0 1-3.4-.68L4 20l1.18-3.43A8 8 0 1 1 20 11.5Z"></path>
+      </svg>
+    </button>
+
+    <div class="lactare-chat-window" id="lactare-chat-window" hidden>
+      <div class="lactare-chat-header">
+        <div class="chat-title-wrap">
+          <span class="chat-header-icon">
+            <svg class="chat-bubble-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 11.5a8 8 0 0 1-8 8 8.9 8.9 0 0 1-3.4-.68L4 20l1.18-3.43A8 8 0 1 1 20 11.5Z"></path>
+            </svg>
+          </span>
+          <div>
+            <strong>Assistente Lactare</strong>
+            <small>Como posso ajudar?</small>
+          </div>
+        </div>
+        <button class="chat-close" type="button" aria-label="Fechar chat" onclick="closeLactareChat()">×</button>
+      </div>
+
+      <div class="lactare-chat-messages" id="lactare-chat-messages">
+        <div class="chat-message bot greeting-message">
+          <div class="bot-avatar">
+            <img src="../../assets/images/lactare-logo.png" alt="Lactare">
+          </div>
+          <div class="bot-greeting-content">
+            <strong>Olá! 👋</strong>
+            <p>Eu sou a Assistente Lactare e estou aqui para ajudar.</p>
+            <p>Como posso ajudar você hoje?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lactare-chat-faq-title">Perguntas frequentes</div>
+      <div class="lactare-chat-quick">
+        <button type="button" onclick="sendLactareQuick('Como faço para me cadastrar?')"><span class="faq-icon">👤</span><span>Como fazer meu cadastro?</span><b>›</b></button>
+        <button type="button" onclick="sendLactareQuick('Esqueci minha senha')"><span class="faq-icon">🔒</span><span>Esqueci minha senha</span><b>›</b></button>
+        <button type="button" onclick="sendLactareQuick('Como funciona a doação de leite materno?')"><span class="faq-icon">♥</span><span>Como funciona a doação de leite materno?</span><b>›</b></button>
+        <button type="button" onclick="sendLactareQuick('Quero acessar a Rede de Apoio')"><span class="faq-icon">👥</span><span>Quero acessar a Rede de Apoio</span><b>›</b></button>
+        <button type="button" onclick="sendLactareQuick('Como falar com a Equipe Lactare?')"><span class="faq-icon">🎧</span><span>Como falar com a Equipe Lactare?</span><b>›</b></button>
+      </div>
+
+      <form class="lactare-chat-input" onsubmit="sendLactareMessage(event)">
+        <input id="lactare-chat-text" type="text" placeholder="Digite sua mensagem..." autocomplete="off" aria-label="Mensagem" />
+        <button type="submit" aria-label="Enviar mensagem">➤</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../../assets/js/api-client.js"></script>
+  <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+
+* { box-sizing: border-box; }
+
+body.recuperar-senha-page {
+    margin: 0;
+    min-height: 100vh;
+    background: #bfe5ef;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #254b70;
+}
+
+.recovery-page {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+}
+
+.recovery-card {
+    width: min(570px, 100%);
+    min-height: 610px;
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 8px 30px rgba(0, 69, 139, .10);
+    padding: 44px 42px 38px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recovery-icon {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    background: #e5f3ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.recovery-icon svg {
+    width: 42px;
+    height: 42px;
+    fill: none;
+    stroke: #0058ad;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.recovery-card h1 {
+    margin: 0 0 16px;
+    color: #0054a0;
+    font-size: 31px;
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: center;
+}
+
+.recovery-description {
+    max-width: 455px;
+    margin: 0 0 38px;
+    color: #385978;
+    font-size: 18px;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.recovery-form {
+    width: 100%;
+    max-width: 480px;
+}
+
+.recovery-label {
+    display: block;
+    margin: 0 0 9px;
+    color: #315473;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.recovery-email-wrap {
+    position: relative;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.recovery-email-icon {
+    position: absolute;
+    left: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: #526f8b;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+}
+
+.recovery-email {
+    width: 100%;
+    height: 62px;
+    padding: 0 18px 0 54px;
+    border: 1.5px solid #c8d0d8;
+    border-radius: 12px;
+    outline: none;
+    color: #294d6e;
+    background: #fff;
+    font-size: 17px;
+}
+
+.recovery-email::placeholder { color: #8793a0; }
+
+.recovery-email:focus {
+    border-color: #0058ad;
+    box-shadow: 0 0 0 3px rgba(0, 88, 173, .08);
+}
+
+.recovery-submit {
+    width: 100%;
+    height: 62px;
+    border: 0;
+    border-radius: 31px;
+    background: #0058ad;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.recovery-submit:hover { background: #00498f; }
+
+.recovery-divider {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 39px 0 34px;
+    color: #4c6680;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.recovery-divider::before,
+.recovery-divider::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: #ccd6df;
+}
+
+.recovery-back {
+    border: 0;
+    background: transparent;
+    color: #0870dd;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 12px;
+}
+
+.recovery-back:hover { text-decoration: underline; }
+
+.recovery-status {
+    width: 100%;
+    margin-top: 18px;
+    padding: 13px 15px;
+    border-radius: 10px;
+    background: #edf8f2;
+    border: 1px solid #b8e2c8;
+    color: #21643a;
+    font-size: 14px;
+    line-height: 1.45;
+    text-align: center;
+}
+
+@media (max-width: 620px) {
+    .recovery-page { padding: 20px 14px; }
+    .recovery-card {
+        min-height: auto;
+        padding: 32px 22px 30px;
+        border-radius: 18px;
+    }
+    .recovery-card h1 { font-size: 27px; }
+    .recovery-description {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+    .recovery-email, .recovery-submit { height: 56px; }
+}

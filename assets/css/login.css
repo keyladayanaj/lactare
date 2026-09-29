@@ -1,0 +1,404 @@
+/* ==========================================================
+   LACTARE — LOGIN
+   Um único CSS compartilhado por:
+   - Doadora
+   - Rede de Apoio
+   - Equipe
+
+   A estrutura e o posicionamento são iguais nos três logins.
+   As diferenças de tema ficam no final deste arquivo.
+   ========================================================== */
+
+/* ==========================================================
+   ESTRUTURA GERAL
+   ========================================================== */
+
+.login-wrap {
+    position: relative;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    min-height: 100vh;
+    overflow: visible;
+    background: #fff;
+}
+
+.login-left {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 0 20px 0 95px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: transparent;
+}
+
+.login-left h1 {
+    margin: 0;
+    max-width: 390px;
+    color: #00458b;
+    font-size: 40px;
+    line-height: 1.32;
+    font-weight: 700;
+    text-align: left;
+}
+
+.login-right {
+    position: relative;
+    z-index: 3;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 0;
+    display: block;
+    background: transparent;
+    overflow: visible;
+}
+
+.login-box {
+    position: relative;
+    z-index: 4;
+    width: 307px;
+    max-width: 307px;
+    margin-top: 120px;
+    margin-left: 25px;
+}
+
+/* ==========================================================
+   LOGO / MARCA D'ÁGUA
+   ========================================================== */
+
+.login-wrap > .login-watermark {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    width: 600px;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    opacity: 0.075;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* ==========================================================
+   TÍTULO DO LOGIN
+   ========================================================== */
+
+.login-tagline {
+    margin: 0 0 28px;
+    color: #00458b;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* ==========================================================
+   CAMPOS
+   ========================================================== */
+
+.login-box .field {
+    margin-bottom: 22px;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 307px;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border: 1px solid #c9c9c9;
+    border-radius: 9px;
+    background: #fff;
+    color: #333;
+    font-size: 16px;
+}
+
+.login-box input[type="text"]:focus,
+.login-box input[type="password"]:focus {
+    outline: none;
+    border-color: #00458b;
+}
+
+/* ==========================================================
+   ESQUECI MINHA SENHA
+   ========================================================== */
+
+.forgot-row {
+    margin-top: -10px;
+    margin-bottom: 14px;
+    text-align: right;
+}
+
+.link {
+    color: #54b2e3;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.link-sm {
+    font-size: 11.5px;
+    color: #54b2e3;
+    cursor: pointer;
+}
+
+/* ==========================================================
+   BOTÃO
+   ========================================================== */
+
+.btn.btn-primary.btn-block {
+    width: 247px;
+    height: 49px;
+    margin: 0;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 25px;
+    background: #00458b;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.btn.btn-primary.btn-block:hover {
+    background: #064781;
+}
+
+/* ==========================================================
+   TEXTOS ABAIXO DO BOTÃO
+   ========================================================== */
+
+.login-footnote,
+.login-help,
+.login-guide,
+.team-access {
+    width: 307px;
+    max-width: 307px;
+}
+
+.login-footnote {
+    margin-top: 13px;
+    font-size: 12px;
+    text-align: center;
+    color: #00458b;
+}
+
+.login-help {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #00458b;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.login-guide {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #1b7f79;
+    font-weight: 700;
+    text-align: center;
+}
+
+.wa-icon {
+    color: #1b7f79;
+}
+
+.team-access {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.login-links-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* ==========================================================
+   MENSAGEM DE ERRO
+   ========================================================== */
+
+.login-error {
+    background: #fdecea;
+    border: 1px solid #f3b9b4;
+    color: #a4271f;
+    font-size: 11.5px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+/* ==========================================================
+   DOADORA
+   Tema claro — é o padrão visual dos três logins.
+   ========================================================== */
+
+.login-doadora {
+    background: #fff;
+}
+
+.login-doadora .login-left,
+.login-doadora .login-right {
+    background: transparent;
+}
+
+.login-doadora .login-left h1,
+.login-doadora .login-tagline {
+    color: #00458b;
+}
+
+/* ==========================================================
+   REDE DE APOIO
+   Mesmo layout da doadora.
+   ========================================================== */
+
+.login-apoio {
+    background: #82e4eb;
+}
+
+.login-apoio .login-left,
+.login-apoio .login-right {
+    background: transparent;
+}
+
+.login-apoio .login-left h1,
+.login-apoio .login-tagline {
+    color: #00458b;
+}
+
+/* ==========================================================
+   EQUIPE
+   Mesmo layout, somente com tema escuro.
+   ========================================================== */
+
+.login-equipe {
+    background: #0a2540;
+}
+
+.login-equipe .login-left,
+.login-equipe .login-right {
+    background: transparent;
+}
+
+.login-equipe .login-left h1,
+.login-equipe .login-tagline {
+    color: #54b2e3;
+}
+
+.login-equipe .login-box input[type="text"],
+.login-equipe .login-box input[type="password"] {
+    background: #0e335a;
+    border-color: #1c4d7f;
+    color: #fff;
+}
+
+.login-equipe .login-box input[type="text"]:focus,
+.login-equipe .login-box input[type="password"]:focus {
+    border-color: #54b2e3;
+}
+
+.login-equipe .login-box input::placeholder {
+    color: #7fa5c8;
+}
+
+.login-equipe .link,
+.login-equipe .link-sm,
+.login-equipe .login-footnote,
+.login-equipe .login-help {
+    color: #54b2e3;
+}
+
+.login-equipe .btn.btn-primary.btn-block {
+    background: #54b2e3;
+    border-color: #54b2e3;
+}
+
+.login-equipe .btn.btn-primary.btn-block:hover {
+    background: #54b2e3;
+}
+
+.login-equipe > .login-watermark,
+.login-equipe .login-watermark-dark {
+    opacity: 0.18;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE
+   ========================================================== */
+
+@media (max-width: 760px) {
+    .login-wrap {
+        grid-template-columns: 1fr;
+        min-height: 100svh;
+    }
+
+    .login-wrap > .login-watermark {
+        left: 50%;
+        top: 50%;
+        width: min(560px, 95vw);
+        transform: translate(-50%, -50%);
+    }
+
+    .login-left {
+        min-height: 220px;
+        padding: 35px 24px 20px;
+        justify-content: center;
+    }
+
+    .login-left h1 {
+        font-size: clamp(30px, 8vw, 36px);
+        text-align: center;
+    }
+
+    .login-right {
+        min-height: 520px;
+        padding: 35px 20px 50px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .login-box {
+        width: min(307px, 100%);
+        max-width: 307px;
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"],
+    .login-footnote,
+    .login-help,
+    .login-guide,
+    .team-access {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .btn.btn-primary.btn-block {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-left {
+        min-height: 190px;
+        padding: 30px 18px 20px;
+    }
+
+    .login-right {
+        padding: 24px 16px 42px;
+    }
+
+    .login-left h1 {
+        font-size: 28px;
+    }
+
+    .login-wrap > .login-watermark {
+        width: 300px;
+    }
+}

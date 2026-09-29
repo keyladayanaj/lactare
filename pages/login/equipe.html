@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lactech — Login Equipe</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/css/style.css"><link rel="stylesheet" href="../../assets/css/login-equipe.css"></head><body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="icon-bell" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a1 1 0 0 1 1 1v1.06c3.39.49 6 3.4 6 6.94v4l1.6 2.13a1 1 0 0 1-.8 1.6H5.2a1 1 0 0 1-.8-1.6L6 15v-4c0-3.53 2.61-6.45 6-6.94V3a1 1 0 0 1 1-1Zm0 19.5A2.5 2.5 0 0 1 9.5 19h5A2.5 2.5 0 0 1 12 21.5Z"/></symbol></defs></svg>
+<section class="screen active" id="screen-login-equipe">
+<div class="login-wrap login-equipe">
+<img alt="Lactare" class="login-watermark login-watermark-dark" src="../../assets/images/lactare-logo.png"/>
+<div class="login-left">
+<h1>
+          Vida que flui,<br/>
+          equipe que cuida!
+        </h1>
+</div>
+<div class="login-right">
+<div class="login-box login-box-dark">
+<div class="login-tagline">
+            Faça seu Login!
+          </div>
+<div class="field">
+<input autocomplete="username" id="eq-user" placeholder="Usuário" type="text"/>
+</div>
+<div class="field password-field">
+<input autocomplete="current-password" id="eq-pass" placeholder="Senha" type="password"/>
+<button class="password-toggle" type="button" aria-label="Mostrar senha" onclick="togglePasswordVisibility('eq-pass', this)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"></path><circle cx="12" cy="12" r="2.5"></circle></svg></button>
+</div>
+<div class="forgot-row">
+<span class="link">
+              Esqueci minha senha
+            </span>
+</div>
+<div class="login-error" hidden="" id="eq-login-error">
+
+            Usuário ou senha inválidos.
+            Este acesso é exclusivo da equipe Lactare.
+
+          </div>
+<button class="btn btn-primary btn-block" onclick="loginEquipe()" type="button">
+
+            ENTRAR
+
+          </button>
+<div class="team-access">
+<button class="link-sm back-login-link" type="button" onclick="goToLogin()">
+
+              ← Voltar ao Login
+
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section><script src="../../assets/js/api-client.js"></script>
+  <script src="../../assets/js/script.js"></script></body></html>

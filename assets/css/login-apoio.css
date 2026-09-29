@@ -1,0 +1,794 @@
+/* ==========================================================
+   LACTARE — LOGIN REDE DE APOIO
+   ========================================================== */
+
+.login-apoio {
+    position: relative;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    min-height: 100vh;
+    overflow: visible;
+    background: #bfe5ef;
+}
+
+.login-apoio .login-left {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 0 20px 0 95px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: transparent;
+}
+
+.login-apoio .login-left h1 {
+    margin: 0;
+    max-width: 390px;
+    color: #00458b;
+    font-size: 40px;
+    line-height: 1.32;
+    font-weight: 700;
+    text-align: left;
+}
+
+.login-apoio .login-right {
+    position: relative;
+    z-index: 3;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 0;
+    display: block;
+    background: transparent;
+    overflow: visible;
+}
+
+.login-apoio .login-box {
+    position: relative;
+    z-index: 4;
+    width: 307px;
+    max-width: 307px;
+    margin-top: 120px;
+    margin-left: 25px;
+}
+
+.login-apoio > .login-watermark {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    width: 600px;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    opacity: 0.075;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.login-apoio .login-tagline {
+    margin: 0 0 28px;
+    color: #00458b;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: center;
+}
+
+.login-apoio .login-box .field {
+    margin-bottom: 22px;
+}
+
+.login-apoio .login-box input[type="text"],
+.login-apoio .login-box input[type="password"] {
+    width: 307px;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border: 1.5px solid #00529c;
+    border-radius: 9px;
+    background: #bfe5ef;
+    color: #00458b;
+    font-size: 16px;
+}
+
+.login-apoio .login-box input[type="text"]:focus,
+.login-apoio .login-box input[type="password"]:focus {
+    outline: none;
+    border-color: #00458b;
+}
+
+.login-apoio .forgot-row {
+    margin-top: -10px;
+    margin-bottom: 14px;
+    text-align: right;
+}
+
+.login-apoio .link {
+    color: #54b2e3;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.login-apoio .link-sm {
+    font-size: 11.5px;
+    color: #54b2e3;
+    cursor: pointer;
+}
+
+.login-apoio .btn.btn-primary.btn-block {
+    width: 247px;
+    height: 45px;
+    margin-left: 30px;
+    margin-right: 30px;
+    display: block;
+    background: #00458b;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.login-apoio .btn.btn-primary.btn-block:hover {
+    background: #064781;
+}
+
+.login-apoio .login-footnote,
+.login-apoio .login-help,
+.login-apoio .login-guide,
+.login-apoio .team-access {
+    width: 307px;
+    max-width: 307px;
+}
+
+.login-apoio .login-footnote {
+    margin-top: 13px;
+    font-size: 12px;
+    text-align: center;
+    color: #00458b;
+}
+
+.login-apoio .login-help {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #00458b;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.login-apoio .login-guide {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #1b7f79;
+    font-weight: 700;
+    text-align: center;
+}
+
+.login-apoio .wa-icon {
+    color: #1b7f79;
+}
+
+.login-apoio .team-access {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.login-apoio .login-links-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.login-apoio .login-error {
+    background: #fdecea;
+    border: 1px solid #f3b9b4;
+    color: #a4271f;
+    font-size: 11.5px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+
+/* ==========================================================
+   DESKTOP — NÃO ALTERA O LAYOUT ORIGINAL
+   ========================================================== */
+
+@media (min-width: 1024px) {
+
+    .login-apoio {
+        grid-template-columns: 440px 560px;
+        width: min(100%, 1000px);
+        margin-inline: auto;
+    }
+
+    .login-apoio .login-left {
+        padding: 0;
+        padding-bottom: clamp(0px, 8.9vh, 84px);
+        box-sizing: border-box;
+    }
+
+    .login-apoio .login-left h1 {
+        transform: none;
+    }
+
+    .login-apoio .login-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 0;
+    }
+
+    .login-apoio .login-box {
+        margin: 0;
+    }
+
+    .login-apoio > .login-watermark {
+        left: 46%;
+    }
+}
+
+
+/* ==========================================================
+   TABLET / NOTEBOOK PEQUENO
+   768px até 1023px
+
+   Aqui o layout continua em DUAS COLUNAS.
+   Apenas reduz espaçamentos e tamanhos para caber.
+   ========================================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .login-apoio {
+        grid-template-columns: 44% 56%;
+        width: 100%;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+
+    .login-apoio .login-left {
+        min-height: 100vh;
+        padding: 0 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .login-apoio .login-left h1 {
+        width: 100%;
+        max-width: 360px;
+        font-size: clamp(30px, 4vw, 38px);
+        line-height: 1.25;
+        text-align: left;
+    }
+
+    .login-apoio .login-right {
+        min-height: 100vh;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .login-apoio .login-box {
+        width: min(307px, 100%);
+        max-width: 307px;
+        margin: 0;
+    }
+
+    .login-apoio .login-box input[type="text"],
+    .login-apoio .login-box input[type="password"] {
+        width: 100%;
+    }
+
+    .login-apoio .btn.btn-primary.btn-block {
+        width: 247px;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .login-apoio .login-footnote,
+    .login-apoio .login-help,
+    .login-apoio .login-guide,
+    .login-apoio .team-access {
+        width: 100%;
+        max-width: 307px;
+    }
+
+    .login-apoio > .login-watermark {
+        left: 48%;
+        top: 50%;
+        width: min(600px, 75vw);
+    }
+}
+
+
+/* ==========================================================
+   CELULAR
+   481px até 767px
+
+   Aqui vira UMA coluna.
+   ========================================================== */
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    .login-apoio {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        min-height: 100svh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .login-apoio .login-left {
+        min-height: auto;
+        padding: 45px 25px 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .login-apoio .login-left h1 {
+        width: 100%;
+        max-width: 520px;
+        font-size: clamp(30px, 7vw, 38px);
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .login-apoio .login-right {
+        min-height: auto;
+        padding: 20px 25px 50px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .login-apoio .login-box {
+        width: min(307px, 100%);
+        max-width: 307px;
+        margin: 0;
+    }
+
+    .login-apoio .login-box input[type="text"],
+    .login-apoio .login-box input[type="password"] {
+        width: 100%;
+    }
+
+    .login-apoio .btn.btn-primary.btn-block {
+        width: 247px;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .login-apoio .login-footnote,
+    .login-apoio .login-help,
+    .login-apoio .login-guide,
+    .login-apoio .team-access {
+        width: 100%;
+        max-width: 307px;
+    }
+
+    .login-apoio > .login-watermark {
+        left: 50%;
+        top: 55%;
+        width: min(500px, 110vw);
+    }
+}
+
+
+/* ==========================================================
+   CELULAR PEQUENO
+   Até 480px
+   ========================================================== */
+
+@media (max-width: 480px) {
+
+    .login-apoio {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        min-height: 100svh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .login-apoio .login-left {
+        min-height: auto;
+        padding: 35px 18px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-apoio .login-left h1 {
+        width: 100%;
+        max-width: 100%;
+        font-size: 28px;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .login-apoio .login-right {
+        min-height: auto;
+        padding: 20px 16px 42px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .login-apoio .login-box {
+        width: 100%;
+        max-width: 307px;
+        margin: 0;
+    }
+
+    .login-apoio .login-box input[type="text"],
+    .login-apoio .login-box input[type="password"] {
+        width: 100%;
+    }
+
+    .login-apoio .btn.btn-primary.btn-block {
+        width: 100%;
+        max-width: 247px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .login-apoio .login-footnote,
+    .login-apoio .login-help,
+    .login-apoio .login-guide,
+    .login-apoio .team-access {
+        width: 100%;
+        max-width: 307px;
+    }
+
+    .login-apoio > .login-watermark {
+        left: 50%;
+        top: 55%;
+        width: 300px;
+    }
+}
+
+
+/* ==========================================================
+   FUNDO
+   ========================================================== */
+
+body:has(.login-apoio) {
+    background: #bfe5ef;
+}
+
+/* ==========================================================
+   CHATBOT LACTARE — LOGIN DOADORA
+   Visual alinhado à referência: painel grande, arredondado,
+   azul Lactare, perguntas prontas e botão flutuante.
+   ========================================================== */
+.lactare-chatbot {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    z-index: 1000;
+    font-family: "Public Sans", Arial, sans-serif;
+}
+
+.lactare-chat-toggle {
+    width: 68px;
+    height: 68px;
+    border: 0;
+    border-radius: 50%;
+    background: #00458b;
+    color: #fff;
+    box-shadow: 0 10px 28px rgba(0, 69, 139, .28);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.lactare-chat-toggle:hover {
+    transform: translateY(-2px);
+    background: #063f78;
+}
+
+.chat-bubble-svg {
+    width: 31px;
+    height: 31px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.chat-header-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,.15);
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.chat-header-icon .chat-bubble-svg {
+    width: 25px;
+    height: 25px;
+}
+
+/* O atributo hidden precisa vencer o display:flex do painel. */
+.lactare-chat-window[hidden] {
+    display: none !important;
+}
+
+.lactare-chat-window {
+    position: absolute;
+    right: 0;
+    bottom: 82px;
+    width: 430px;
+    height: 690px;
+    max-width: calc(100vw - 32px);
+    max-height: calc(100vh - 105px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 18px;
+    border: 1px solid #dce8f2;
+    box-shadow: 0 18px 45px rgba(0, 69, 139, .20);
+}
+
+.lactare-chat-header {
+    min-height: 68px;
+    padding: 0 18px;
+    background: #00458b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.chat-title-wrap strong {
+    display: block;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.chat-title-wrap small {
+    display: block;
+    margin-top: 4px;
+    font-size: 11px;
+    opacity: .86;
+}
+
+.chat-close {
+    width: 36px;
+    height: 36px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 31px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+}
+
+.lactare-chat-messages {
+    flex: 0 0 auto;
+    padding: 18px 18px 8px;
+    background: #f7fbfe;
+}
+
+.chat-message {
+    width: fit-content;
+    max-width: 90%;
+    padding: 14px 16px;
+    margin: 0 auto 8px 0;
+    border-radius: 15px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.chat-message.bot {
+    background: #fff;
+    color: #183b59;
+    border: 1px solid #e1ebf3;
+    border-top-left-radius: 6px;
+    box-shadow: 0 3px 9px rgba(0,69,139,.06);
+}
+
+.chat-message.user {
+    margin-left: auto;
+    margin-right: 0;
+    background: #00458b;
+    color: #fff;
+    border-top-right-radius: 6px;
+}
+
+.greeting-message {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px;
+}
+
+.bot-avatar {
+    width: 43px;
+    height: 43px;
+    min-width: 43px;
+    border-radius: 50%;
+    background: #eaf5fd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.bot-avatar img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.bot-greeting-content strong {
+    display: block;
+    color: #183b59;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.bot-greeting-content p {
+    margin: 0 0 9px;
+}
+
+.bot-greeting-content p:last-child {
+    margin-bottom: 0;
+}
+
+.lactare-chat-faq-title {
+    padding: 11px 18px 7px;
+    color: #183b59;
+    font-size: 14px;
+    font-weight: 700;
+    background: #f7fbfe;
+}
+
+.lactare-chat-quick {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 5px 16px 12px;
+    background: #f7fbfe;
+}
+
+.lactare-chat-quick button {
+    width: 100%;
+    min-height: 52px;
+    border: 0;
+    border-radius: 26px;
+    background: #eaf4fc;
+    color: #07589d;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 34px 1fr 18px;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    text-align: left;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.25;
+    transition: background .15s ease, transform .15s ease;
+}
+
+.lactare-chat-quick button:hover {
+    background: #dceefa;
+    transform: translateY(-1px);
+}
+
+.faq-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dceefa;
+    font-size: 16px;
+}
+
+.lactare-chat-quick b {
+    font-size: 25px;
+    font-weight: 400;
+    text-align: right;
+}
+
+.lactare-chat-input {
+    display: flex;
+    gap: 9px;
+    padding: 12px 14px 14px;
+    background: #fff;
+    border-top: 1px solid #e2ebf3;
+}
+
+.lactare-chat-input input {
+    flex: 1;
+    min-width: 0;
+    height: 47px;
+    box-sizing: border-box;
+    padding: 0 14px;
+    border: 1px solid #d4e0ea;
+    border-radius: 14px;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+}
+
+.lactare-chat-input input:focus {
+    border-color: #54b2e3;
+}
+
+.lactare-chat-input button {
+    width: 47px;
+    height: 47px;
+    border: 0;
+    border-radius: 50%;
+    background: #00458b;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .lactare-chatbot {
+        right: 16px;
+        bottom: 16px;
+    }
+
+    .lactare-chat-window {
+        width: min(430px, calc(100vw - 32px));
+        height: min(690px, calc(100vh - 105px));
+        bottom: 74px;
+    }
+
+    .lactare-chat-toggle {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+

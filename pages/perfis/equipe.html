@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="lactare-no-scrollbar">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lactare — Dashboards</title>
+
+
+    <!-- FONTE -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- CSS PRINCIPAL -->
+
+    <link rel="stylesheet" href="../../assets/css/equipe.css">
+
+
+    <!-- CHART.JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- CSS SOMENTE DOS DASHBOARDS -->
+
+    <style>
+        /* =====================================================
+           ESTRUTURA DOS CARDS
+           ===================================================== */
+
+        .dash-card {
+            overflow: hidden;
+        }
+
+
+        .dash-card-body {
+            padding-top: 8px;
+        }
+
+
+        /* =====================================================
+           INDICADORES
+           ===================================================== */
+
+        .dashboard-indicators {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 16px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .dashboard-indicator {
+
+            border: 1px solid rgba(84, 178, 227, 0.35);
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+            background:
+                rgba(84, 178, 227, 0.04);
+
+        }
+
+
+        .dashboard-indicator span {
+
+            display: block;
+
+            font-size: 13px;
+
+            color: #8ca3b8;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .dashboard-indicator strong {
+
+            display: block;
+
+            font-size: 28px;
+
+            color: #54b2e3;
+
+            font-weight: 700;
+
+        }
+
+
+        .dashboard-indicator small {
+
+            display: block;
+
+            margin-top: 6px;
+
+            color: #8ca3b8;
+
+            font-size: 12px;
+
+        }
+
+
+        /* =====================================================
+           TABELAS
+           ===================================================== */
+
+        .dashboard-table-wrapper {
+
+            width: 100%;
+
+            overflow-x: auto;
+
+        }
+
+
+        .dashboard-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 500px;
+
+        }
+
+
+        .dashboard-table th {
+
+            text-align: left;
+
+            padding: 13px 14px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            color: #8ca3b8;
+
+            border-bottom:
+                1px solid rgba(84, 178, 227, 0.20);
+
+        }
+
+
+        .dashboard-table td {
+
+            padding: 14px;
+
+            font-size: 13px;
+
+            color: #dce8f1;
+
+            border-bottom:
+                1px solid rgba(84, 178, 227, 0.10);
+
+        }
+
+
+        .dashboard-table tr:last-child td {
+
+            border-bottom: none;
+
+        }
+
+
+        .status {
+
+            display: inline-block;
+
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+        }
+
+
+        .status-active {
+
+            background:
+                rgba(84, 178, 227, 0.15);
+
+            color: #54b2e3;
+
+        }
+
+
+        .status-success {
+
+            background:
+                rgba(75, 190, 130, 0.15);
+
+            color: #72d8a3;
+
+        }
+
+
+        .status-warning {
+
+            background:
+                rgba(235, 180, 80, 0.15);
+
+            color: #e8bd68;
+
+        }
+
+
+        .status-cancel {
+
+            background:
+                rgba(220, 90, 90, 0.15);
+
+            color: #e88989;
+
+        }
+
+
+        /* =====================================================
+           BARRAS DOS GRÁFICOS
+           ===================================================== */
+
+        .bar-chart {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 230px;
+
+        }
+
+
+        /* =====================================================
+           GRÁFICO MENOR
+           ===================================================== */
+
+        .chart-medium {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 260px;
+
+        }
+
+
+        /* =====================================================
+           GRID ESPECÍFICO
+           ===================================================== */
+
+        .dashboard-single {
+
+            display: grid;
+
+            grid-template-columns: 1fr;
+
+            gap: 20px;
+
+        }
+
+
+        .dashboard-two {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 20px;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVIDADE
+           ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .dashboard-indicators {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .dashboard-two {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+    </style>
+
+<style>
+#screen-dashboards .kit-indicators{grid-template-columns:repeat(4,minmax(0,1fr));}
+#screen-dashboards .kit-board-card{margin-top:18px;}
+#screen-dashboards .kit-helper{margin:4px 0 0;color:#7f9caf;font-size:11px;}
+#screen-dashboards .kit-table td:last-child{white-space:nowrap;}
+#screen-dashboards .kit-action{border:0;border-radius:7px;padding:8px 11px;font:600 11px inherit;cursor:pointer;background:#13b8e7;color:#00152f;margin-right:5px;}
+#screen-dashboards .kit-action.secondary{background:#e9f5fa;color:#07507c;}
+#screen-dashboards .kit-status{display:inline-flex;padding:5px 8px;border-radius:20px;font-size:10px;font-weight:700;}
+#screen-dashboards .kit-status.aguardando{background:#fff4d8;color:#9a6800;}
+#screen-dashboards .kit-status.preparacao{background:#e2f4ff;color:#00689d;}
+#screen-dashboards .kit-status.enviado{background:#eaf0ff;color:#3159a6;}
+#screen-dashboards .kit-status.entregue{background:#e1f7ec;color:#147448;}
+#screen-dashboards .coleta-indicators{grid-template-columns:repeat(3,minmax(0,1fr));}
+#screen-dashboards .coleta-board-card{margin-top:18px;}
+#screen-dashboards .coleta-helper{margin:4px 0 0;color:#7f9caf;font-size:11px;}
+#screen-dashboards .coleta-table td:last-child{white-space:nowrap;}
+#screen-dashboards .coleta-action{border:0;border-radius:7px;padding:8px 11px;font:600 11px inherit;cursor:pointer;background:#13b8e7;color:#00152f;margin-right:5px;}
+#screen-dashboards .coleta-status{display:inline-flex;padding:5px 8px;border-radius:20px;font-size:10px;font-weight:700;}
+#screen-dashboards .coleta-status.agendada{background:#fff4d8;color:#9a6800;}
+#screen-dashboards .coleta-status.confirmada{background:#e2f4ff;color:#00689d;}
+#screen-dashboards .coleta-status.realizada{background:#e1f7ec;color:#147448;}
+@media(max-width:900px){#screen-dashboards .coleta-indicators{grid-template-columns:1fr;}}
+@media(max-width:900px){#screen-dashboards .kit-indicators{grid-template-columns:repeat(2,minmax(0,1fr));}}
+
+</style></head>
+
+
+<body>
+
+
+    <section class="screen active" id="screen-dashboards">
+
+
+        <div class="dash-shell">
+
+
+            <!-- =================================================
+             MENU LATERAL
+             ================================================= -->
+
+            <aside class="dash-sidebar">
+
+
+                <div class="sidebar-brand">
+
+                    Dashboards Lactare
+
+                </div>
+
+
+                <ul class="dash-menu" id="dashMenu">
+
+
+                    <li>
+
+                        <a class="active" data-dash="coleta" onclick="showDashTab('coleta', this)">
+
+                            Coleta e leite
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a data-dash="doadoras" onclick="showDashTab('doadoras', this)">
+
+                            Doadoras
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+                        <a data-dash="kits" onclick="showDashTab('kits', this); LactareKitUI.carregar()">
+                            Envio de kits
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a data-dash="gestao-coletas" onclick="showDashTab('gestao-coletas', this); LactareColetaUI.carregar()">
+                            Gestão de coletas
+                        </a>
+                    </li>
+
+
+                    <li>
+
+                        <a data-dash="suporte" onclick="showDashTab('suporte', this)">
+
+                            Suporte às famílias
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a data-dash="impacto" onclick="showDashTab('impacto', this)">
+
+                            Impacto
+
+                        </a>
+
+                    </li>
+
+
+                </ul>
+
+
+                <div class="dash-back" onclick="goToLogin()">
+
+                    ← Voltar ao Login
+
+                </div>
+
+
+            </aside>
+
+
+
+            <!-- =================================================
+             CONTEÚDO
+             ================================================= -->
+
+            <main class="dash-main">
+
+
+                <div class="topbar-mini topbar-mini-dark">
+
+                    <img alt="Lactare" class="brand-mark brand-mark-sm brand-mark-light"
+                        src="../../assets/images/lactare-logo.png">
+
+                </div>
+
+
+
+                <!-- =================================================
+                 1. COLETA E LEITE
+                 ================================================= -->
+
+                <div class="dash-tab active" data-dashpanel="coleta">
+
+
+                    <div class="dash-header">
+
+                        <h2>
+                            Coleta e leite
+                        </h2>
+
+                    </div>
+
+
+                    <div class="dash-desc">
+
+                        Acompanhamento do volume de leite coletado
+                        e da quantidade de coletas realizadas.
+
+                    </div>
+
+
+                    <div class="dash-panel">
+
+
+                        <!-- GRÁFICO MENSAL -->
+
+                        <div class="dash-card">
+
+                            <div class="dash-card-head">
+
+                                <h4>
+                                    Volume de leite coletado por mês
+                                </h4>
+
+                                <span class="dash-pill">
+                                    2026
+                                </span>
+
+                            </div>
+
+
+                            <div class="bar-chart" id="barColetaMes"></div>
+
+
+                            <div class="bar-labels">
+
+                                <span>J</span>
+                                <span>F</span>
+                                <span>M</span>
+                                <span>A</span>
+                                <span>M</span>
+                                <span>J</span>
+                                <span>J</span>
+                                <span>A</span>
+                                <span>S</span>
+                                <span>O</span>
+                                <span>N</span>
+                                <span>D</span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- GRÁFICO ANUAL -->
+
+                        <div class="dash-card">
+
+                            <div class="dash-card-head">
+
+                                <h4>
+                                    Coletas realizadas por ano
+                                </h4>
+
+                            </div>
+
+
+                            <div class="bar-chart" id="barColetaAno"></div>
+
+
+                            <div class="bar-labels">
+
+                                <span>15</span>
+                                <span>16</span>
+                                <span>17</span>
+                                <span>18</span>
+                                <span>19</span>
+                                <span>20</span>
+                                <span>21</span>
+                                <span>22</span>
+                                <span>23</span>
+                                <span>24</span>
+                                <span>25</span>
+                                <span>26</span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DISTRIBUIÇÃO -->
+
+                        <div class="dash-card">
+
+                            <div class="dash-card-head">
+
+                                <h4>
+                                    Distribuição por banco de leite
+                                </h4>
+
+                            </div>
+
+
+                            <div class="chart-medium" id="chartBancos"></div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                 2. DOADORAS
+                 ================================================= -->
+
+                <div class="dash-tab" data-dashpanel="doadoras">
+
+
+                    <div class="dash-header">
+
+                        <h2>
+                            Doadoras
+                        </h2>
+
+                    </div>
+
+
+                    <div class="dash-desc">
+
+                        Acompanhamento das doadoras cadastradas,
+                        ativas e novos cadastros.
+
+                    </div>
+
+
+
+                    <!-- INDICADORES -->
+
+                    <div class="dashboard-indicators">
+
+
+                        <div class="dashboard-indicator">
+
+                            <span>Doadoras cadastradas</span>
+                            <strong id="metricDoadorasCadastradas">—</strong>
+                            <small>dados atuais da API</small>
+
+                        </div>
+
+
+                        <div class="dashboard-indicator">
+
+                            <span>Novos cadastros</span>
+                            <strong id="metricNovosCadastros">—</strong>
+                            <small>indisponível sem data de criação</small>
+
+                        </div>
+
+
+                        <div class="dashboard-indicator">
+
+                            <span>Taxa de retenção</span>
+                            <strong id="metricRetencao">—</strong>
+                            <small>indisponível no modelo atual</small>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="dashboard-two">
+
+
+                        <!-- EVOLUÇÃO -->
+
+                        <div class="dash-card">
+
+                            <div class="dash-card-head">
+
+                                <h4>Doadoras por evolução temporal</h4>
+
+                                <span class="dash-pill">
+                                    2026
+                                </span>
+
+                            </div>
+
+
+                            <div class="chart-medium" id="chartDoadorasEvolucao"></div>
+
+                        </div>
+
+
+
+                        <!-- TABELA -->
+
+                        <div class="dash-card">
+
+                            <div class="dash-card-head">
+
+                                <h4>
+                                    Doadoras por período
+                                </h4>
+
+                            </div>
+
+
+                            <div class="dashboard-table-wrapper">
+
+                                <table class="dashboard-table">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>
+                                                Período
+                                            </th>
+
+                                            <th>
+                                                Novas
+                                            </th>
+
+                                            <th>
+                                                Ativas
+                                            </th>
+
+                                            <th>
+                                                Retenção
+                                            </th>
+
+                                        </tr>
+
+                                    </thead>
+
+
+                                    <tbody id="doadorasPeriodoBody"><tr><td colspan="4">Histórico temporal indisponível: o modelo atual não registra a data de criação da doadora.</td></tr></tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                 3. ENVIO DE KITS
+                 ================================================= -->
+
+                <div class="dash-tab" data-dashpanel="kits">
+                    <div class="dash-header"><h2>Envio de kits</h2></div>
+                    <div class="dash-desc">A equipe Lactare prepara, envia e confirma a entrega do kit de coleta. Os dados abaixo vêm da API e do banco.</div>
+
+                    <div class="dashboard-indicators kit-indicators">
+                        <div class="dashboard-indicator"><span>Aguardando preparação</span><strong id="metricKitAguardando">0</strong><small>kits liberados após exame aprovado</small></div>
+                        <div class="dashboard-indicator"><span>Em preparação</span><strong id="metricKitPreparando">0</strong><small>kits em separação</small></div>
+                        <div class="dashboard-indicator"><span>Enviados</span><strong id="metricKitEnviado">0</strong><small>aguardando entrega</small></div>
+                        <div class="dashboard-indicator"><span>Entregues</span><strong id="metricKitEntregue">0</strong><small>coleta liberada</small></div>
+                    </div>
+
+                    <div class="dash-card kit-board-card">
+                        <div class="dash-card-head"><div><h4>Kits de coleta</h4><p class="kit-helper">O kit só aparece aqui depois que o médico aprova o exame.</p></div></div>
+                        <div class="dashboard-table-wrapper">
+                            <table class="dashboard-table kit-table">
+                                <thead><tr><th>Doadora</th><th>Status</th><th>Atualizado em</th><th>Ação</th></tr></thead>
+                                <tbody id="kitsTableBody"><tr><td colspan="4">Carregando dados reais da API...</td></tr></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- =================================================
+                 4. GESTÃO DE COLETAS
+                 ================================================= -->
+
+                <div class="dash-tab" data-dashpanel="gestao-coletas">
+                    <div class="dash-header"><h2>Gestão de coletas</h2></div>
+                    <div class="dash-desc">A equipe Lactare acompanha a coleta depois que a doadora agenda. Cada mudança de status é salva na API e aparece automaticamente para a doadora.</div>
+
+                    <div class="dashboard-indicators coleta-indicators">
+                        <div class="dashboard-indicator"><span>Agendadas</span><strong id="metricColetaAgendada">0</strong><small>aguardando confirmação</small></div>
+                        <div class="dashboard-indicator"><span>Confirmadas</span><strong id="metricColetaConfirmada">0</strong><small>aguardando realização</small></div>
+                        <div class="dashboard-indicator"><span>Realizadas</span><strong id="metricColetaRealizada">0</strong><small>coletas concluídas</small></div>
+                    </div>
+
+                    <div class="dash-card coleta-board-card">
+                        <div class="dash-card-head"><div><h4>Acompanhamento das coletas</h4><p class="coleta-helper">Fluxo: coleta agendada → confirmar coleta → realizar coleta.</p></div></div>
+                        <div class="dashboard-table-wrapper">
+                            <table class="dashboard-table coleta-table">
+                                <thead><tr><th>Doadora</th><th>Data</th><th>Turno</th><th>Status</th><th>Ação</th></tr></thead>
+                                <tbody id="coletasGestaoTableBody"><tr><td colspan="5">Carregando dados reais da API...</td></tr></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- =================================================
+                 5. SUPORTE ÀS FAMÍLIAS
+                 ================================================= -->
+
+                <div class="dash-tab" data-dashpanel="suporte">
+
+
+                    <div class="dash-header">
+
+                        <h2>
+                            Suporte às famílias
+                        </h2>
+
+                    </div>
+
+
+                    <div class="dash-desc">
+
+                        Acompanhamento dos atendimentos e
+                        agendamentos realizados pela plataforma.
+
+                    </div>
+
+
+
+                    <!-- INDICADORES -->
+
+                    <div class="dashboard-indicators">
+
+
+                        <div class="dashboard-indicator">
+
+                            <span>Atendimentos registrados</span>
+                            <strong id="metricAtendimentos">—</strong>
+                            <small>dados atuais da API</small>
+
+                        </div>
+
+
+                        <div class="dashboard-indicator">
+
+                            <span>Agendamentos</span>
+                            <strong id="metricAgendamentos">—</strong>
+                            <small>consultas com status agendada</small>
+
+                        </div>
+
+
+                        <div class="dashboard-indicator">
+
+                            <span>Realizados</span>
+                            <strong id="metricRealizados">—</strong>
+                            <small>consultas realizadas</small>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="dashboard-two">
+
+
+                        <!-- TIPOS DE ATENDIMENTO -->
+
+                        <div class="dash-card">
+
+                            <div class="dash-card-head">
+
+                                <h4>
+                                    Atendimentos por tipo
+                                </h4>
+
+                            </div>
+
+
+                            <div class="chart-medium" id="chartTiposSuporte"></div>
+
+                        </div>
+
+
+
+                        <!-- TABELA DE AGENDAMENTOS -->
+
+                        <div class="dash-card">
+
+                            <div class="dash-card-head">
+
+                                <h4>
+                                    Agendamentos recentes
+                                </h4>
+
+                            </div>
+
+
+                            <div class="dashboard-table-wrapper">
+
+                                <table class="dashboard-table">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>
+                                                Serviço
+                                            </th>
+
+                                            <th>
+                                                Data
+                                            </th>
+
+                                            <th>
+                                                Status
+                                            </th>
+
+                                        </tr>
+
+                                    </thead>
+
+
+                                    <tbody id="consultasRecentesBody">
+
+
+                                        <tr>
+
+                                            <td>
+                                                Orientação
+                                            </td>
+
+                                            <td>
+                                                18/08
+                                            </td>
+
+                                            <td>
+
+                                                <span class="status status-success">
+                                                    Realizado
+                                                </span>
+
+                                            </td>
+
+                                        </tr>
+
+
+                                        <tr>
+
+                                            <td>
+                                                Atendimento médico
+                                            </td>
+
+                                            <td>
+                                                19/08
+                                            </td>
+
+                                            <td>
+
+                                                <span class="status status-active">
+                                                    Agendado
+                                                </span>
+
+                                            </td>
+
+                                        </tr>
+
+
+                                        <tr>
+
+                                            <td>
+                                                Apoio psicológico
+                                            </td>
+
+                                            <td>
+                                                20/08
+                                            </td>
+
+                                            <td>
+
+                                                <span class="status status-success">
+                                                    Realizado
+                                                </span>
+
+                                            </td>
+
+                                        </tr>
+
+
+                                        <tr>
+
+                                            <td>
+                                                Amamentação
+                                            </td>
+
+                                            <td>
+                                                21/08
+                                            </td>
+
+                                            <td>
+
+                                                <span class="status status-warning">
+                                                    Pendente
+                                                </span>
+
+                                            </td>
+
+                                        </tr>
+
+
+                                        <tr>
+
+                                            <td>
+                                                Orientação
+                                            </td>
+
+                                            <td>
+                                                22/08
+                                            </td>
+
+                                            <td>
+
+                                                <span class="status status-cancel">
+                                                    Cancelado
+                                                </span>
+
+                                            </td>
+
+                                        </tr>
+
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                 4. IMPACTO
+                 ================================================= -->
+
+                <div class="dash-tab" data-dashpanel="impacto">
+
+
+                    <div class="dash-header">
+
+                        <h2>
+                            Impacto
+                        </h2>
+
+                    </div>
+
+
+                    <div class="dash-desc">
+
+                        Indicador ainda não disponível no modelo atual do banco.
+                        Não há relacionamento que permita calcular bebês beneficiados sem inventar dados.
+
+                    </div>
+
+
+
+                    <!-- GRÁFICO PRINCIPAL -->
+
+                    <div class="dash-panel">
+
+
+                        <div class="dash-card">
+
+                            <div class="dash-card-head">
+
+                                <h4>
+                                    Bebês beneficiados por mês
+                                </h4>
+
+                                <span class="dash-pill">
+                                    2026
+                                </span>
+
+                            </div>
+
+
+                            <div class="bar-chart" id="barImpactoMes"></div>
+
+
+                            <div class="bar-labels">
+
+                                <span>J</span>
+                                <span>F</span>
+                                <span>M</span>
+                                <span>A</span>
+                                <span>M</span>
+                                <span>J</span>
+                                <span>J</span>
+                                <span>A</span>
+                                <span>S</span>
+                                <span>O</span>
+                                <span>N</span>
+                                <span>D</span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="dash-card">
+
+                            <div class="dash-card-head">
+
+                                <h4>
+                                    Bebês beneficiados por ano
+                                </h4>
+
+                            </div>
+
+
+                            <div class="bar-chart" id="barImpactoAno"></div>
+
+
+                            <div class="bar-labels">
+
+                                <span>15</span>
+                                <span>16</span>
+                                <span>17</span>
+                                <span>18</span>
+                                <span>19</span>
+                                <span>20</span>
+                                <span>21</span>
+                                <span>22</span>
+                                <span>23</span>
+                                <span>24</span>
+                                <span>25</span>
+                                <span>26</span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- RESULTADOS -->
+
+                        <div class="dash-card">
+
+                            <div class="dash-card-head">
+
+                                <h4>
+                                    Resultados acumulados
+                                </h4>
+
+                            </div>
+
+
+                            <div class="dashboard-table-wrapper">
+
+                                <table class="dashboard-table">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>
+                                                Indicador
+                                            </th>
+
+                                            <th>
+                                                Total
+                                            </th>
+
+                                            <th>
+                                                Período
+                                            </th>
+
+                                        </tr>
+
+                                    </thead>
+
+
+                                    <tbody>
+                        <tr><td>Litros coletados</td><td id="totalLitrosColetados">0 L</td><td>Dados atuais da API</td></tr>
+                        <tr><td>Doações registradas</td><td id="totalDoacoesRegistradas">0</td><td>Dados atuais da API</td></tr>
+                        <tr><td>Bebês beneficiados</td><td>—</td><td>Indisponível no modelo atual</td></tr>
+                        <tr><td>Famílias atendidas</td><td>—</td><td>Indisponível no modelo atual</td></tr>
+                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </main>
+
+        </div>
+
+
+    </section>
+
+
+
+    <script>
+    (function () {
+      'use strict';
+      function escColeta(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+      function upColeta(v){return String(v||'').toUpperCase();}
+      function nomeColeta(c){return c && c.doadora ? (c.doadora.nomeCompleto || c.doadora.nome || c.doadora.nomeDoadora || 'Doadora') : 'Doadora';}
+      function dataColeta(v){if(!v)return '—';var m=/^(\d{4})-(\d{2})-(\d{2})/.exec(v);return m?m[3]+'/'+m[2]+'/'+m[1]:'—';}
+      function classeColeta(st){return st==='REALIZADA'?'realizada':st==='CONFIRMADA'?'confirmada':'agendada';}
+      function textoColeta(st){return st==='REALIZADA'?'Realizada':st==='CONFIRMADA'?'Confirmada':st==='PENDENTE'?'Pendente':'Agendada';}
+      function acaoColeta(c){var st=upColeta(c.status);if(st==='AGENDADA'||st==='PENDENTE')return '<button class="coleta-action" onclick="LactareColetaUI.acao('+c.id+',\'confirmar\')">Confirmar coleta</button>';if(st==='CONFIRMADA')return '<button class="coleta-action" onclick="LactareColetaUI.acao('+c.id+',\'realizar\')">Marcar como realizada</button>';return '<span style="color:#7f9caf;font-size:11px;">Coleta concluída</span>';}
+      async function carregarColetas(){var body=document.getElementById('coletasGestaoTableBody');if(!body)return;try{var lista=await LactareAPI.coletas();lista=Array.isArray(lista)?lista:[];var counts={AGENDADA:0,PENDENTE:0,CONFIRMADA:0,REALIZADA:0,RECEBIDA:0};lista.forEach(function(c){var st=upColeta(c.status);if(counts[st]!=null)counts[st]++;});document.getElementById('metricColetaAgendada').textContent=(counts.AGENDADA+counts.PENDENTE);document.getElementById('metricColetaConfirmada').textContent=counts.CONFIRMADA;document.getElementById('metricColetaRealizada').textContent=counts.REALIZADA+counts.RECEBIDA;if(!lista.length){body.innerHTML='<tr><td colspan="5" class="kit-empty">Nenhuma coleta disponível no banco.</td></tr>';return;}body.innerHTML=lista.slice().sort(function(a,b){return String(a.data).localeCompare(String(b.data))||(a.id-b.id);}).map(function(c){var st=upColeta(c.status);return '<tr><td>'+escColeta(nomeColeta(c))+'</td><td>'+escColeta(dataColeta(c.data))+'</td><td>'+escColeta(c.turno||'—')+'</td><td><span class="coleta-status '+classeColeta(st)+'">'+textoColeta(st)+'</span></td><td>'+acaoColeta(c)+'</td></tr>';}).join('');}catch(e){body.innerHTML='<tr><td colspan="5">Não foi possível carregar as coletas reais da API.</td></tr>';}}
+      window.LactareColetaUI={acao:async function(id,acao){try{if(acao==='confirmar')await LactareAPI.confirmarColeta(id);else if(acao==='realizar')await LactareAPI.realizarColeta(id);await carregarColetas();}catch(e){alert(e.message||'Não foi possível atualizar a coleta.');}},carregar:carregarColetas};
+      document.addEventListener('DOMContentLoaded',function(){var s=LactareAPI.session();if(s&&s.perfil==='EQUIPE')carregarColetas();if(window.LactareAPI&&LactareAPI.onDataChanged)LactareAPI.onDataChanged(carregarColetas);setInterval(function(){var s=LactareAPI.session();if(s&&s.perfil==='EQUIPE')carregarColetas();},5000);});
+    })();
+    </script>
+
+    <script>
+    (function () {
+      'use strict';
+      function escKit(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+      function upKit(v){return String(v||'').toUpperCase();}
+      function nomeDoadora(k){return k && k.doadora ? (k.doadora.nomeCompleto || k.doadora.nome || k.doadora.nomeDoadora || 'Doadora') : 'Doadora';}
+      function dataKit(v){if(!v)return '—';var m=/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(v);return m?m[3]+'/'+m[2]+'/'+m[1]+' às '+m[4]+':'+m[5]:'—';}
+      function classeKit(st){return st==='ENTREGUE'?'entregue':st==='ENVIADO'?'enviado':st==='EM_PREPARACAO'?'preparacao':'aguardando';}
+      function textoKit(st){return st==='ENTREGUE'?'Entregue':st==='ENVIADO'?'Enviado':st==='EM_PREPARACAO'?'Em preparação':'Aguardando preparação';}
+      function acaoKit(k){
+        var st=upKit(k.status);
+        if(st==='AGUARDANDO_PREPARACAO') return '<button class="kit-action" onclick="LactareKitUI.acao('+k.id+',\'preparar\')">Preparar kit</button>';
+        if(st==='EM_PREPARACAO') return '<button class="kit-action" onclick="LactareKitUI.acao('+k.id+',\'enviar\')">Enviar kit</button>';
+        if(st==='ENVIADO') return '<button class="kit-action" onclick="LactareKitUI.acao('+k.id+',\'entregar\')">Confirmar entrega</button>';
+        return '<span style="color:#7f9caf;font-size:11px;">Coleta liberada</span>';
+      }
+      async function carregarKits(){
+        var body=document.getElementById('kitsTableBody'); if(!body)return;
+        try{
+          var kits=await LactareAPI.kits(); kits=Array.isArray(kits)?kits:[];
+          var counts={AGUARDANDO_PREPARACAO:0,EM_PREPARACAO:0,ENVIADO:0,ENTREGUE:0};
+          kits.forEach(function(k){var st=upKit(k.status); if(counts[st]!=null)counts[st]++;});
+          document.getElementById('metricKitAguardando').textContent=counts.AGUARDANDO_PREPARACAO;
+          document.getElementById('metricKitPreparando').textContent=counts.EM_PREPARACAO;
+          document.getElementById('metricKitEnviado').textContent=counts.ENVIADO;
+          document.getElementById('metricKitEntregue').textContent=counts.ENTREGUE;
+          if(!kits.length){body.innerHTML='<tr><td colspan="4" class="kit-empty">Nenhum kit disponível no banco.</td></tr>';return;}
+          body.innerHTML=kits.slice().sort(function(a,b){return String(a.status).localeCompare(String(b.status)) || (a.id-b.id);}).map(function(k){var st=upKit(k.status);return '<tr><td>'+escKit(nomeDoadora(k))+'</td><td><span class="kit-status '+classeKit(st)+'">'+textoKit(st)+'</span></td><td>'+escKit(dataKit(k.atualizadoEm))+'</td><td>'+acaoKit(k)+'</td></tr>';}).join('');
+        }catch(e){body.innerHTML='<tr><td colspan="4">Não foi possível carregar os kits reais da API.</td></tr>';}
+      }
+      window.LactareKitUI={acao:async function(id,acao){
+        try{
+          if(acao==='preparar') await LactareAPI.prepararKit(id);
+          else if(acao==='enviar') await LactareAPI.enviarKit(id);
+          else if(acao==='entregar') await LactareAPI.entregarKit(id);
+          await carregarKits();
+        }catch(e){alert(e.message||'Não foi possível atualizar o kit.');}
+      }, carregar:carregarKits};
+      document.addEventListener('DOMContentLoaded',function(){
+        var s=LactareAPI.session();
+        if(s && s.perfil==='EQUIPE') carregarKits();
+        if(window.LactareAPI && LactareAPI.onDataChanged) LactareAPI.onDataChanged(carregarKits);
+        setInterval(function(){var s=LactareAPI.session();if(s&&s.perfil==='EQUIPE')carregarKits();},5000);
+      });
+    })();
+    </script>
+
+    <!-- SCRIPT PRINCIPAL -->
+
+    <script src="../../assets/js/api-client.js"></script>
+<script>document.addEventListener('DOMContentLoaded',function(){var s=LactareAPI.session();if(!s||s.perfil!=='EQUIPE'){window.location.href='../login/equipe.html';}});</script>
+
+  <script src="../../assets/js/script.js"></script>
+
+
+    <!-- GRÁFICOS -->
+
+    <script src="../../assets/js/dashboard-charts.js"></script>
+
+
+</body>
+
+</html>

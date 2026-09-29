@@ -1,0 +1,507 @@
+/* ==========================================================
+   LACTARE — LOGIN EQUIPE
+   ========================================================== */
+
+.login-equipe {
+    position: relative;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    min-height: 100vh;
+    overflow: visible;
+    background: #0a2540;
+}
+
+.login-equipe .login-left {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 0 20px 0 95px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: transparent;
+}
+
+.login-equipe .login-left h1 {
+    margin: 0;
+    max-width: 390px;
+    color: #54b2e3;
+    font-size: 40px;
+    line-height: 1.32;
+    font-weight: 700;
+    text-align: left;
+}
+
+.login-equipe .login-right {
+    position: relative;
+    z-index: 3;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 0;
+    display: block;
+    background: transparent;
+    overflow: visible;
+}
+
+.login-equipe .login-box {
+    position: relative;
+    z-index: 4;
+    width: 307px;
+    max-width: 307px;
+    margin-top: 120px;
+    margin-left: 25px;
+}
+
+.login-equipe > .login-watermark {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    width: 600px;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    opacity: 0.18;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.login-equipe .login-tagline {
+    margin: 0 0 28px;
+    color: #54b2e3;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: center;
+}
+
+.login-equipe .login-box .field {
+    margin-bottom: 22px;
+}
+
+.login-equipe .login-box input[type="text"],
+.login-equipe .login-box input[type="password"] {
+    width: 307px;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border: 1.5px solid #ffffff;
+    border-radius: 9px;
+    background: transparent;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.login-equipe .login-box input[type="text"]:focus,
+.login-equipe .login-box input[type="password"]:focus {
+    outline: none;
+    border-color: #ffffff;
+}
+
+.login-equipe .login-box input::placeholder {
+    color: #b8b8b8;
+}
+
+.login-equipe .password-toggle {
+    color: #7fa5c8;
+}
+
+.login-equipe .password-toggle:hover,
+.login-equipe .password-toggle.is-visible {
+    color: #54b2e3;
+}
+
+.login-equipe .forgot-row {
+    margin-top: -10px;
+    margin-bottom: 14px;
+    text-align: right;
+}
+
+.login-equipe .link,
+.login-equipe .link-sm {
+    color: #54b2e3;
+    cursor: pointer;
+}
+
+.login-equipe .link {
+    font-size: 12px;
+}
+
+.login-equipe .link-sm {
+    font-size: 11.5px;
+}
+
+.login-equipe .btn.btn-primary.btn-block {
+    width: 247px;
+    height: 49px;
+    margin: 0 auto;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 25px;
+    background: #54b2e3;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    display: block;
+    box-sizing: border-box;
+}
+
+.login-equipe .btn.btn-primary.btn-block:hover {
+    background: #54b2e3;
+}
+
+.login-equipe .login-footnote,
+.login-equipe .login-help,
+.login-equipe .login-guide,
+.login-equipe .team-access {
+    width: 307px;
+    max-width: 307px;
+}
+
+.login-equipe .login-footnote,
+.login-equipe .login-help {
+    color: #54b2e3;
+}
+
+.login-equipe .login-footnote {
+    margin-top: 13px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.login-equipe .login-help {
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.login-equipe .login-guide {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #8fd3a8;
+    font-weight: 700;
+    text-align: center;
+}
+
+.login-equipe .wa-icon {
+    color: #8fd3a8;
+}
+
+.login-equipe .team-access {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.login-equipe .back-login-link {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #54b2e3;
+    font: inherit;
+    cursor: pointer;
+}
+
+.login-equipe .back-login-link:hover {
+    color: #8fd3f0;
+    text-decoration: underline;
+}
+
+.login-equipe .login-links-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.login-equipe .login-error {
+    background: rgba(220, 70, 60, 0.12);
+    border: 1px solid rgba(220, 70, 60, 0.4);
+    color: #ff9d94;
+    font-size: 11.5px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+
+/* ==========================================================
+   DESKTOP
+   NÃO ALTERA A COMPOSIÇÃO ORIGINAL
+   ========================================================== */
+
+@media (min-width: 1024px) {
+
+    .login-equipe {
+        grid-template-columns: 440px 560px;
+        width: min(100%, 1000px);
+        margin-inline: auto;
+    }
+
+    .login-equipe .login-left {
+        padding: 0;
+        padding-bottom: clamp(0px, 8.9vh, 84px);
+        box-sizing: border-box;
+    }
+
+    .login-equipe .login-left h1 {
+        transform: none;
+    }
+
+    .login-equipe .login-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 0;
+    }
+
+    .login-equipe .login-box {
+        margin: 0;
+    }
+
+    .login-equipe > .login-watermark {
+        left: 46%;
+    }
+}
+
+
+/* ==========================================================
+   TABLET / NOTEBOOK PEQUENO
+   768px até 1023px
+   ========================================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .login-equipe {
+        grid-template-columns: 44% 56%;
+        width: 100%;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+
+    .login-equipe .login-left {
+        min-height: 100vh;
+        padding: 0 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .login-equipe .login-left h1 {
+        width: 100%;
+        max-width: 360px;
+        font-size: clamp(30px, 4vw, 38px);
+        line-height: 1.25;
+        text-align: left;
+    }
+
+    .login-equipe .login-right {
+        min-height: 100vh;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .login-equipe .login-box {
+        width: min(307px, 100%);
+        max-width: 307px;
+        margin: 0;
+    }
+
+    .login-equipe .login-box input[type="text"],
+    .login-equipe .login-box input[type="password"] {
+        width: 100%;
+    }
+
+    .login-equipe .btn.btn-primary.btn-block {
+        width: 247px;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .login-equipe .login-footnote,
+    .login-equipe .login-help,
+    .login-equipe .login-guide,
+    .login-equipe .team-access {
+        width: 100%;
+        max-width: 307px;
+    }
+
+    .login-equipe > .login-watermark {
+        left: 48%;
+        top: 50%;
+        width: min(600px, 75vw);
+    }
+}
+
+
+/* ==========================================================
+   CELULAR
+   481px até 767px
+   ========================================================== */
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    .login-equipe {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        min-height: 100svh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .login-equipe .login-left {
+        min-height: auto;
+        padding: 45px 25px 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .login-equipe .login-left h1 {
+        width: 100%;
+        max-width: 520px;
+        font-size: clamp(30px, 7vw, 38px);
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .login-equipe .login-right {
+        min-height: auto;
+        padding: 20px 25px 50px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .login-equipe .login-box {
+        width: min(307px, 100%);
+        max-width: 307px;
+        margin: 0;
+    }
+
+    .login-equipe .login-box input[type="text"],
+    .login-equipe .login-box input[type="password"] {
+        width: 100%;
+    }
+
+    .login-equipe .btn.btn-primary.btn-block {
+        width: 247px;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .login-equipe .login-footnote,
+    .login-equipe .login-help,
+    .login-equipe .login-guide,
+    .login-equipe .team-access {
+        width: 100%;
+        max-width: 307px;
+    }
+
+    .login-equipe > .login-watermark {
+        left: 50%;
+        top: 55%;
+        width: min(500px, 110vw);
+    }
+}
+
+
+/* ==========================================================
+   CELULAR PEQUENO
+   Até 480px
+   ========================================================== */
+
+@media (max-width: 480px) {
+
+    .login-equipe {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        min-height: 100svh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .login-equipe .login-left {
+        min-height: auto;
+        padding: 35px 18px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-equipe .login-left h1 {
+        width: 100%;
+        max-width: 100%;
+        font-size: 28px;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .login-equipe .login-right {
+        min-height: auto;
+        padding: 20px 16px 42px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .login-equipe .login-box {
+        width: 100%;
+        max-width: 307px;
+        margin: 0;
+    }
+
+    .login-equipe .login-box input[type="text"],
+    .login-equipe .login-box input[type="password"] {
+        width: 100%;
+    }
+
+    .login-equipe .btn.btn-primary.btn-block {
+        width: 100%;
+        max-width: 247px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .login-equipe .login-footnote,
+    .login-equipe .login-help,
+    .login-equipe .login-guide,
+    .login-equipe .team-access {
+        width: 100%;
+        max-width: 307px;
+    }
+
+    .login-equipe > .login-watermark {
+        left: 50%;
+        top: 55%;
+        width: 300px;
+    }
+}
+
+
+/* ==========================================================
+   FUNDO
+   ========================================================== */
+
+body:has(.login-equipe) {
+    background: #0a2540;
+}

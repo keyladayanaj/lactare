@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="lactare-no-scrollbar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lactare — Área Médica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/medico.css">
+</head>
+<body>
+<section class="screen active" id="screen-medico">
+    <div class="med-shell">
+        <aside class="med-sidebar">
+            <div class="sidebar-brand">Área Médica Lactare</div>
+
+            <ul class="med-menu" id="medMenu">
+                <li><a class="active" data-tab="visao-geral" onclick="showMedTab('visao-geral', this)">Visão geral</a></li>
+                <li><a data-tab="triagens" onclick="showMedTab('triagens', this)">Triagens</a></li>
+                <li><a data-tab="agenda" onclick="showMedTab('agenda', this)">Agenda de exames</a></li>
+                <li><a data-tab="resultados" onclick="showMedTab('resultados', this)">Resultados</a></li>
+            </ul>
+
+            <div class="med-user-card">
+                <span class="med-user-label">Médico conectado</span>
+                <strong id="doctorName">Carregando...</strong>
+                <small>Equipe Lactare · Médico</small>
+            </div>
+
+            <button class="med-back" type="button" onclick="goToLoginEquipe()">← Voltar ao Login</button>
+        </aside>
+
+        <main class="med-main">
+            <div class="med-topbar">
+                <div>
+                    <span class="med-top-label">Equipe Lactare</span>
+                    <h1>Área médica</h1>
+                </div>
+                <div class="med-top-actions"><span id="medApiStatus" class="api-status">Conectando à API...</span><img src="../../assets/images/lactare-logo.png" alt="Lactare" class="brand-mark"></div>
+            </div>
+
+            <section class="med-tab active" data-medpanel="visao-geral">
+                <div class="med-header">
+                    <h2>Visão geral</h2>
+                    <p>Acompanhe suas triagens, exames e pendências médicas.</p>
+                </div>
+
+                <div class="med-indicators">
+                    <article class="med-indicator"><span>Triagens pendentes</span><strong id="medMetricPendente">0</strong><small>aguardando análise</small></article>
+                    <article class="med-indicator"><span>Em análise</span><strong id="medMetricAnalise">0</strong><small>em acompanhamento</small></article>
+                    <article class="med-indicator"><span>Aprovadas</span><strong id="medMetricAprovada">0</strong><small>liberadas para próxima etapa</small></article>
+                    <article class="med-indicator"><span>Não aprovadas</span><strong id="medMetricRecusada">0</strong><small>com decisão registrada</small></article>
+                </div>
+
+                <div class="med-grid two">
+                    <article class="med-card">
+                        <div class="med-card-head"><h3>Próximos exames</h3><button type="button" class="med-link" onclick="showMedTab('agenda')">Ver agenda</button></div>
+                        <div class="exam-list" id="doctorUpcoming"><div class="med-empty-block">Carregando pela API...</div></div>
+                    </article>
+
+                    <article class="med-card">
+                        <div class="med-card-head"><h3>Atividades recentes</h3></div>
+                        <div class="activity-list" id="doctorActivity"><div class="med-empty-block">Carregando pela API...</div></div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="med-tab" data-medpanel="triagens">
+                <div class="med-header"><h2>Triagens de doadoras</h2><p>Analise as respostas da triagem e registre sua decisão médica.</p></div>
+                <div class="med-card">
+                    <div class="med-card-head"><div><h3>Triagens aguardando análise</h3><p class="med-helper">A decisão registrada aqui atualiza o processo da doadora.</p></div></div>
+                    <div class="table-wrap">
+                        <table class="med-table">
+                            <thead><tr><th>Doadora</th><th>Data</th><th>Status</th><th>Ação</th></tr></thead>
+                            <tbody id="doctorTriagemBody"><tr><td colspan="4">Carregando pela API...</td></tr></tbody>
+                        </table>
+                    </div>
+                    <div id="triagemDetail" class="triagem-detail" hidden></div>
+                </div>
+            </section>
+
+            <section class="med-tab" data-medpanel="agenda">
+                <div class="med-header"><h2>Agenda de exames</h2><p>Visualize os exames médicos agendados e as solicitações recebidas.</p></div>
+                <div class="med-card">
+                    <div class="med-card-head"><h3>Minha agenda</h3><span class="med-pill" id="medCurrentMonth">Agenda</span></div>
+                    <div class="agenda-list" id="doctorAgendaBody"><div class="med-empty-block">Carregando pela API...</div></div>
+                </div>
+            </section>
+
+            <section class="med-tab" data-medpanel="resultados">
+                <div class="med-header"><h2>Resultados médicos</h2><p>Registre e acompanhe os resultados dos exames realizados.</p></div>
+                <div class="med-card">
+                    <div class="med-card-head"><h3>Exames recentes</h3></div>
+                    <div class="table-wrap">
+                        <table class="med-table">
+                            <thead><tr><th>Doadora</th><th>Exame</th><th>Resultado</th><th>Data</th><th>Ação</th></tr></thead>
+                            <tbody id="doctorResultsBody"><tr><td colspan="5">Carregando pela API...</td></tr></tbody>
+                        </table>
+                    </div>
+                    <div id="resultMessage" class="result-message" hidden></div>
+                </div>
+            </section>
+        </main>
+    </div>
+</section>
+
+<script src="../../assets/js/api-client.js"></script>
+<script src="../../assets/js/script.js"></script>
+<script>
+const MED = { triagens: [], consultas: [] };
+
+function escMed(value) {
+    return String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+}
+function fmtDateMed(v) {
+    if (!v) return '—';
+    const s = String(v).slice(0,10);
+    const p = s.split('-');
+    return p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : s;
+}
+function fmtStatusMed(status) {
+    const map = {
+        PENDENTE:['Pendente','pending'], EM_ANALISE:['Em análise','analysis'], APROVADA:['Aprovada','confirmed'],
+        NAO_APROVADA:['Não aprovada','rejected'], AGENDADA:['Aguardando confirmação','pending'],
+        CONFIRMADA:['Confirmado','confirmed'], CANCELADA:['Cancelado','rejected'], REALIZADA:['Realizado','confirmed']
+    };
+    return map[status] || [status || '—','analysis'];
+}
+function statusBadge(status) {
+    const [label, cls] = fmtStatusMed(status);
+    return `<span class="med-status ${cls}">${escMed(label)}</span>`;
+}
+function showMedTab(tab, link) {
+    document.querySelectorAll('.med-tab').forEach(el => el.classList.toggle('active', el.dataset.medpanel === tab));
+    document.querySelectorAll('#medMenu a').forEach(el => el.classList.toggle('active', el.dataset.tab === tab));
+    if (link) link.classList.add('active');
+}
+function setMetric(id, value) { const el = document.getElementById(id); if (el) el.textContent = value; }
+function emptyRow(cols, text) { return `<tr><td colspan="${cols}" class="med-empty">${escMed(text)}</td></tr>`; }
+
+function renderMetrics() {
+    setMetric('medMetricPendente', MED.triagens.filter(t => t.status === 'PENDENTE').length);
+    setMetric('medMetricAnalise', MED.triagens.filter(t => t.status === 'EM_ANALISE').length);
+    setMetric('medMetricAprovada', MED.triagens.filter(t => t.status === 'APROVADA').length);
+    setMetric('medMetricRecusada', MED.triagens.filter(t => t.status === 'NAO_APROVADA').length);
+}
+
+function renderTriagens() {
+    const body = document.getElementById('doctorTriagemBody');
+    if (!body) return;
+    const triagens = MED.triagens.filter(t => t.status === 'PENDENTE' || t.status === 'EM_ANALISE');
+    body.innerHTML = triagens.length ? triagens.map(t => {
+        const action = t.status === 'EM_ANALISE' ? 'Continuar' : 'Analisar';
+        return `<tr><td>${escMed(t.doadoraNome || 'Doadora')}</td><td>${fmtDateMed(t.dataEnvio)}</td><td>${statusBadge(t.status)}</td><td><button class="med-action" onclick="openTriagemApi(${t.id})">${action}</button></td></tr>`;
+    }).join('') : emptyRow(4, 'Não há triagens pendentes de análise.');
+}
+
+function renderAgenda() {
+    const box = document.getElementById('doctorAgendaBody');
+    if (!box) return;
+    const exames = MED.consultas.filter(c => c.motivo === 'EXAME_MEDICO').sort((a,b) => `${a.data} ${a.horario}`.localeCompare(`${b.data} ${b.horario}`));
+    box.innerHTML = exames.length ? exames.map(c => {
+        const nome = c.doadora?.nome || 'Doadora';
+        const action = c.status === 'AGENDADA' ? `<button class="med-action" onclick="confirmarAgendamentoMedico(${c.id})">Confirmar</button>` : (c.status === 'CONFIRMADA' ? `<button class="med-action" onclick="realizarExameMedico(${c.id})">Marcar exame como realizado</button>` : (c.status === 'REALIZADA' ? `<button class="med-action" onclick="showResultApi(${c.id})">Registrar resultado</button>` : ''));
+        return `<div class="agenda-day"><strong>${fmtDateMed(c.data)}</strong><div><b>${escMed(c.horario)} · ${escMed(nome)}</b><span>Exame médico · ${escMed(fmtStatusMed(c.status)[0])}</span></div><div class="agenda-actions">${statusBadge(c.status)} ${action}</div></div>`;
+    }).join('') : '<div class="med-empty-block">Nenhum exame médico agendado.</div>';
+}
+
+function renderResults() {
+    const body = document.getElementById('doctorResultsBody');
+    if (!body) return;
+    const results = MED.consultas.filter(c => c.motivo === 'EXAME_MEDICO' && (c.status === 'APROVADA' || c.status === 'NAO_APROVADA'));
+    body.innerHTML = results.length ? results.map(c => {
+        const nome = c.doadora?.nome || 'Doadora';
+        return `<tr><td>${escMed(nome)}</td><td>Exame médico</td><td>${statusBadge(c.status)}</td><td>${fmtDateMed(c.data)}</td><td><button class="med-action secondary" onclick="showResultApi(${c.id})">Ver</button></td></tr>`;
+    }).join('') : emptyRow(5, 'Nenhum resultado médico registrado pela API.');
+}
+
+function renderRecent() {
+    const exams = MED.consultas.filter(c => c.motivo === 'EXAME_MEDICO').sort((a,b) => `${a.data} ${a.horario}`.localeCompare(`${b.data} ${b.horario}`)).slice(0,4);
+    const examList = document.getElementById('doctorUpcoming');
+    if (examList) examList.innerHTML = exams.length ? exams.map(c => `<div class="exam-row"><div><strong>${escMed(c.doadora?.nome || 'Doadora')}</strong><span>${fmtDateMed(c.data)} · ${escMed(c.horario || '—')}</span></div>${statusBadge(c.status)}</div>`).join('') : '<div class="med-empty-block">Nenhum exame encontrado na API.</div>';
+    const activity = document.getElementById('doctorActivity');
+    if (activity) {
+        const acts = [];
+        MED.triagens.slice(0,3).forEach(t => acts.push(`<div><span class="activity-dot"></span><p><strong>Triagem ${escMed(fmtStatusMed(t.status)[0]).toLowerCase()}</strong><small>${escMed(t.doadoraNome || 'Doadora')} · ${fmtDateMed(t.dataEnvio)}</small></p></div>`));
+        MED.consultas.filter(c => c.motivo === 'EXAME_MEDICO').slice(0,3).forEach(c => acts.push(`<div><span class="activity-dot"></span><p><strong>Exame médico</strong><small>${escMed(c.doadora?.nome || 'Doadora')} · ${fmtDateMed(c.data)} ${escMed(c.horario || '')}</small></p></div>`));
+        activity.innerHTML = acts.length ? acts.slice(0,5).join('') : '<div class="med-empty-block">Nenhuma atividade encontrada na API.</div>';
+    }
+}
+
+function inicializarPerfilMedico() {
+    const raw = localStorage.getItem('lactare_session');
+    try {
+        const sessao = raw ? JSON.parse(raw) : null;
+        if (!sessao || sessao.perfil !== 'MEDICO') {
+            goToLoginEquipe();
+            return false;
+        }
+        const nome = document.getElementById('doctorName');
+        if (nome) nome.textContent = sessao.nome || 'Médico';
+        const mes = document.getElementById('medCurrentMonth');
+        if (mes) mes.textContent = new Intl.DateTimeFormat('pt-BR', { month: 'long', year: 'numeric' }).format(new Date());
+        return true;
+    } catch (e) {
+        goToLoginEquipe();
+        return false;
+    }
+}
+
+async function carregarDadosMedico() {
+    const sessao = LactareAPI.session();
+    if (!sessao || sessao.perfil !== 'MEDICO') {
+        window.location.href = '../login/equipe.html';
+        return;
+    }
+    if (sessao.nome) document.getElementById('doctorName').textContent = sessao.nome;
+    try {
+        const [triagens, consultas] = await Promise.all([LactareAPI.triagens(), LactareAPI.consultas()]);
+        MED.triagens = Array.isArray(triagens) ? triagens : [];
+        MED.consultas = Array.isArray(consultas) ? consultas : [];
+        renderMetrics(); renderTriagens(); renderAgenda(); renderResults(); renderRecent();
+        document.getElementById('medApiStatus').textContent = 'API conectada';
+        document.getElementById('medApiStatus').className = 'api-status online';
+    } catch (e) {
+        document.getElementById('medApiStatus').textContent = e.message || 'Erro na API';
+        document.getElementById('medApiStatus').className = 'api-status error';
+    }
+}
+
+async function openTriagemApi(id) {
+    const box = document.getElementById('triagemDetail');
+    box.hidden = false;
+    box.innerHTML = '<p>Carregando dados da triagem pela API...</p>';
+    try {
+        const t = await LactareAPI.triagem(id);
+        box.innerHTML = `<h4>Análise de triagem — ${escMed(t.doadoraNome)}</h4>
+          <div class="answer-grid">
+            <div><b>Amamentando</b><span>${escMed(t.amamentando || 'Não informado')}</span></div>
+            <div><b>Idade do bebê</b><span>${escMed(t.idadeBebe || 'Não informado')}</span></div>
+            <div><b>Uso de medicamentos</b><span>${escMed(t.medicamento || 'Não informado')}</span></div>
+            <div><b>Tabagismo</b><span>${escMed(t.fuma || 'Não informado')}</span></div>
+            <div><b>Exames recentes</b><span>${escMed(t.examesRecentes || 'Não informado')}</span></div>
+            <div><b>Já doou</b><span>${escMed(t.jaDoou || 'Não informado')}</span></div>
+          </div>
+          <p>Registre a decisão de acordo com o protocolo médico adotado pela Lactare.</p>
+          <div class="decision-row">
+            <button class="decision approve" onclick="setDecisionApi(${t.id}, 'APROVADA')">Aprovar triagem</button>
+            <button class="decision reject" onclick="setDecisionApi(${t.id}, 'NAO_APROVADA')">Não aprovar</button>
+          </div>`;
+        box.scrollIntoView({behavior:'smooth', block:'nearest'});
+    } catch (e) { box.innerHTML = `<p class="api-error">${escMed(e.message)}</p>`; }
+}
+
+async function setDecisionApi(id, status) {
+    const box = document.getElementById('triagemDetail');
+    box.innerHTML = '<p>Salvando decisão na API...</p>';
+    try {
+        const updated = await LactareAPI.statusTriagem(id, status);
+        const index = MED.triagens.findIndex(t => t.id === id);
+        if (index >= 0) MED.triagens[index] = updated;
+        renderMetrics(); renderTriagens(); renderRecent();
+        box.innerHTML = `<h4>Decisão registrada pela API</h4><p><strong>${escMed(updated.doadoraNome)}</strong>: triagem <strong>${escMed(fmtStatusMed(updated.status)[0])}</strong>.</p><p class="med-helper">O status foi persistido no banco e a jornada da doadora poderá refletir a alteração.</p>`;
+    } catch (e) { box.innerHTML = `<p class="api-error">${escMed(e.message)}</p>`; }
+}
+
+async function confirmarAgendamentoMedico(id) {
+    try {
+        const updated = await LactareAPI.confirmarAgendamentoExame(id);
+        const index = MED.consultas.findIndex(c => c.id === id);
+        if (index >= 0) MED.consultas[index] = updated;
+        renderAgenda(); renderRecent();
+        alert('Agendamento do exame confirmado pela API.');
+    } catch (e) { alert(e.message); }
+}
+
+async function realizarExameMedico(id) {
+    try {
+        const updated = await LactareAPI.realizarExame(id);
+        const index = MED.consultas.findIndex(c => c.id === id);
+        if (index >= 0) MED.consultas[index] = updated;
+        renderAgenda(); renderRecent();
+        showResultApi(id);
+    } catch (e) { alert(e.message); }
+}
+
+async function showResultApi(id) {
+    const box = document.getElementById('resultMessage');
+    const c = MED.consultas.find(x => x.id === id);
+    if (!c) return;
+    box.hidden = false;
+    box.innerHTML = `<strong>${escMed(c.doadora?.nome || 'Doadora')}</strong><br>Exame: ${statusBadge(c.status)}<br><p class="med-helper">Nesta etapa, o sistema simula o resultado clínico: após o exame ser marcado como realizado, o médico registra manualmente a decisão.</p><br><button class="decision approve" onclick="registrarResultadoExame(${id}, 'APROVADA')">Aprovar exame</button> <button class="decision reject" onclick="registrarResultadoExame(${id}, 'NAO_APROVADA')">Não aprovar</button>`;
+}
+
+async function registrarResultadoExame(id, status) {
+    const box = document.getElementById('resultMessage');
+    box.innerHTML = '<p>Salvando resultado na API...</p>';
+    try {
+        const updated = await LactareAPI.resultadoExame(id, status);
+        const index = MED.consultas.findIndex(c => c.id === id);
+        if (index >= 0) MED.consultas[index] = updated;
+        renderResults(); renderRecent();
+        box.innerHTML = `<strong>Resultado salvo pela API:</strong> ${statusBadge(updated.status)}<p class="med-helper">A jornada da doadora será atualizada a partir do status persistido.</p>`;
+    } catch (e) { box.innerHTML = `<p class="api-error">${escMed(e.message)}</p>`; }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    carregarDadosMedico();
+    document.addEventListener('visibilitychange', function(){ if(!document.hidden) carregarDadosMedico(); });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html class="lactare-no-scrollbar" lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lactare — Perfil Nutriz</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/css/style.css"><link rel="stylesheet" href="../../assets/css/perfil-nutriz.css"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style id="pontos-header-fixo">
+/* Pontos de doação: mantém apenas o cabeçalho da página fixo.
+   O card de busca, filtros, lista e mapa continuam rolando normalmente. */
+@media (min-width: 768px) {
+  #screen-perfil-nutriz:has(.panel-tab[data-panel-tab="pontos"].active) .topbar-mini {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    background: #f8fcfe !important;
+  }
+
+  #screen-perfil-nutriz:has(.panel-tab[data-panel-tab="pontos"].active) .greeting-bar {
+    position: sticky !important;
+    top: 58px !important;
+    z-index: 999 !important;
+    background: #f8fcfe !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    padding: 0 6px 12px !important;
+    margin: 0 -6px 18px !important;
+    box-shadow: 0 1px 0 rgba(7, 63, 140, .08) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  #screen-perfil-nutriz:has(.panel-tab[data-panel-tab="pontos"].active) .topbar-mini {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    background: #f8fcfe !important;
+  }
+
+  #screen-perfil-nutriz:has(.panel-tab[data-panel-tab="pontos"].active) .greeting-bar {
+    position: sticky !important;
+    top: 48px !important;
+    z-index: 999 !important;
+    background: #f8fcfe !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 14px !important;
+    box-shadow: 0 1px 0 rgba(7, 63, 140, .08) !important;
+  }
+}
+</style>
+<style>
+#screen-perfil-nutriz .doadora-status-card{display:flex;align-items:center;gap:14px;margin:0 0 18px;padding:16px 18px;border:1px solid #d8eaf3;border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(0,69,139,.06);}
+#screen-perfil-nutriz .status-card-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:#fff4d8;font-size:21px;flex:0 0 auto;}
+#screen-perfil-nutriz .status-card-copy{flex:1;}
+#screen-perfil-nutriz .status-card-kicker{font-size:9px;letter-spacing:.13em;font-weight:800;color:#54b2e3;}
+#screen-perfil-nutriz .status-card-copy h2{margin:2px 0 3px;font-size:16px;color:#00458b;}
+#screen-perfil-nutriz .status-card-copy p{margin:0;font-size:11.5px;line-height:1.45;color:#426782;}
+#screen-perfil-nutriz .doadora-status-pill{padding:6px 10px;border-radius:20px;font-size:10px;font-weight:800;background:#fff4d8;color:#9a6800;white-space:nowrap;}
+#screen-perfil-nutriz .doadora-status-card.aprovada .status-card-icon{background:#e1f7ec;}
+#screen-perfil-nutriz .doadora-status-card.aprovada .doadora-status-pill{background:#e1f7ec;color:#147448;}
+#screen-perfil-nutriz .doadora-status-card.recusada .status-card-icon{background:#ffe7ed;}
+#screen-perfil-nutriz .doadora-status-card.recusada .doadora-status-pill{background:#ffe7ed;color:#a52e4c;}
+#screen-perfil-nutriz .agendamento-gate-message{margin-top:8px;font-size:11px;color:#8a5d00;}
+#screen-perfil-nutriz .registro-submit:disabled{opacity:.55;cursor:not-allowed;}
+@media(max-width:700px){#screen-perfil-nutriz .doadora-status-card{align-items:flex-start;flex-wrap:wrap;}#screen-perfil-nutriz .doadora-status-pill{margin-left:56px;}}
+</style></head><body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="icon-bell" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a1 1 0 0 1 1 1v1.06c3.39.49 6 3.4 6 6.94v4l1.6 2.13a1 1 0 0 1-.8 1.6H5.2a1 1 0 0 1-.8-1.6L6 15v-4c0-3.53 2.61-6.45 6-6.94V3a1 1 0 0 1 1-1Zm0 19.5A2.5 2.5 0 0 1 9.5 19h5A2.5 2.5 0 0 1 12 21.5Z"/></symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5M9 21v-6h6v6"/></symbol>
+      <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M20.8 8.8c0 5.2-8.8 11-8.8 11S3.2 14 3.2 8.8A4.8 4.8 0 0 1 12 6.1a4.8 4.8 0 0 1 8.8 2.7Z"/></symbol>
+      <symbol id="icon-file" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h6M9 16h6"/></symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M8 14h2M12 14h2M16 14h0M8 17h2M12 17h2"/></symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 21c.7-4.1 3-6 7-6s6.3 1.9 7 6"/></symbol>
+      <symbol id="icon-message" viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></symbol>
+      <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7.5A4 4 0 0 1 12 3.5a4 4 0 0 1 4 4V10"/></symbol>
+      <symbol id="icon-map-pin" viewBox="0 0 24 24"><path d="M12 20s6-5.4 6-11a6 6 0 0 0-12 0c0 5.6 6 11 6 11Z"/><circle cx="12" cy="9" r="2.2"/></symbol>
+      <symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></symbol>
+      <symbol id="icon-logout" viewBox="0 0 24 24"><path d="M10 4H5v16h5M14 8l4 4-4 4M18 12H9"/></symbol>
+      <symbol id="icon-medcheck" viewBox="0 0 24 24"><circle cx="9.5" cy="7" r="3.3"/><path d="M4 20.5c.6-3.9 2.6-6 5.5-6s4.9 2.1 5.5 6"/><path d="M18.3 12.5v6M15.3 15.5h6"/></symbol>
+      <symbol id="icon-bottles" viewBox="0 0 24 24"><path d="M8.2 3h3M9.7 3v2.1c0 .5-.2.9-.55 1.3l-1.2 1.3c-.35.4-.55.85-.55 1.3V19a1.9 1.9 0 0 0 1.9 1.9h1.4A1.9 1.9 0 0 0 12.6 19V8.95c0-.45-.2-.9-.55-1.3l-1.2-1.3c-.35-.4-.55-.8-.55-1.3V3"/><path d="M16 8h2M16.75 8v1.5c0 .3.1.55.3.75l.85.9c.2.2.3.5.3.8V19a1.5 1.5 0 0 1-1.5 1.5h-.85A1.5 1.5 0 0 1 14.35 19v-7.05c0-.3.1-.6.3-.8l.85-.9c.2-.2.3-.45.3-.75V8"/></symbol>
+      <symbol id="icon-baby" viewBox="0 0 24 24"><circle cx="12" cy="6.3" r="2.7"/><path d="M6.3 20.2c-.5-5.9 2-9.1 5.7-9.1s6.2 3.2 5.7 9.1"/><path d="M8.1 14.1c0 2.55 1.75 4.2 3.9 4.2s3.9-1.65 3.9-4.2"/></symbol>
+      <symbol id="icon-lab" viewBox="0 0 24 24"><path d="M9 3h6M11 3v6.2L5.8 18a2 2 0 0 0 1.7 3h9a2 2 0 0 0 1.7-3L13 9.2V3"/><path d="M8.2 16h7.6"/></symbol>
+      <symbol id="icon-truck" viewBox="0 0 24 24"><path d="M3 6h11v11H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></symbol>
+      <symbol id="icon-hospital" viewBox="0 0 24 24"><path d="M4 21V5h16v16M8 21v-5h8v5M9 9h6M12 6v6M9 12h6"/></symbol>
+      <symbol id="icon-drop" viewBox="0 0 24 24"><path d="M12 2C9 6.2 6 9.7 6 14a6 6 0 0 0 12 0c0-4.3-3-7.8-6-12Z"/><path d="M9.2 15.5c.5 1.5 1.5 2.3 3 2.7"/></symbol>
+
+    </defs>
+  </svg>
+<section class="screen active" id="screen-perfil-nutriz">
+<div class="app-shell nutriz-shell">
+<aside class="sidebar nutriz-sidebar" id="nutrizSidebar">
+  <div class="sidebar-logo-btn">
+    <img src="../../assets/images/lactare-logo.png" alt="Lactare banco de leite">
+  </div>
+
+  <div class="side-menu-label">MENU</div>
+  <ul class="side-menu" id="nutrizMenu">
+    <li><a class="active" data-tab="jornada" onclick="showNutrizTab('jornada', this)" title="Jornada guiada"><svg><use href="#icon-home"></use></svg><span>Jornada guiada</span></a></li>
+    <li><a data-tab="historico" onclick="showNutrizTab('historico', this)" title="Histórico de doações"><svg><use href="#icon-heart"></use></svg><span>Histórico de doações</span></a></li>
+    <li><a data-tab="registro" onclick="showNutrizTab('registro', this)" title="Registro de coleta"><svg><use href="#icon-file"></use></svg><span>Registro de coleta</span></a></li>
+    <li><a data-tab="agendamento" onclick="showNutrizTab('agendamento', this)" title="Agendamento"><svg><use href="#icon-calendar"></use></svg><span>Agendamento</span></a></li>
+    <li><a data-tab="pontos" onclick="showNutrizTab('pontos', this)" title="Pontos de doação"><svg><use href="#icon-map-pin"></use></svg><span>Pontos de doação</span></a></li>
+    <li><a data-tab="notificacoes" onclick="showNutrizTab('notificacoes', this)" title="Notificações"><svg><use href="#icon-bell"></use></svg><span>Notificações</span></a></li>
+    <li><a data-tab="dados" onclick="showNutrizTab('dados', this)" title="Meus dados"><svg><use href="#icon-user"></use></svg><span>Meus dados</span></a></li>
+    <li><a data-tab="feedback" onclick="showNutrizTab('feedback', this)" title="Feedback"><svg><use href="#icon-message"></use></svg><span>Feedback</span></a></li>
+  </ul>
+  <div class="sidebar-logout" title="Sair" onclick="localStorage.removeItem('lactare_token'); localStorage.removeItem('lactare_session'); window.location.href='../login/doadora.html'">
+    <svg><use href="#icon-logout"></use></svg>
+    <span>Sair</span>
+  </div>
+</aside>
+<main class="main-area">
+  <div class="topbar-mini">
+    <div class="topbar-spacer"></div>
+    <div class="topbar-actions">
+      <div class="pill-back" onclick="window.location.href='https://www.lactare.com.br/'">
+  ‹  ﾠAcesse nosso site
+</div>
+      <div class="bell-btn" id="nutrizBell" role="button" tabindex="0" aria-label="Notificações" onclick="abrirNotificacoesNutriz()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();abrirNotificacoesNutriz();}">
+        <svg><use href="#icon-bell"></use></svg>
+        <span class="bell-dot" style="display:none"></span>
+      </div>
+    </div>
+  </div>
+<div class="greeting-bar">
+    <h1 id="nutrizGreetingTitle">Olá!</h1>
+    <div class="sub" id="nutrizGreetingSub">Seja bem-vinda à família Lactare.</div>
+  </div>
+  <div class="panel-tab active" data-panel-tab="jornada">
+    <section class="doadora-status-card" id="doadoraTriagemStatusCard">
+      <div class="status-card-icon" id="doadoraStatusIcon">…</div>
+      <div class="status-card-copy">
+        <span class="status-card-kicker" id="doadoraStatusKicker">STATUS DA JORNADA</span>
+        <h2 id="doadoraStatusTitle">Carregando sua jornada…</h2>
+        <p id="doadoraStatusText">Buscando o andamento real da sua doação.</p>
+      </div>
+      <span class="doadora-status-pill" id="doadoraStatusPill">…</span>
+    </section>
+    <ol class="jornada-etapas" id="jornadaEtapas" aria-label="Etapas da jornada"></ol>
+
+    <section class="journey-card">
+      <div class="journey-heading">
+        <h2>Sua jornada de doação</h2>
+        <p>Acompanhe cada etapa da sua doação.</p>
+      </div>
+      <img class="journey-watermark" src="../../assets/images/lactare-logo.png" alt="">
+      <div class="journey-heart" aria-hidden="true">♡</div>
+      <div class="journey-line line-1"></div>
+      <div class="journey-line line-2"></div>
+      <div class="journey-line line-3"></div>
+      <div class="journey-line line-4"></div>
+      <div class="journey-step modern-step step-exame">
+        <div class="journey-tip tip-exame" id="tip-exame" role="note">O exame médico é necessário para garantir a sua saúde e a segurança do bebê que irá receber o leite doado. Aqui você pode agendar seus exames pelo próprio aplicativo.</div>
+        <div class="circle"><svg><use href="#icon-medcheck"></use></svg><button class="info-dot" type="button" data-stage="exame" aria-label="Explicar etapa: Agendar exame médico" aria-expanded="false" aria-controls="tip-exame" onclick="toggleJourneyTip(this)">1</button></div>
+        <div class="jtitle">Agendar<br>exame médico</div>
+      </div>
+      <div class="journey-step modern-step step-kit">
+        <div class="journey-tip tip-kit" id="tip-kit" role="note">A equipe Lactare prepara e envia o kit necessário para a sua coleta. Quando ele for entregue, você poderá agendar a coleta.</div>
+        <div class="circle"><svg><use href="#icon-truck"></use></svg><button class="info-dot" type="button" data-stage="kit" aria-label="Explicar etapa: Kit de coleta" aria-expanded="false" aria-controls="tip-kit" onclick="toggleJourneyTip(this)">2</button></div>
+        <div class="jtitle">Kit de coleta</div>
+      </div>
+      <div class="journey-step modern-step step-agenda">
+        <div class="journey-tip tip-agenda" id="tip-agenda" role="note">Depois que o kit for entregue, você pode agendar a coleta. Escolha a data e o horário mais convenientes para você.</div>
+        <div class="circle"><svg><use href="#icon-calendar"></use></svg><button class="info-dot" type="button" data-stage="agenda" aria-label="Explicar etapa: Agendar coleta" aria-expanded="false" aria-controls="tip-agenda" onclick="toggleJourneyTip(this)">3</button></div>
+        <div class="jtitle">Agendar coleta</div>
+      </div>
+      <div class="journey-step modern-step step-coleta">
+        <div class="journey-tip tip-coleta" id="tip-coleta" role="note">Nesta etapa, a coleta é realizada conforme o agendamento. O leite segue para o banco de leite depois da retirada.</div>
+        <div class="circle"><svg><use href="#icon-bottles"></use></svg><button class="info-dot" type="button" data-stage="coleta" aria-label="Explicar etapa: Coleta realizada" aria-expanded="false" aria-controls="tip-coleta" onclick="toggleJourneyTip(this)">4</button></div>
+        <div class="jtitle">Coleta realizada</div>
+      </div>
+      <div class="journey-step modern-step step-final">
+        <div class="journey-tip tip-final" id="tip-final" role="note">Seu leite chegou! Depois de passar pelos cuidados do banco de leite, a doação segue para contribuir com a alimentação de bebês que precisam de leite humano, especialmente os prematuros em unidades neonatais. Sua doação virou cuidado real.</div>
+        <div class="circle"><svg><use href="#icon-baby"></use></svg><button class="info-dot" type="button" data-stage="final" aria-label="Explicar etapa: Coleta chegou ao destino final" aria-expanded="false" aria-controls="tip-final" onclick="toggleJourneyTip(this)">5</button></div>
+        <div class="jtitle">Coleta chegou ao<br>destino final</div>
+      </div>
+      <div class="journey-photo" aria-hidden="true">
+        <img src="../../assets/images/lactare-doadora.webp" alt="">
+        <div class="journey-photo-fade"></div>
+        <div class="journey-photo-copy">Cada gota<br>do seu leite faz<br>a diferença. <span>♥</span></div>
+      </div>
+    </section>
+
+    <section class="journey-impact" aria-labelledby="journey-impact-title">
+      <div class="journey-impact-heading">
+        <div>
+          <span class="journey-kicker">CAMINHO DO LEITE</span>
+          <h2 id="journey-impact-title">O que acontece com o seu leite?</h2>
+          <p>Depois da coleta, cada etapa é feita com cuidado até o leite chegar a quem precisa.</p>
+        </div>
+      </div>
+      <div class="journey-impact-grid">
+        <article class="impact-card">
+          <div class="impact-icon"><svg><use href="#icon-lab"></use></svg></div>
+          <div><h3>Análise e pasteurização</h3><p>O leite passa por análises de qualidade e é pasteurizado com segurança, antes de ser distribuído.</p></div>
+        </article>
+        <article class="impact-card">
+          <div class="impact-icon"><svg><use href="#icon-truck"></use></svg></div>
+          <div><h3>Transporte</h3><p>Depois do processamento, o leite segue em transporte adequado para os hospitais públicos parceiros.</p></div>
+        </article>
+        <article class="impact-card">
+          <div class="impact-icon"><svg><use href="#icon-hospital"></use></svg></div>
+          <div><h3>Chegada aos hospitais</h3><p>O leite é destinado às unidades neonatais para contribuir com a alimentação de bebês prematuros.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="dashboard-bottom" aria-label="Impacto da doação">
+      <article class="transform-card">
+        <div class="transform-copy">
+          <h2><span class="heart-solid">♥</span> Seu leite transforma vidas!</h2>
+          <p>O leite materno doado é destinado a bebês prematuros e em tratamento hospitalar, que dependem dessa nutrição para se desenvolver.</p>
+          <a class="learn-more" href="https://www.lactare.com.br/pt" target="_blank" rel="noopener noreferrer">Saiba mais <span>&gt;</span></a>
+        </div>
+        <div class="transform-illustration" aria-hidden="true">
+          <svg viewBox="0 0 180 150"><path d="M101 14c13 18 21 34 21 48 0 17-11 29-28 29S66 79 66 62c0-14 12-31 35-48Z"/><path d="M48 105c14-8 29-6 41 1 10 6 18 9 29 5l18-7c8-3 16 2 17 10-8 9-22 15-36 18-19 4-36 0-54-7l-16-7c-5-2-5-10 1-13Z"/><path d="M139 18c-4 9-5 18-3 27"/></svg>
+        </div>
+      </article>
+
+      <div class="stats-stack">
+        <article class="stat-modern">
+          <div class="stat-icon"><svg><use href="#icon-drop"></use></svg></div>
+          <div><strong id="statColetasRealizadas">—</strong><span>Coletas realizadas<br>desde o seu cadastro</span></div>
+        </article>
+        <article class="stat-modern next-step-card">
+          <div class="stat-icon"><svg><use href="#icon-calendar"></use></svg></div>
+          <div><small>Próxima etapa</small><strong id="nextStepTitle">—</strong><span id="nextStepSub"></span></div>
+        </article>
+      </div>
+    </section>
+
+  </div>
+<div class="panel-tab" data-panel-tab="historico">
+  <section class="history-page" aria-label="Histórico de doações">
+    <div class="history-summary-grid">
+      <article class="history-summary-card history-summary-blue">
+        <div class="history-summary-icon"><svg><use href="#icon-drop"></use></svg></div>
+        <div><strong id="histTotalDoacoes">—</strong><span>Total de doações</span><small>Obrigada por fazer a diferença!</small></div>
+      </article>
+      <article class="history-summary-card history-summary-green">
+        <div class="history-summary-icon"><svg><use href="#icon-bottles"></use></svg></div>
+        <div><strong id="histTotalMl">—</strong><span>Total doado</span><small>Cada ml conta!</small></div>
+      </article>
+      <article class="history-summary-card history-summary-pink">
+        <div class="history-summary-icon"><svg><use href="#icon-heart"></use></svg></div>
+        <div><strong id="histColetasRealizadas">—</strong><span>Coletas realizadas</span><small>Seu gesto salva vidas!</small></div>
+      </article>
+      <article class="history-summary-card history-summary-yellow">
+        <div class="history-summary-icon"><svg><use href="#icon-truck"></use></svg></div>
+        <div><strong id="histAgendamentos">—</strong><span>Agendamentos</span><small>Coletas agendadas por você.</small></div>
+      </article>
+    </div>
+
+    <section class="history-table-card">
+      <div class="history-table-title">
+        <h3>Últimas coletas</h3>
+      </div>
+      <div class="history-table-wrap">
+        <table class="history-table">
+          <thead>
+            <tr><th>Data</th><th>Volume</th><th>Status</th></tr>
+          </thead>
+          <tbody id="histTbody"></tbody>
+        </table>
+      </div>
+      <div class="history-table-footer" id="histFooter"></div>
+    </section>
+
+    <article class="history-thanks-card">
+      <div class="history-thanks-art" aria-hidden="true"><span>♡</span></div>
+      <div><strong>Cada doação faz a diferença!</strong><p>Seu leite alimenta sonhos e transforma vidas. Obrigada por continuar nessa jornada de solidariedade.</p></div>
+      <div class="history-thanks-heart" aria-hidden="true">♡</div>
+    </article>
+  </section>
+</div>
+<div class="panel-tab" data-panel-tab="registro">
+  <section class="registro-page" aria-label="Registro de coleta">
+    <header class="registro-page-head">
+      <div>
+        <h2>Registro de coleta</h2>
+        <p>Quando tiver realizado uma coleta, nos avise. Buscamos no seu endereço com todo o cuidado.</p>
+      </div>
+      <div class="registro-head-art" aria-hidden="true">
+        <span>Seu leite<br><b>chega mais longe</b></span>
+        <i>♡</i>
+      </div>
+    </header>
+
+    <section class="registro-info-grid" aria-label="Informações sobre a coleta">
+      <article class="registro-info-card registro-info-lilac">
+        <div class="registro-info-icon"><svg><use href="#icon-truck"></use></svg></div>
+        <div><h3>Coleta segura</h3><p>Realizamos a retirada no seu endereço.</p></div>
+      </article>
+      <article class="registro-info-card registro-info-green">
+        <div class="registro-info-icon"><svg><use href="#icon-medcheck"></use></svg></div>
+        <div><h3>Todo o cuidado</h3><p>Transporte adequado e seguro.</p></div>
+      </article>
+      <article class="registro-info-card registro-info-pink">
+        <div class="registro-info-icon"><svg><use href="#icon-heart"></use></svg></div>
+        <div><h3>Mais vidas</h3><p>Seu leite alimenta sonhos e transforma vidas.</p></div>
+      </article>
+      <article class="registro-important-card">
+        <div class="registro-info-icon"><svg><use href="#icon-bottles"></use></svg></div>
+        <div><h3>Registrar sua coleta é muito importante!</h3><p>Assim, conseguimos organizar a retirada e garantir que seu leite chegue a quem mais precisa.</p></div>
+      </article>
+    </section>
+
+    <section class="registro-main-grid">
+      <article class="registro-form-card">
+        <div class="registro-section-title">
+          <div class="registro-title-icon"><svg><use href="#icon-file"></use></svg><span>+</span></div>
+          <div><h3>Registrar coleta</h3><p>Preencha as informações abaixo para agendarmos a retirada.</p></div>
+        </div>
+        <div class="registro-fields">
+          <div class="field">
+            <label>MELHOR DATA PARA RETIRADA</label>
+            <div class="registro-input-icon"><input id="coleta-data" type="text" placeholder="dd/mm/aaaa" inputmode="numeric" maxlength="10"/><svg><use href="#icon-calendar"></use></svg></div>
+          </div>
+          <div class="field">
+            <label>TURNO</label>
+            <select id="coleta-turno">
+              <option>Manhã (08h–12h)</option>
+              <option>Tarde (13h–18h)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>VOLUME (ML)</label>
+            <input type="text" placeholder="A equipe registra o volume real na coleta" disabled/>
+          </div>
+          <div class="field">
+            <label>OBSERVAÇÕES (OPCIONAL)</label>
+            <textarea placeholder="Ex.: local de entrega, instruções, ponto de referência, etc."></textarea>
+          </div>
+          <button class="btn btn-primary registro-submit" id="btnAgendarColeta" onclick="confirmarAgendamentoColeta()" type="button">Agendar coleta <span>→</span></button>
+          <div id="agendamentoGateMessage" class="agendamento-gate-message" role="status"></div>
+          <div id="coleta-book-message" class="nutriz-book-message" role="status"></div>
+        </div>
+      </article>
+
+      <article class="registro-calendar-card">
+        <div class="registro-calendar-head">
+          <h3>Setembro 2026</h3>
+          <div class="registro-calendar-nav"><button type="button" aria-label="Mês anterior">‹</button><button type="button" aria-label="Próximo mês">›</button></div>
+        </div>
+        <div class="mini-calendar" id="calRegistro"></div>
+        <div class="registro-calendar-legend">
+          <span><i class="selected"></i>Dia selecionado</span>
+          <span><i class="available"></i>Horário disponível</span>
+          <span><i class="unavailable"></i>Indisponível</span>
+        </div>
+        <div class="registro-after-card">
+          <div class="registro-after-icon"><svg><use href="#icon-calendar"></use></svg></div>
+          <div><h4>Após o registro</h4><p>Nossa equipe entrará em contato para confirmar sua coleta e passar as orientações necessárias.</p></div>
+        </div>
+      </article>
+    </section>
+
+    <article class="registro-thanks-card">
+      <div class="registro-thanks-art" aria-hidden="true"><span>♡</span></div>
+      <div><h3>Cada gota faz a diferença!</h3><p>Obrigada por continuar nessa jornada de solidariedade.</p></div>
+      <div class="registro-thanks-heart" aria-hidden="true">♡</div>
+    </article>
+  </section>
+</div>
+<div class="panel-tab" data-panel-tab="agendamento">
+  <section class="agendamento-support-banner" aria-labelledby="agendamento-support-title">
+    <div class="support-banner-copy">
+      <span class="support-banner-kicker">SAIBA MAIS SOBRE O QUE OFERECEMOS</span>
+      <h2 id="agendamento-support-title">Estamos aqui para te apoiar em cada etapa.</h2>
+      <p>Nossos atendimentos são gratuitos e incluem orientações, triagem para doação, acompanhamento e muito mais. Conheça nossos serviços e faça parte dessa corrente de vida.</p>
+    </div>
+    <div class="support-banner-art" aria-hidden="true">
+      <span class="support-banner-wave"></span>
+      <span class="support-banner-heart">♡</span>
+      <span class="support-banner-words">Acolher<br>Orientar<br>Conectar<br>Transformar</span>
+    </div>
+  </section>
+
+  <div class="card two-panel agendamento-main-card">
+    <div>
+      <div class="section-title-with-icon">
+        <div class="section-icon"><svg><use href="#icon-calendar"></use></svg></div>
+        <div>
+          <h3>Agende seu atendimento</h3>
+          <p>Escolha o motivo, a melhor data e o horário que funcionam para você.</p>
+        </div>
+      </div>
+      <div class="field">
+        <label>MOTIVO DA CONSULTA</label>
+        <select>
+          <option>Triagem para se tornar doadora</option>
+          <option>Acompanhamento</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>DATA PREFERIDA</label>
+        <input id="consulta-data" type="text" placeholder="dd/mm/aaaa" inputmode="numeric" maxlength="10"/>
+      </div>
+      <div class="field">
+        <label>HORÁRIO DISPONÍVEL</label>
+        <input id="consulta-hora" type="text" placeholder="HH:MM" inputmode="numeric" maxlength="5"/>
+      </div>
+      <div class="field">
+        <label>OBSERVAÇÕES</label>
+        <textarea placeholder="Sem observações"></textarea>
+      </div>
+      <button class="btn btn-primary" id="btnAgendarConsulta" onclick="confirmarAgendamentoConsulta()" type="button">
+        AGENDAR CONSULTA
+      </button>
+      <div id="consultaGateMessage" class="agendamento-gate-message" role="status"></div>
+      <div id="consulta-book-message" class="nutriz-book-message" role="status"></div>
+    </div>
+    <div>
+      <h3>Setembro 2026</h3>
+      <div class="mini-calendar" id="calAgendaNutriz"></div>
+      <div class="legend-dot">Horário disponível</div>
+      <div class="after-booking-note">
+        <div class="after-booking-icon"><svg><use href="#icon-calendar"></use></svg></div>
+        <div>
+          <strong>Depois do agendamento</strong>
+          <span>Nossa equipe entrará em contato para confirmar o horário e passar as orientações necessárias.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="agendamento-resources" aria-labelledby="agendamento-resources-title">
+    <div class="resources-heading">
+      <div>
+        <h2 id="agendamento-resources-title">Nossos serviços e comunidade</h2>
+        <p>Saiba mais sobre o que oferecemos e faça parte dessa rede de apoio.</p>
+      </div>
+    </div>
+
+    <div class="resource-cards">
+      <article class="resource-card resource-card-blue">
+        <div class="resource-icon"><svg><use href="#icon-medcheck"></use></svg></div>
+        <div class="resource-card-content">
+          <h3>Nossos serviços gratuitos</h3>
+          <p>Saiba mais sobre os atendimentos que oferecemos, como orientação sobre amamentação, triagem para doação, acompanhamento e apoio psicológico.</p>
+          <a class="resource-link" href="https://www.lactare.com.br/" target="_blank" rel="noopener">Conheça nossos serviços <b>→</b></a>
+        </div>
+      </article>
+
+      <article class="resource-card resource-card-pink">
+        <div class="resource-icon"><svg><use href="#icon-baby"></use></svg></div>
+        <div class="resource-card-content">
+          <h3>Quero ser doadora</h3>
+          <p>Veja como funciona o processo para se tornar doadora de leite humano e conheça histórias de mulheres que já fizeram parte dessa rede.</p>
+          <a class="resource-link" href="https://www.lactare.com.br/cada-gota-conta" target="_blank" rel="noopener">Veja depoimentos <b>→</b></a>
+          <span class="resource-testimonial">“Doar foi mais simples do que eu imaginava e me sinto parte de algo muito maior.”</span>
+        </div>
+      </article>
+
+      <article class="resource-card resource-card-green">
+        <div class="resource-icon"><svg><use href="#icon-user"></use></svg></div>
+        <div class="resource-card-content">
+          <h3>Comunidade de doadoras</h3>
+          <p>Um espaço para orientação, compartilhar experiências, tirar dúvidas e fortalecer a rede de apoio entre doadoras.</p>
+          <a class="resource-link" href="https://chat.whatsapp.com/InSq4EkqdKM6rXBGXGc14x?s=sw&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">Acessar comunidade <b>→</b></a>
+          <span class="resource-small-note">Troque ideias, dicas e experiências com outras doadoras.</span>
+        </div>
+      </article>
+
+      <article class="resource-card resource-card-lilac">
+        <div class="resource-icon"><svg><use href="#icon-bell"></use></svg></div>
+        <div class="resource-card-content">
+          <h3>Lactare Conecta — Avisos</h3>
+          <p>Canal oficial de avisos da comunidade Lactare. Receba comunicados importantes, lembretes, orientações, campanhas, eventos e novidades do projeto.</p>
+          <a class="resource-link" href="https://chat.whatsapp.com/LIS7dXCNH914JVlpZNcgSg?s=sw&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">Ver avisos <b>→</b></a>
+        </div>
+      </article>
+    </div>
+
+  </section>
+
+</div>
+<div class="panel-tab" data-panel-tab="pontos">
+  <section class="pontos-page" aria-label="Pontos de doação">
+    <div class="pontos-search-card">
+      <div class="pontos-search-intro">
+        <h3>Encontre um ponto perto de você</h3>
+        <p>Use sua localização atual ou informe seu CEP para encontrar os pontos mais próximos.</p>
+      </div>
+      <button class="location-action" id="btnUsarLocalizacao" type="button">
+        <span class="location-action-icon"><svg><use href="#icon-target"></use></svg></span>
+        <span><strong>Usar minha localização</strong><small>Permitir acesso à sua localização atual</small></span>
+      </button>
+      <div class="search-or">OU</div>
+      <div class="cep-search">
+        <label for="pontosCep">Digite seu CEP</label>
+        <div class="cep-row">
+          <input id="pontosCep" type="text" inputmode="numeric" maxlength="9" placeholder="00000-000" autocomplete="postal-code">
+          <button id="btnBuscarCep" type="button"><svg><use href="#icon-map-pin"></use></svg>Buscar pontos</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pontos-filters" role="group" aria-label="Filtrar pontos">
+      <strong>Filtrar por:</strong>
+      <button class="ponto-filter active" data-filter="todos" type="button">Todos</button>
+      <button class="ponto-filter" data-filter="lactare" type="button"><span class="filter-dot dot-lactare"></span>Unidades Lactare</button>
+      <button class="ponto-filter" data-filter="parceiro" type="button"><span class="filter-dot dot-parceiro"></span>Parceiros da Lactare</button>
+      <button class="ponto-filter" data-filter="banco" type="button"><span class="filter-dot dot-banco"></span>Bancos de Leite Humano</button>
+      <button class="ponto-filter" data-filter="apoio" type="button"><span class="filter-dot dot-apoio"></span>Outros pontos de apoio</button>
+    </div>
+
+    <div class="pontos-status" id="pontosStatus" role="status" aria-live="polite">Use sua localização ou informe o CEP para encontrar os pontos mais próximos.</div>
+
+    <div class="pontos-content-grid">
+      <div class="pontos-list-panel">
+        <div class="pontos-list-head">
+          <div><h3>Pontos de doação próximos</h3><p id="pontosCount">Nenhum ponto cadastrado</p></div>
+        </div>
+        <div class="pontos-list" id="pontosList"></div>
+      </div>
+      <div class="pontos-map-wrap">
+        <div id="pontosMap" aria-label="Mapa de pontos de doação"></div>
+        <div class="map-legend">
+          <strong>Legenda</strong>
+          <span><i class="legend-dot dot-lactare"></i>Unidades Lactare</span>
+          <span><i class="legend-dot dot-parceiro"></i>Parceiros da Lactare</span>
+          <span><i class="legend-dot dot-banco"></i>Bancos de Leite Humano</span>
+          <span><i class="legend-dot dot-apoio"></i>Outros pontos de apoio</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="panel-tab" data-panel-tab="notificacoes">
+  <section class="notifications-page" aria-label="Notificações">
+    <div class="notifications-heading">
+      <h1>Notificações</h1>
+      <p>Acompanhe tudo o que acontece por aqui.</p>
+    </div>
+    <div class="notifications-toolbar">
+      <div class="notification-filters" role="tablist" aria-label="Filtrar notificações">
+        <button class="notification-filter active" type="button" data-filter="todas">Todas <span>0</span></button>
+        <button class="notification-filter" type="button" data-filter="coletas"><svg><use href="#icon-truck"></use></svg>Coletas <span>0</span></button>
+        <button class="notification-filter" type="button" data-filter="agendamentos"><svg><use href="#icon-calendar"></use></svg>Agendamentos <span>0</span></button>
+        <button class="notification-filter" type="button" data-filter="resultados"><svg><use href="#icon-file"></use></svg>Resultados <span>0</span></button>
+        <button class="notification-filter" type="button" data-filter="mensagens"><svg><use href="#icon-message"></use></svg>Mensagens <span>0</span></button>
+      </div>
+      <button class="mark-notifications-read" type="button" onclick="markNutrizNotificationsRead()">✓ &nbsp; Marcar todas como lidas</button>
+    </div>
+
+    <div class="notifications-list" id="notifList"></div>
+  </section>
+</div>
+<div class="panel-tab" data-panel-tab="dados">
+  <div class="dados-page">
+    
+
+    <div class="dados-card dados-card-profile">
+      <div class="dados-profile-head">
+        <div class="dados-profile-avatar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-user"></use></svg>
+        </div>
+        <div class="dados-profile-copy">
+          <div class="dados-label">PERFIL PESSOA DOADORA</div>
+          <div class="dados-name" id="dadosPerfilNome">Nome da doadora</div>
+          <div class="dados-sub">Seus dados e informações importantes para o acompanhamento da sua jornada.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dados-card">
+      <div class="dados-section-title">
+        <div class="dados-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-user"></use></svg></div>
+        <div>
+          <h3>Dados pessoais</h3>
+          <p>informações para contato e identificação.</p>
+        </div>
+      </div>
+
+      <div class="dados-grid">
+        <div class="dados-col">
+          <div class="dados-field">
+            <span>NOME COMPLETO</span>
+            <strong id="dadosPerfilNomeCompleto">Nome da doadora</strong>
+          </div>
+          <div class="dados-field">
+            <span>CPF</span>
+            <strong id="dadosPerfilCpf">Não informado</strong>
+          </div>
+          <div class="dados-field">
+            <span>E-MAIL</span>
+            <strong id="dadosPerfilEmail">Não informado</strong>
+          </div>
+        </div>
+
+        <div class="dados-col">
+          <div class="dados-field">
+            <span>DATA DE NASCIMENTO</span>
+            <strong id="dadosPerfilNascimento">Não informado</strong>
+          </div>
+          <div class="dados-field">
+            <span>TELEFONE</span>
+            <strong id="dadosPerfilTelefone">Não informado</strong>
+          </div>
+        </div>
+      </div>
+
+      <button class="dados-btn" type="button">Editar dados</button>
+    </div>
+
+    <div class="dados-card">
+      <div class="dados-section-title">
+        <div class="dados-badge dados-badge-alert"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg></div>
+        <div>
+          <h3>Endereço para coleta</h3>
+          <p>Local utilizado para organizar o atendimento e a retirada.</p>
+        </div>
+      </div>
+
+      <div class="dados-address" id="dadosPerfilEndereco">Não informado</div>
+      <button class="dados-btn dados-btn-outline" type="button">Editar endereço</button>
+    </div>
+
+    <div class="dados-bottom-grid">
+      <div class="dados-card half-card">
+        <div class="dados-section-title small-title">
+          <div class="dados-badge dados-badge-shield"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-lock"></use></svg></div>
+          <div>
+            <h3>Segurança da conta</h3>
+            <p>Cuide do acesso à sua conta.</p>
+          </div>
+        </div>
+
+        <div class="dados-field password-field">
+          <span>Senha</span>
+          <strong>••••••••••</strong>
+        </div>
+        <button class="dados-btn dados-btn-outline" type="button">Alterar senha</button>
+      </div>
+
+      <div class="dados-card half-card contact-card">
+        <div class="dados-section-title small-title">
+          <div class="dados-badge dados-badge-support"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-message"></use></svg></div>
+          <div>
+            <h3>Fale com nossa equipe</h3>
+            <p>Precisa de ajuda? Estamos aqui para apoiar você.</p>
+          </div>
+        </div>
+
+        <div class="dados-support-copy">Entre em contato pelo WhatsApp da equipe Lactare para tirar dúvidas sobre doação, coleta, agendamento ou atendimento.</div>
+        <button class="dados-btn dados-btn-success" type="button" onclick="abrirWhatsappEquipeLactare()">Falar com nossa equipe</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="panel-tab" data-panel-tab="feedback">
+  <div class="feedback-page">
+
+    <div class="feedback-layout">
+      <div class="feedback-form-panel">
+        <div class="feedback-cta">
+          <div class="feedback-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-message"></use></svg></div>
+          <div class="feedback-cta-copy">
+            <h3>Sua opinião faz a diferença!</h3>
+            <p>Com o seu feedback, conseguimos oferecer um atendimento cada vez melhor para você e para muitas outras famílias.</p>
+          </div>
+        </div>
+
+        <div class="feedback-field">
+          <label>Coleta referente</label>
+          <div class="select-wrap">
+            <select id="feedbackColetaSelect"><option>Carregando…</option></select>
+            <span class="caret">⌄</span>
+          </div>
+        </div>
+
+        <div class="feedback-field">
+          <label>Avaliação geral</label>
+          <div class="star-row" id="feedbackStars" role="radiogroup" aria-label="Avaliação geral de 1 a 5 estrelas">
+            <button class="star" type="button" data-rating="1" role="radio" aria-label="1 estrela" aria-checked="false">★</button>
+            <button class="star" type="button" data-rating="2" role="radio" aria-label="2 estrelas" aria-checked="false">★</button>
+            <button class="star" type="button" data-rating="3" role="radio" aria-label="3 estrelas" aria-checked="false">★</button>
+            <button class="star" type="button" data-rating="4" role="radio" aria-label="4 estrelas" aria-checked="false">★</button>
+            <button class="star" type="button" data-rating="5" role="radio" aria-label="5 estrelas" aria-checked="false">★</button>
+            <span class="rating-text" id="feedbackRatingText">Selecione uma nota</span>
+          </div>
+        </div>
+
+        <div class="feedback-field">
+          <label for="feedbackComentario">Comentário (opcional)</label>
+          <textarea id="feedbackComentario" rows="3" maxlength="500" placeholder="Conte como foi sua experiência."></textarea>
+          <div class="counter"><span id="feedbackCounter">0/500</span></div>
+        </div>
+
+        <button class="feedback-submit" id="feedbackSubmit" type="button">
+          <span>▶</span> Enviar feedback
+        </button>
+        <div class="feedback-form-message" id="feedbackFormMessage" role="status" aria-live="polite"></div>
+
+        <div class="feedback-thanks">
+          <div class="feedback-thanks-icon">♥</div>
+          <div>
+            <h4>Obrigado por compartilhar sua experiência!</h4>
+            <p>Seu feedback nos ajuda a cuidar melhor de quem mais precisa.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="feedback-list-panel">
+        <div class="feedback-list-header">
+          <h3>Feedbacks anteriores</h3>
+          <p>Veja o que você já compartilhou conosco.</p>
+        </div>
+
+        <div class="feedback-empty" id="feedbackListaAnteriores">Carregando seus feedbacks…</div>
+        <div class="feedback-history" id="feedbackHistory"></div>
+
+        <div class="feedback-contact-box">
+          <div class="feedback-contact-icon">💬</div>
+          <div class="feedback-contact-copy">
+            <h4>Tem sugestões ou alguma dúvida?</h4>
+            <p>Você também pode entrar em contato com nossa equipe pelo WhatsApp.</p>
+          </div>
+          <button type="button" onclick="abrirWhatsappEquipeLactare()">Falar com nossa equipe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+</div>
+</section><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../../assets/js/api-client.js"></script>
+<script src="../../assets/js/doadora-jornada.js"></script>
+<script>document.addEventListener('DOMContentLoaded',function(){var s=LactareAPI.session();if(!s||s.perfil!=='DOADORA'){window.location.href='../login/doadora.html';}});</script>
+
+  <script src="../../assets/js/script.js"></script>
+<script>
+var sessaoDoadora = LactareAPI.session();
+var doadoraAtual = null;
+var sessaoValida = !!(sessaoDoadora && sessaoDoadora.perfil === 'DOADORA' && sessaoDoadora.usuarioId);
+
+async function carregarPerfilDoadora() {
+  if(!sessaoValida){window.location.replace('../login/doadora.html');return;}
+  try {
+    doadoraAtual = await LactareAPI.doadora(sessaoDoadora.usuarioId);
+    preencherDadosPerfil(doadoraAtual);
+  } catch(e) {
+    // Só encerra a sessão se ela for realmente inválida; falha de rede não desloga a doadora.
+    if (e && (e.status === 401 || e.status === 403 || e.status === 404)) {
+      localStorage.removeItem('lactare_token');
+      localStorage.removeItem('lactare_session');
+      window.location.replace('../login/doadora.html');
+    }
+  }
+}
+
+function preencherDadosPerfil(doadora) {
+  var definirTexto = function (id, valor) {
+    var elemento = document.getElementById(id);
+    if (elemento) elemento.textContent = valor || 'Não informado';
+  };
+  var endereco = [doadora.endereco, doadora.bairro, doadora.cidade, doadora.cep].filter(Boolean).join(' — ');
+  definirTexto('dadosPerfilNome', doadora.nome);
+  definirTexto('dadosPerfilNomeCompleto', doadora.nome);
+  definirTexto('dadosPerfilCpf', doadora.cpf);
+  definirTexto('dadosPerfilEmail', doadora.email);
+  definirTexto('dadosPerfilNascimento', doadora.dataNascimento);
+  definirTexto('dadosPerfilTelefone', doadora.telefone);
+  definirTexto('dadosPerfilEndereco', endereco);
+}
+
+carregarPerfilDoadora();
+
+  var nutrizJornadaLink = document.querySelector('#nutrizMenu a[data-tab="jornada"]');
+  if (nutrizJornadaLink) {
+    showNutrizTab('jornada', nutrizJornadaLink);
+  }
+
+function toggleJourneyTip(button) {
+  var step = button.closest('.modern-step');
+  if (!step) return;
+  var tip = step.querySelector('.journey-tip');
+  if (!tip) return;
+
+  var wasOpen = tip.classList.contains('show');
+
+  document.querySelectorAll('#screen-perfil-nutriz .journey-tip.show').forEach(function (t) {
+    t.classList.remove('show');
+  });
+  document.querySelectorAll('#screen-perfil-nutriz .info-dot').forEach(function (btn) {
+    btn.classList.remove('selected');
+    btn.setAttribute('aria-expanded', 'false');
+  });
+
+  if (!wasOpen) {
+    tip.classList.add('show');
+    button.classList.add('selected');
+    button.setAttribute('aria-expanded', 'true');
+  }
+}
+
+(function () {
+  // A linha pontilhada da jornada é desenhada com left/top/width + rotate.
+  // Como a largura do card é fluida mas a altura é fixa, um ângulo/tamanho
+  // fixos só ficam alinhados numa largura específica. Este bloco recalcula
+  // os 3 segmentos em tempo real, ligando sempre borda a borda dos círculos,
+  // em qualquer largura de tela.
+  function alignJourneyLines() {
+    var card = document.querySelector('#screen-perfil-nutriz .journey-card');
+    if (!card) return;
+    var cardRect = card.getBoundingClientRect();
+    if (!cardRect.width || !cardRect.height) return;
+
+    var circleOf = function (stepClass) {
+      var el = card.querySelector('.' + stepClass + ' .circle');
+      return el || null;
+    };
+
+    var exame = circleOf('step-exame');
+    var kit = circleOf('step-kit');
+    var agenda = circleOf('step-agenda');
+    var coleta = circleOf('step-coleta');
+    var final = circleOf('step-final');
+    if (!exame || !kit || !agenda || !coleta || !final) return;
+
+    var center = function (el) {
+      var r = el.getBoundingClientRect();
+      return {
+        x: r.left + r.width / 2 - cardRect.left,
+        y: r.top + r.height / 2 - cardRect.top,
+        radius: r.width / 2
+      };
+    };
+
+    var setLine = function (line, a, b) {
+      if (!line) return;
+      var dx = b.x - a.x;
+      var dy = b.y - a.y;
+      var length = Math.sqrt(dx * dx + dy * dy);
+      if (!length) return;
+      var ux = dx / length;
+      var uy = dy / length;
+      var startX = a.x + a.radius * ux;
+      var startY = a.y + a.radius * uy;
+      var effLength = Math.max(0, length - a.radius - b.radius);
+      var angle = Math.atan2(dy, dx) * (180 / Math.PI);
+
+      line.style.left = (startX / cardRect.width * 100) + '%';
+      line.style.top = (startY / cardRect.height * 100) + '%';
+      line.style.width = (effLength / cardRect.width * 100) + '%';
+      line.style.transform = 'rotate(' + angle + 'deg)';
+    };
+
+    var pExame = center(exame);
+    var pKit = center(kit);
+    var pAgenda = center(agenda);
+    var pColeta = center(coleta);
+    var pFinal = center(final);
+
+    setLine(card.querySelector('.line-1'), pExame, pKit);
+    setLine(card.querySelector('.line-2'), pKit, pAgenda);
+    setLine(card.querySelector('.line-3'), pAgenda, pColeta);
+    setLine(card.querySelector('.line-4'), pColeta, pFinal);
+  }
+
+  var journeyCardEl = document.querySelector('#screen-perfil-nutriz .journey-card');
+  if (journeyCardEl && window.ResizeObserver) {
+    new ResizeObserver(alignJourneyLines).observe(journeyCardEl);
+  }
+  window.addEventListener('load', alignJourneyLines);
+  window.addEventListener('resize', alignJourneyLines);
+  document.addEventListener('DOMContentLoaded', alignJourneyLines);
+})();
+</script>
+
+<script>
+(function(){
+  var carregando=false, erroMostrado=false, refazer=false;
+  function sess(){ return LactareAPI.session(); }
+
+  // Busca o estado REAL da doadora logada na API e redesenha a tela.
+  window.renderDoadoraTriagemStatus=async function(){
+    if(carregando){ refazer=true; return; } carregando=true;
+    try{
+      var raw=await LactareJornada.carregar(LactareAPI); if(!raw) return;
+      window.__doadoraEstado=LactareJornada.derive(raw);
+      LactareJornada.render(document,window.__doadoraEstado,{doadoraId:sess().usuarioId,lidas:raw.lidas});
+      erroMostrado=false;
+    }catch(e){
+      if(!sess()){window.location.replace('../login/doadora.html');return;}
+      if(!erroMostrado){ // não exibe zeros como se fossem dados reais
+        erroMostrado=true;
+        var t=document.getElementById('doadoraStatusTitle'),x=document.getElementById('doadoraStatusText'),p=document.getElementById('doadoraStatusPill');
+        if(t)t.textContent='Não foi possível carregar sua jornada'; if(x)x.textContent=e.message; if(p)p.textContent='Sem conexão';
+      }
+    } finally { carregando=false; if(refazer){ refazer=false; window.renderDoadoraTriagemStatus(); } }
+  };
+
+  function parseDate(v){
+    var m=/^(\d{2})\/(\d{2})\/(\d{4})$/.exec((v||'').trim());
+    return m?m[3]+'-'+m[2]+'-'+m[1]:null;
+  }
+  function msgErro(el,t){el.className='nutriz-book-message error';el.textContent=t;}
+  function msgOk(el,t){el.className='nutriz-book-message success';el.textContent=t;}
+
+  window.confirmarAgendamentoColeta=async function(){
+    var data=document.getElementById('coleta-data'), turno=document.getElementById('coleta-turno'), msg=document.getElementById('coleta-book-message'), sessao=sess();
+    if(!data||!turno||!msg||!sessao)return;
+    var iso=parseDate(data.value);
+    if(!iso||!turno.value){msgErro(msg,'Informe a data (dd/mm/aaaa) e o turno para agendar a coleta.');return;}
+    var st=window.__doadoraEstado;
+    if(!st||!st.podeAgendarColeta){msgErro(msg,'O agendamento da coleta está bloqueado neste momento.');return;}
+    try{await LactareAPI.agendarColeta({doadoraId:sessao.usuarioId,data:iso,turno:turno.value,observacoes:'Agendamento solicitado pela doadora'});msgOk(msg,'Coleta agendada com sucesso.');await renderDoadoraTriagemStatus();}
+    catch(e){msgErro(msg,e.message);}
+  };
+  window.confirmarAgendamentoConsulta=async function(){
+    var data=document.getElementById('consulta-data'), hora=document.getElementById('consulta-hora'), msg=document.getElementById('consulta-book-message'), sessao=sess();
+    if(!data||!hora||!msg)return;
+    if(!sessao || sessao.perfil !== 'DOADORA' || !sessao.usuarioId){
+      msgErro(msg,'Sessão de doadora inválida. Saia e entre novamente com o login da Doadora para agendar o exame.');
+      return;
+    }
+    var iso=parseDate(data.value);
+    if(!iso||!/^\d{2}:\d{2}$/.test(hora.value.trim())){msgErro(msg,'Informe a data (dd/mm/aaaa) e o horário (HH:MM) do exame.');return;}
+    var st=window.__doadoraEstado;
+    if(!st||!st.podeAgendarExame){msgErro(msg,'O exame médico só pode ser agendado após a aprovação da triagem.');return;}
+    try{await LactareAPI.agendarExame({doadoraId:sessao.usuarioId,data:iso,horario:hora.value.trim(),observacoes:'Exame médico para continuidade da jornada de doação'});msgOk(msg,'Exame médico agendado com sucesso.');await renderDoadoraTriagemStatus();}
+    catch(e){msgErro(msg,e.message);}
+  };
+
+  // Atualização automática: mudanças feitas pela equipe aparecem sem logout/login.
+  document.addEventListener('DOMContentLoaded',function(){
+    renderDoadoraTriagemStatus();
+    document.addEventListener('visibilitychange',function(){ if(!document.hidden) renderDoadoraTriagemStatus(); });
+    window.addEventListener('focus',renderDoadoraTriagemStatus);
+    setInterval(function(){ if(!document.hidden) renderDoadoraTriagemStatus(); }, 5000);
+  });
+})();
+
+</script>
+<script>
+(function () {
+  var notaSelecionada = 0;
+
+  function sessao() {
+    return LactareAPI.session();
+  }
+
+  function formatarData(iso) {
+    if (!iso) return 'Data não informada';
+    var p = String(iso).slice(0, 10).split('-');
+    return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : String(iso);
+  }
+
+  function textoNota(nota) {
+    return ({
+      1: '1,0 — Péssimo',
+      2: '2,0 — Ruim',
+      3: '3,0 — Bom',
+      4: '4,0 — Muito bom',
+      5: '5,0 — Excelente'
+    })[nota] || 'Selecione uma nota';
+  }
+
+  function estrelas(nota) {
+    var n = Number(nota) || 0;
+    return [1,2,3,4,5].map(function (i) {
+      return i <= n ? '★' : '☆';
+    }).join('');
+  }
+
+  function mostrarMensagem(texto, tipo) {
+    var el = document.getElementById('feedbackFormMessage');
+    if (!el) return;
+    el.textContent = texto || '';
+    el.className = 'feedback-form-message ' + (tipo || '');
+  }
+
+  function selecionarNota(nota) {
+    notaSelecionada = Number(nota) || 0;
+    document.querySelectorAll('#feedbackStars .star').forEach(function (star) {
+      var valor = Number(star.dataset.rating);
+      var ativa = valor <= notaSelecionada;
+      star.classList.toggle('active', ativa);
+      star.setAttribute('aria-checked', ativa && valor === notaSelecionada ? 'true' : 'false');
+    });
+    var texto = document.getElementById('feedbackRatingText');
+    if (texto) texto.textContent = textoNota(notaSelecionada);
+  }
+
+  function renderColetas(coletas, feedbacks) {
+    var select = document.getElementById('feedbackColetaSelect');
+    var submit = document.getElementById('feedbackSubmit');
+    if (!select) return;
+
+    var avaliadas = new Set((feedbacks || []).map(function (f) { return Number(f.coletaId); }));
+    var realizadas = (coletas || []).filter(function (c) {
+      return String(c.status || '').toUpperCase() === 'REALIZADA' && !avaliadas.has(Number(c.id));
+    });
+
+    select.innerHTML = '';
+    if (!realizadas.length) {
+      var vazio = document.createElement('option');
+      vazio.value = '';
+      vazio.textContent = 'Nenhuma coleta realizada ainda';
+      select.appendChild(vazio);
+      select.disabled = true;
+      if (submit) submit.disabled = true;
+      return;
+    }
+
+    realizadas.forEach(function (c) {
+      var option = document.createElement('option');
+      option.value = c.id;
+      option.textContent = 'Coleta — ' + formatarData(c.data) + (c.volume != null ? ' (' + c.volume + ' ml)' : '');
+      select.appendChild(option);
+    });
+    select.disabled = false;
+    if (submit) submit.disabled = false;
+  }
+
+  function renderHistorico(lista) {
+    var empty = document.getElementById('feedbackListaAnteriores');
+    var history = document.getElementById('feedbackHistory');
+    if (!empty || !history) return;
+
+    history.innerHTML = '';
+    if (!lista || !lista.length) {
+      empty.style.display = '';
+      empty.textContent = 'Você ainda não enviou feedbacks.';
+      return;
+    }
+
+    empty.style.display = 'none';
+
+    lista.forEach(function (item) {
+      var card = document.createElement('div');
+      card.className = 'feedback-item-card';
+
+      var icon = document.createElement('div');
+      icon.className = 'mini-icon';
+      icon.textContent = '★';
+
+      var main = document.createElement('div');
+      main.className = 'feedback-item-main';
+
+      var head = document.createElement('div');
+      head.className = 'feedback-item-head';
+
+      var stars = document.createElement('div');
+      stars.className = 'stars-small';
+      stars.textContent = estrelas(item.nota);
+
+      var date = document.createElement('span');
+      date.className = 'feedback-date';
+      date.textContent = formatarData(item.dataCriacao) + ' · ' + Number(item.nota).toFixed(1).replace('.', ',');
+
+      head.appendChild(stars);
+      head.appendChild(date);
+
+      var title = document.createElement('div');
+      title.className = 'feedback-item-title';
+      title.textContent = textoNota(item.nota);
+
+      var sub = document.createElement('div');
+      sub.className = 'feedback-item-sub';
+      sub.textContent = 'Coleta — ' + formatarData(item.dataColeta) + (item.statusColeta ? ' · ' + item.statusColeta : '');
+
+      main.appendChild(head);
+      main.appendChild(title);
+      main.appendChild(sub);
+
+      if (item.comentario) {
+        var comment = document.createElement('div');
+        comment.className = 'feedback-item-text';
+        comment.textContent = item.comentario;
+        main.appendChild(comment);
+      }
+
+      card.appendChild(icon);
+      card.appendChild(main);
+      history.appendChild(card);
+    });
+  }
+
+  async function carregarFeedbacks() {
+    var s = sessao();
+    if (!s || s.perfil !== 'DOADORA' || !s.usuarioId) return;
+
+    try {
+      var resultados = await Promise.all([
+        LactareAPI.coletasDoadora(s.usuarioId),
+        LactareAPI.feedbacksDoadora(s.usuarioId)
+      ]);
+      renderColetas(resultados[0], resultados[1]);
+      renderHistorico(resultados[1]);
+    } catch (e) {
+      var empty = document.getElementById('feedbackListaAnteriores');
+      if (empty) {
+        empty.style.display = '';
+        empty.textContent = 'Não foi possível carregar os feedbacks agora.';
+      }
+    }
+  }
+
+  async function enviarFeedback() {
+    var s = sessao();
+    var select = document.getElementById('feedbackColetaSelect');
+    var comentario = document.getElementById('feedbackComentario');
+    var submit = document.getElementById('feedbackSubmit');
+
+    if (!s || s.perfil !== 'DOADORA' || !s.usuarioId) {
+      mostrarMensagem('Sessão de doadora inválida.', 'error');
+      return;
+    }
+    if (!notaSelecionada) {
+      mostrarMensagem('Escolha de 1 a 5 estrelas antes de enviar.', 'error');
+      return;
+    }
+    if (!select || !select.value) {
+      mostrarMensagem('Só é possível avaliar uma coleta já realizada.', 'error');
+      return;
+    }
+
+    if (submit) {
+      submit.disabled = true;
+      submit.dataset.originalText = submit.innerHTML;
+      submit.innerHTML = '<span>…</span> Enviando…';
+    }
+
+    try {
+      var novo = await LactareAPI.criarFeedback({
+        coletaId: Number(select.value),
+        nota: notaSelecionada,
+        comentario: comentario ? comentario.value.trim() : null
+      });
+
+      renderHistorico([novo]);
+
+      mostrarMensagem('Feedback enviado com sucesso e adicionado ao histórico.', 'success');
+
+      if (comentario) {
+        comentario.value = '';
+        document.getElementById('feedbackCounter').textContent = '0/500';
+      }
+      selecionarNota(0);
+      await carregarFeedbacks();
+    } catch (e) {
+      mostrarMensagem(e.message || 'Não foi possível enviar o feedback.', 'error');
+    } finally {
+      if (submit) {
+        submit.disabled = false;
+        submit.innerHTML = submit.dataset.originalText || '<span>▶</span> Enviar feedback';
+        delete submit.dataset.originalText;
+      }
+      // Recarrega o histórico e as coletas para que a coleta avaliada continue refletindo o estado real.
+      carregarFeedbacks();
+    }
+  }
+
+  function inicializarFeedback() {
+    document.querySelectorAll('#feedbackStars .star').forEach(function (star) {
+      star.addEventListener('click', function () {
+        selecionarNota(this.dataset.rating);
+      });
+      star.addEventListener('mouseenter', function () {
+        var hover = Number(this.dataset.rating);
+        document.querySelectorAll('#feedbackStars .star').forEach(function (s) {
+          s.classList.toggle('hovered', Number(s.dataset.rating) <= hover);
+        });
+      });
+      star.addEventListener('mouseleave', function () {
+        document.querySelectorAll('#feedbackStars .star').forEach(function (s) {
+          s.classList.remove('hovered');
+        });
+      });
+    });
+
+    var comentario = document.getElementById('feedbackComentario');
+    var counter = document.getElementById('feedbackCounter');
+    if (comentario && counter) {
+      comentario.addEventListener('input', function () {
+        counter.textContent = String(comentario.value.length) + '/500';
+      });
+    }
+
+    var submit = document.getElementById('feedbackSubmit');
+    if (submit) submit.addEventListener('click', enviarFeedback);
+
+    carregarFeedbacks();
+    if (LactareAPI.onDataChanged) {
+      LactareAPI.onDataChanged(function () {
+        carregarFeedbacks();
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inicializarFeedback);
+  } else {
+    inicializarFeedback();
+  }
+})();
+</script>
+</body></html>

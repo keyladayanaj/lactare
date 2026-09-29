@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html class="lactare-no-scrollbar lactare-hide-page-scrollbar" lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lactare — Perfil Apoio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/perfil-apoio.css">
+</head>
+
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="icon-bell" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M12 2a1 1 0 0 1 1 1v1.06c3.39.49 6 3.4 6 6.94v4l1.6 2.13a1 1 0 0 1-.8 1.6H5.2a1 1 0 0 1-.8-1.6L6 15v-4c0-3.53 2.61-6.45 6-6.94V3a1 1 0 0 1 1-1Zm0 19.5A2.5 2.5 0 0 1 9.5 19h5A2.5 2.5 0 0 1 12 21.5Z" />
+      </symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24">
+        <path d="M3 10.5 12 3l9 7.5" />
+        <path d="M5 9.5V21h14V9.5M9 21v-6h6v6" />
+      </symbol>
+      <symbol id="icon-heart" viewBox="0 0 24 24">
+        <path d="M20.8 8.8c0 5.2-8.8 11-8.8 11S3.2 14 3.2 8.8A4.8 4.8 0 0 1 12 6.1a4.8 4.8 0 0 1 8.8 2.7Z" />
+      </symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24">
+        <rect x="4" y="5" width="16" height="15" rx="2" />
+        <path d="M8 3v4M16 3v4M4 10h16M8 14h2M12 14h2M16 14h0M8 17h2M12 17h2" />
+      </symbol>
+      <symbol id="icon-file" viewBox="0 0 24 24">
+        <path d="M6 3h9l4 4v14H6z" />
+        <path d="M14 3v5h5M9 12h6M9 16h6" />
+      </symbol>
+      <symbol id="icon-message" viewBox="0 0 24 24">
+        <path d="M4 5h16v11H8l-4 4z" />
+        <path d="M8 9h8M8 12h5" />
+      </symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="3.5" />
+        <path d="M5 21c.7-4.1 3-6 7-6s6.3 1.9 7 6" />
+      </symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24">
+        <circle cx="9" cy="8" r="3" />
+        <path d="M3.5 20c.6-4 2.5-6 5.5-6s4.9 2 5.5 6" />
+        <path d="M15 5.5a3 3 0 0 1 0 5.8M16 14c2.7.5 4.1 2.4 4.5 5" />
+      </symbol>
+      <symbol id="icon-logout" viewBox="0 0 24 24">
+        <path d="M10 4H5v16h5M14 8l4 4-4 4M18 12H9" />
+      </symbol>
+      <symbol id="icon-external" viewBox="0 0 24 24">
+        <path d="M14 5h5v5M19 5l-8 8" />
+        <path d="M19 13v5H5V5h5" />
+      </symbol>
+      <symbol id="icon-brain" viewBox="0 0 24 24">
+        <path d="M9 4.5a3 3 0 0 0-5 2.2 3.2 3.2 0 0 0 1.1 2.4A3.4 3.4 0 0 0 6 15.5a3 3 0 0 0 3 4V4.5Z" />
+        <path d="M15 4.5a3 3 0 0 1 5 2.2 3.2 3.2 0 0 1-1.1 2.4A3.4 3.4 0 0 1 18 15.5a3 3 0 0 1-3 4V4.5Z" />
+        <path d="M9 8h2M13 8h2M9 12h2M13 12h2" />
+      </symbol>
+      <symbol id="icon-medical" viewBox="0 0 24 24">
+        <circle cx="10" cy="7" r="3" />
+        <path d="M4 21c.6-4.4 2.6-6.7 6-6.7 1.4 0 2.6.4 3.6 1.2" />
+        <path d="M17 12v6M14 15h6" />
+      </symbol>
+      <symbol id="icon-heart-hand" viewBox="0 0 24 24">
+        <path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10Z" />
+        <path d="M3 16c1.2-.7 2.3-.7 3.4 0l2.3 1.3c.8.5 1.7.4 2.3-.2l1.3-1.3" />
+      </symbol>
+    </defs>
+  </svg>
+  <section class="screen active" id="screen-perfil-apoio">
+    <div class="app-shell">
+      <aside class="sidebar apoio-sidebar" id="apoioSidebar">
+        <div class="sidebar-logo-btn" title="Lactare">
+          <img src="../../assets/images/lactare-logo.png" alt="Lactare banco de leite">
+        </div>
+        <div class="side-menu-label">MENU</div>
+        <ul class="side-menu" id="apoioMenu">
+          <li><a class="active" data-tab="inicio" onclick="showApoioTab('inicio', this)" title="Início"><svg>
+                <use href="#icon-home"></use>
+              </svg><span>Início</span></a></li>
+          <li><a data-tab="suporte" onclick="showApoioTab('suporte', this)" title="Suporte"><svg>
+                <use href="#icon-heart"></use>
+              </svg><span>Suporte</span></a></li>
+          <li><a data-tab="agendamento" onclick="showApoioTab('agendamento', this)" title="Agendamento"><svg>
+                <use href="#icon-calendar"></use>
+              </svg><span>Agendamento</span></a></li>
+          <li><a data-tab="historico" onclick="showApoioTab('historico', this)" title="Histórico de consultas"><svg>
+                <use href="#icon-file"></use>
+              </svg><span>Histórico de consultas</span></a></li>
+          <li><a data-tab="notificacoes" onclick="showApoioTab('notificacoes', this)" title="Notificações"><svg>
+                <use href="#icon-bell"></use>
+              </svg><span>Notificações</span><i class="menu-notification-dot" aria-hidden="true"></i></a></li>
+          <li><a data-tab="dados" onclick="showApoioTab('dados', this)" title="Meus dados"><svg>
+                <use href="#icon-user"></use>
+              </svg><span>Meus dados</span></a></li>
+          <li><a data-tab="feedback" onclick="showApoioTab('feedback', this)" title="Feedback"><svg>
+                <use href="#icon-message"></use>
+              </svg><span>Feedback</span></a></li>
+        </ul>
+        <div class="sidebar-logout" title="Sair" onclick="localStorage.removeItem('lactare_token'); localStorage.removeItem('lactare_session'); window.location.href='../login/apoio.html'"><svg>
+            <use href="#icon-logout"></use>
+          </svg><span>Sair</span></div>
+      </aside>
+      <main class="main-area">
+        <div class="topbar-mini">
+          <div class="topbar-spacer"></div>
+          <div class="topbar-actions">
+            <div class="pill-back" onclick="window.location.href='https://www.lactare.com.br/'"><svg>
+                <use href="#icon-external"></use>
+              </svg><span>Acesse nosso site</span></div>
+            <div class="bell-btn" aria-label="Notificações"
+              onclick="showApoioTab('notificacoes', document.querySelector('#apoioMenu a[data-tab=notificacoes]'))">
+              <svg>
+                <use href="#icon-bell"></use>
+              </svg><span class="bell-dot"></span>
+            </div>
+          </div>
+        </div>
+        <div class="panel-tab active" data-panel-tab="inicio">
+          <section class="apoio-hero card">
+            <div class="apoio-hero-copy">
+              <span class="apoio-profile-label">PERFIL REDE DE APOIO</span>
+              <h1 id="apoioGreetingTitle">Olá!</h1>
+              <h2>Bem-vinda à Rede de Apoio Lactare.</h2>
+              <p>Aqui você e sua família têm acesso a atendimentos gratuitos com profissionais especializados,
+                orientações e acolhimento em todas as fases da sua jornada.</p>
+              <button class="btn btn-primary apoio-hero-btn" type="button"
+                onclick="showApoioTab('suporte', document.querySelector('#apoioMenu a[data-tab=suporte]'))">Saiba mais
+                <span>›</span></button>
+            </div>
+            <div class="apoio-hero-visual">
+              <img src="../../assets/images/lactare-doadora.webp" alt="Família recebendo cuidado e apoio">
+              <div class="apoio-hero-script">Cuidado<br>também é<br>rede de apoio</div>
+            </div>
+          </section>
+
+          <section class="apoio-section">
+            <div class="section-heading">
+              <h2>Encontre o apoio que você precisa</h2>
+              <p>Escolha o tipo de atendimento e agende sua consulta.</p>
+            </div>
+            <div class="apoio-service-grid">
+              <article class="apoio-service-card card">
+                <div class="service-icon"><svg>
+                    <use href="#icon-brain"></use>
+                  </svg></div>
+                <div>
+                  <h3>Apoio psicológico</h3>
+                  <p>Atendimento e acolhimento emocional para você e sua família.</p><button type="button"
+                    onclick="showApoioTab('agendamento', document.querySelector('#apoioMenu a[data-tab=agendamento]'))">Agendar
+                    consulta <span>›</span></button>
+                </div>
+              </article>
+              <article class="apoio-service-card card">
+                <div class="service-icon"><svg>
+                    <use href="#icon-medical"></use>
+                  </svg></div>
+                <div>
+                  <h3>Assistência técnica</h3>
+                  <p>Orientações de profissionais sobre amamentação, cuidados com o bebê e saúde da família.</p><button
+                    type="button"
+                    onclick="showApoioTab('agendamento', document.querySelector('#apoioMenu a[data-tab=agendamento]'))">Agendar
+                    consulta <span>›</span></button>
+                </div>
+              </article>
+              <article class="apoio-service-card card">
+                <div class="service-icon"><svg>
+                    <use href="#icon-heart-hand"></use>
+                  </svg></div>
+                <div>
+                  <h3>Acolhimento emocional</h3>
+                  <p>Um espaço seguro para conversar, tirar dúvidas e receber apoio.</p><button type="button"
+                    onclick="showApoioTab('agendamento', document.querySelector('#apoioMenu a[data-tab=agendamento]'))">Agendar
+                    consulta <span>›</span></button>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <div class="apoio-home-columns">
+            <section class="card apoio-appointments">
+              <div class="home-card-heading">
+                <div>
+                  <h2><svg>
+                      <use href="#icon-calendar"></use>
+                    </svg> Seus próximos atendimentos</h2>
+                </div><button type="button"
+                  onclick="showApoioTab('historico', document.querySelector('#apoioMenu a[data-tab=historico]'))">Ver
+                  todos ›</button>
+              </div>
+              <div class="appointment-table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>DATA</th>
+                      <th>HORÁRIO</th>
+                      <th>TIPO DE ATENDIMENTO</th>
+                      <th>PROFISSIONAL</th>
+                      <th>STATUS</th>
+                      <th>AÇÕES</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>28/05/2025</td>
+                      <td>09:00</td>
+                      <td>Apoio psicológico</td>
+                      <td>Dra. Ana Souza</td>
+                      <td><span class="badge badge-warning">Agendada</span></td>
+                      <td><button class="table-action" type="button">Ver detalhes</button></td>
+                    </tr>
+                    <tr>
+                      <td>03/06/2025</td>
+                      <td>14:00</td>
+                      <td>Assistência técnica</td>
+                      <td>Nut. Mariana Lima</td>
+                      <td><span class="badge badge-success">Confirmada</span></td>
+                      <td><button class="table-action" type="button">Ver detalhes</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <div class="apoio-home-side">
+              <section class="card daily-tip">
+                <div class="service-icon">💡</div>
+                <div>
+                  <h2>Dica do dia</h2>
+                  <p>“Cuidar também é um ato de amor. Você não está sozinha!”</p>
+                </div>
+              </section>
+            </div>
+          </div>
+          <section class="card apoio-impact"><svg>
+              <use href="#icon-heart-hand"></use>
+            </svg>
+            <div>
+              <h2>O Lactare acredita que cada família importa.</h2>
+              <p>Nosso compromisso é estar ao seu lado, oferecendo informação, escuta e cuidado.</p>
+            </div>
+          </section>
+        </div>
+
+        <div class="panel-tab" data-panel-tab="suporte">
+          <div class="ra-page-head">
+            <h1>Suporte</h1>
+            <p>Essa jornada tem seus desafios, e você não precisa enfrentá-los sozinha.</p>
+          </div>
+          <section class="ra-support-intro">
+            <div class="ra-support-icon">♡</div>
+            <div>
+              <h2>Como podemos te ajudar?</h2>
+              <p>A Lactare oferece suporte e acolhimento para você e sua família. Escolha o atendimento que mais combina
+                com o que você precisa.</p>
+            </div>
+          </section>
+          <div class="ra-support-grid">
+            <article class="ra-support-card">
+              <div class="ra-big-icon">♧</div>
+              <div>
+                <h2>Apoio psicológico</h2>
+                <p>A chegada de um bebê transforma tudo, e nem sempre essa transformação é fácil. Ansiedade, insegurança
+                  e o peso emocional dessa fase merecem atenção e cuidado.</p>
+                <p>Nossa equipe oferece um espaço seguro e sem julgamentos para você falar sobre o que está sentindo,
+                  com atendimento por videochamada e total sigilo.</p><button type="button"
+                  onclick="showApoioTab('agendamento',document.querySelector('#apoioMenu a[data-tab=agendamento]'))">Agendar
+                  atendimento ›</button>
+              </div>
+            </article>
+            <article class="ra-support-card">
+              <div class="ra-big-icon">?</div>
+              <div>
+                <h2>Assistência técnica</h2>
+                <p>Amamentar é natural, mas nem sempre é simples. Dificuldades na pega, dúvidas sobre a sucção do bebê e
+                  cuidados com as mamas são questões comuns.</p>
+                <p>Nossa equipe oferece orientações práticas e personalizadas, incluindo processos de relactação para
+                  famílias que desejam retomar a amamentação.</p><button type="button"
+                  onclick="showApoioTab('agendamento',document.querySelector('#apoioMenu a[data-tab=agendamento]'))">Agendar
+                  atendimento ›</button>
+              </div>
+            </article>
+            <article class="ra-support-card">
+              <div class="ra-big-icon">♡</div>
+              <div>
+                <h2>Acolhimento emocional</h2>
+                <p>A insegurança, o cansaço e as mudanças dessa fase podem ser difíceis. Aqui você encontra um espaço de
+                  escuta ativa, sem julgamentos.</p>
+                <p>O objetivo é fortalecer sua autoconfiança e ajudar você a atravessar esse período respeitando seu
+                  tempo e sua história.</p><button type="button"
+                  onclick="showApoioTab('agendamento',document.querySelector('#apoioMenu a[data-tab=agendamento]'))">Agendar
+                  atendimento ›</button>
+              </div>
+            </article>
+          </div>
+          <section class="ra-support-more">
+            <h2>Você também pode contar com a Lactare</h2>
+            <div class="ra-more-grid">
+              <div><strong>📅 Agendamento</strong><span>Escolha o atendimento, a data e o horário disponíveis.</span>
+              </div>
+              <div><strong>💬 Nossa equipe</strong><span>Em caso de dúvidas, utilize os canais disponibilizados pela
+                  Lactare.</span></div>
+            </div>
+          </section>
+        </div>
+
+        <div class="panel-tab" data-panel-tab="agendamento">
+          <div class="ra-page-head">
+            <h1>Agendamento</h1>
+            <p>Agende uma consulta sempre que precisar. Nossa equipe fará o possível para garantir o melhor atendimento.
+            </p>
+          </div>
+          <section class="ra-book-banner">
+            <div><small>SAIBA MAIS SOBRE O QUE OFERECEMOS</small>
+              <h2>Estamos aqui para apoiar você em cada etapa.</h2>
+              <p>Nossos atendimentos são voltados para a Rede de Apoio, com orientação, acompanhamento e acolhimento.
+                Escolha o serviço que você precisa.</p>
+            </div>
+            <div class="ra-banner-mark">Acolher<br>Orientar<br>Conectar</div>
+          </section>
+          <section class="ra-booking-card">
+            <div class="ra-book-form">
+              <div class="ra-form-title"><span>▣</span>
+                <div>
+                  <h2>Agende seu atendimento</h2>
+                  <p>Escolha o motivo, a melhor data e o horário que funcionam para você.</p>
+                </div>
+              </div>
+              <label>TIPO DE ATENDIMENTO</label><select id="apoio-tipo-atendimento">
+                <option value="">Selecione o tipo de atendimento</option>
+                <option>Apoio psicológico</option>
+                <option>Assistência técnica</option>
+                <option>Acolhimento emocional</option>
+              </select>
+              <label>DATA PREFERIDA</label><input id="apoio-data-atendimento" type="date" value="2026-09-28">
+              <label>HORÁRIO DISPONÍVEL</label><select id="apoio-horario-atendimento">
+                <option value="">Selecione um horário</option>
+                <option>09:00</option>
+                <option>09:30</option>
+                <option>10:30</option>
+                <option>14:00</option>
+                <option>14:15</option>
+                <option>15:00</option>
+              </select>
+              <label>OBSERVAÇÕES</label><textarea id="apoio-observacoes"
+                placeholder="Sem observações"></textarea><button class="btn btn-primary ra-book-btn" type="button"
+                onclick="confirmarAgendamentoApoio()">AGENDAR CONSULTA</button>
+              <div id="apoio-book-message" class="ra-book-message"></div>
+            </div>
+            <div class="ra-calendar-area">
+              <h2>Setembro 2026</h2>
+              <div class="ra-calendar" id="calApoio"></div>
+              <div class="ra-calendar-legend"><span></span> Horário disponível</div>
+              <div class="ra-after-book"><span>▣</span>
+                <div><strong>Depois do agendamento</strong>
+                  <p>Nossa equipe entrará em contato para confirmar o horário e passar as orientações necessárias.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="ra-services-community">
+            <h2>Nossos serviços</h2>
+            <p>Saiba mais sobre os serviços que oferecemos e continue contando com nosso apoio.</p>
+            <div class="ra-bottom-cards">
+              <article><span>♡</span>
+                <h3>Atendimentos gratuitos</h3>
+                <p>Orientação, acolhimento e acompanhamento para você e sua família.</p><button type="button"
+                  onclick="showApoioTab('suporte',document.querySelector('#apoioMenu a[data-tab=suporte]'))">Conheça os
+                  serviços →</button>
+              </article>
+              <article><span>🔔</span>
+                <h3>Lactare Conecta — Avisos</h3>
+                <p>Receba comunicados importantes, lembretes, orientações e novidades.</p><button type="button"
+                  onclick="showApoioTab('notificacoes',document.querySelector('#apoioMenu a[data-tab=notificacoes]'))">Ver
+                  avisos →</button>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <div class="panel-tab" data-panel-tab="historico">
+          <div class="ra-page-head">
+            <h1>Histórico de consultas</h1>
+            <p>Confira os atendimentos que você já realizou ou agendou.</p>
+          </div>
+          <section class="ra-history-card card">
+            <div class="ra-section-title">
+              <h2>Minhas consultas</h2>
+              <p>Acompanhe o histórico dos seus atendimentos na Rede de Apoio.</p>
+            </div>
+            <div class="appointment-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>DATA</th>
+                    <th>HORÁRIO</th>
+                    <th>TIPO DE ATENDIMENTO</th>
+                    <th>PROFISSIONAL</th>
+                    <th>STATUS</th>
+                    <th>AÇÕES</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>20/05/2026</td>
+                    <td>09:15–10:30</td>
+                    <td>Assistência técnica</td>
+                    <td>Dr. --------</td>
+                    <td><span class="badge badge-warning">Agendada</span></td>
+                    <td><button class="table-action">Ver detalhes</button></td>
+                  </tr>
+                  <tr>
+                    <td>13/05/2026</td>
+                    <td>09:15–10:30</td>
+                    <td>Acolhimento emocional</td>
+                    <td>Dra. --------</td>
+                    <td><span class="badge badge-success">Realizada</span></td>
+                    <td><button class="table-action">Ver detalhes</button></td>
+                  </tr>
+                  <tr>
+                    <td>06/05/2025</td>
+                    <td>09:15–10:30</td>
+                    <td>Apoio psicológico</td>
+                    <td>Sra. --------</td>
+                    <td><span class="badge badge-success">Realizada</span></td>
+                    <td><button class="table-action">Ver detalhes</button></td>
+                  </tr>
+                  <tr>
+                    <td>29/04/2025</td>
+                    <td>09:15–10:30</td>
+                    <td>Acolhimento emocional</td>
+                    <td>Dra. --------</td>
+                    <td><span class="badge badge-success">Realizada</span></td>
+                    <td><button class="table-action">Ver detalhes</button></td>
+                  </tr>
+                  <tr>
+                    <td>29/04/2025</td>
+                    <td>09:15–10:30</td>
+                    <td>Assistência técnica</td>
+                    <td>Sr. --------</td>
+                    <td><span class="badge badge-danger">Cancelada</span></td>
+                    <td><button class="table-action">Ver detalhes</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+        <div class="panel-tab" data-panel-tab="notificacoes">
+          <div class="ra-page-head">
+            <h1>Notificações</h1>
+            <p>Acompanhe tudo o que acontece por aqui.</p>
+          </div>
+          <div class="ra-notif-toolbar">
+            <div class="ra-notif-filters"><button class="active" data-filter="todas">Todas <b>5</b></button><button
+                data-filter="atendimento">Atendimentos <b>2</b></button><button data-filter="agendamento">Agendamentos
+                <b>1</b></button><button data-filter="resultado">Resultados <b>1</b></button><button
+                data-filter="mensagem">Mensagens <b>1</b></button></div><button class="ra-mark-read" type="button"
+              onclick="marcarTodasApoioLidas()">✓ Marcar todas como lidas</button>
+          </div>
+          <div class="ra-notif-list">
+            <article class="ra-notif-card unread" data-type="atendimento">
+              <div class="ra-notif-icon green">▣</div>
+              <div class="ra-notif-content">
+                <h3>Seu atendimento foi confirmado!</h3>
+                <p>A consulta de apoio psicológico está confirmada. Contamos com a sua presença.</p>
+              </div><time>Hoje, 10:32</time><i></i><span>›</span>
+            </article>
+            <article class="ra-notif-card unread" data-type="agendamento">
+              <div class="ra-notif-icon blue">▣</div>
+              <div class="ra-notif-content">
+                <h3>Consulta confirmada para 28/05 às 09h00.</h3>
+                <p>Sua consulta foi agendada. Confira os detalhes no histórico.</p>
+              </div><time>Ontem, 14:15</time><i></i><span>›</span>
+            </article>
+            <article class="ra-notif-card" data-type="resultado">
+              <div class="ra-notif-icon yellow">♧</div>
+              <div class="ra-notif-content">
+                <h3>Seu atendimento foi concluído.</h3>
+                <p>Se precisar de mais orientação, nossa equipe está à disposição.</p>
+              </div><time>22/05, 09:00</time><i></i><span>›</span>
+            </article>
+            <article class="ra-notif-card" data-type="mensagem">
+              <div class="ra-notif-icon pink">♡</div>
+              <div class="ra-notif-content">
+                <h3>Obrigada pelo seu feedback!</h3>
+                <p>Sua avaliação foi registrada e ajuda a melhorar nossos atendimentos.</p>
+              </div><time>20/05, 16:44</time><i></i><span>›</span>
+            </article>
+            <article class="ra-notif-card" data-type="agendamento">
+              <div class="ra-notif-icon blue">▣</div>
+              <div class="ra-notif-content">
+                <h3>Lembrete: sua próxima consulta está chegando.</h3>
+                <p>Estamos prontos para receber você!</p>
+              </div><time>22/05, 08:00</time><i></i><span>›</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="panel-tab" data-panel-tab="feedback">
+          <div class="ra-page-head">
+            <h1>Feedback</h1>
+            <p>Conta pra gente como foi sua experiência. Seu feedback nos ajuda a melhorar a cada dia.</p>
+          </div>
+          <div class="ra-feedback-layout">
+            <section class="ra-feedback-form">
+              <div class="ra-feedback-banner"><span>▰</span>
+                <div>
+                  <h2>Sua opinião faz a diferença!</h2>
+                  <p>Com o seu feedback, conseguimos oferecer um atendimento cada vez melhor para você e para outras
+                    famílias.</p>
+                </div>
+              </div><label>ATENDIMENTO REFERENTE</label><select>
+                <option>Consulta — 20/05/2025</option>
+                <option>Consulta — 13/05/2025</option>
+                <option>Consulta — 06/05/2025</option>
+              </select><label>AVALIAÇÃO GERAL</label>
+              <div class="ra-stars" id="apoioStars"><button type="button" data-star="1">★</button><button type="button"
+                  data-star="2">★</button><button type="button" data-star="3">★</button><button type="button"
+                  data-star="4">★</button><button type="button" data-star="5">★</button><strong>5,0 — Excelente</strong>
+              </div><label>COMENTÁRIO (OPCIONAL)</label><textarea id="apoio-feedback-text"
+                maxlength="500">Atendimento excelente! Equipe muito atenciosa e acolhedora.</textarea>
+              <div class="ra-counter"><span id="apoio-feedback-count">0</span>/500</div><button
+                class="btn btn-primary ra-feedback-btn" type="button" onclick="enviarFeedbackApoio()">▶ Enviar
+                feedback</button>
+              <div class="ra-thanks"><span>♥</span>
+                <div>
+                  <h2>Obrigada por compartilhar sua experiência!</h2>
+                  <p>Seu feedback nos ajuda a cuidar melhor de quem mais precisa.</p>
+                </div>
+              </div>
+            </section>
+            <aside class="ra-feedback-history">
+              <h2>Feedbacks anteriores</h2>
+              <p>Veja o que você já compartilhou conosco.</p>
+              <article>
+                <div class="ra-history-icon">☰</div>
+                <div>
+                  <div class="stars-text">★★★★★</div>
+                  <h3>Atendimento excelente!</h3><small>Consulta — 20/05/2025</small>
+                  <p>Atendimento excelente! Equipe muito atenciosa e acolhedora.</p>
+                </div><b>20/05 · 5,0</b>
+              </article>
+              <article>
+                <div class="ra-history-icon">☰</div>
+                <div>
+                  <div class="stars-text">★★★★☆</div>
+                  <h3>Equipe muito atenciosa.</h3><small>Consulta — 13/05/2025</small>
+                  <p>Equipe muito atenciosa.</p>
+                </div><b>13/05 · 4,0</b>
+              </article>
+              <article>
+                <div class="ra-history-icon">☰</div>
+                <div>
+                  <div class="stars-text">★★★★★</div>
+                  <h3>Ótimo ambiente, me senti acolhida.</h3><small>Consulta — 06/05/2025</small>
+                  <p>Ótimo ambiente, me senti acolhida.</p>
+                </div><b>06/05 · 5,0</b>
+              </article>
+              <div class="ra-talk"><span>☁</span>
+                <div><strong>Tem sugestões ou alguma dúvida?</strong><small>Você também pode entrar em contato com nossa
+                    equipe.</small></div><button type="button">Falar com nossa equipe</button>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <div class="panel-tab" data-panel-tab="dados">
+          <div class="ra-page-head">
+            <h1>Meus dados</h1>
+            <p>Suas informações cadastradas conosco.</p>
+          </div>
+          <section class="ra-profile-banner">
+            <div class="ra-profile-avatar" id="apoioPerfilAvatar">?</div>
+            <div><small>PERFIL REDE DE APOIO</small>
+              <h2 id="apoioPerfilNome">Nome da família</h2>
+              <p>Família cadastrada</p><span>Seus dados e informações importantes para o acompanhamento da sua
+                jornada.</span>
+            </div>
+          </section>
+          <section class="ra-data-card">
+            <div class="ra-data-title"><span>♟</span>
+              <div>
+                <h2>Dados pessoais</h2>
+                <p>Informações para contato e identificação.</p>
+              </div>
+            </div>
+            <div class="ra-data-grid">
+              <div><label>NOME COMPLETO</label><strong id="apoioDadosNome">Nome da família</strong></div>
+              <div><label>TELEFONE</label><strong id="apoioDadosTelefone">Não informado</strong></div>
+              <div><label>E-MAIL</label><strong id="apoioDadosEmail">Não informado</strong></div>
+            </div><button class="btn btn-primary" type="button">Editar dados</button>
+          </section>
+          <section class="ra-address-card">
+            <div class="ra-data-title"><span>♥</span>
+              <div>
+                <h2>Endereço</h2>
+                <p>Local utilizado para organizar o atendimento da família.</p>
+              </div>
+            </div>
+            <div class="ra-address-value">Endereço não informado</div><button type="button">Editar endereço</button>
+          </section>
+          <div class="ra-data-bottom">
+            <section>
+              <div class="ra-data-title"><span>▣</span>
+                <div>
+                  <h2>Segurança da conta</h2>
+                  <p>Cuide do acesso à sua conta.</p>
+                </div>
+              </div>
+              <p>Seu acesso é protegido pelos dados de login cadastrados.</p><button type="button">Alterar
+                senha</button>
+            </section>
+            <section>
+              <div class="ra-data-title"><span>☁</span>
+                <div>
+                  <h2>Fale com nossa equipe</h2>
+                  <p>Precisa de ajuda? Estamos aqui para apoiar você.</p>
+                </div>
+              </div>
+              <p>Entre em contato pelos canais disponibilizados pela Lactare para tirar dúvidas sobre seus atendimentos.
+              </p><button type="button">Entrar em contato</button>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <!-- CHATBOT LACTARE -->
+  <div class="lactare-chatbot" id="lactare-chatbot" aria-live="polite">
+    <button class="lactare-chat-toggle" id="lactare-chat-toggle" type="button" aria-label="Abrir Assistente Lactare" onclick="toggleLactareChat()">
+      <svg class="chat-bubble-svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 11.5a8 8 0 0 1-8 8 8.9 8.9 0 0 1-3.4-.68L4 20l1.18-3.43A8 8 0 1 1 20 11.5Z"></path>
+      </svg>
+    </button>
+
+    <div class="lactare-chat-window" id="lactare-chat-window" hidden>
+      <div class="lactare-chat-header">
+        <div class="chat-title-wrap">
+          <span class="chat-header-icon">
+            <svg class="chat-bubble-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 11.5a8 8 0 0 1-8 8 8.9 8.9 0 0 1-3.4-.68L4 20l1.18-3.43A8 8 0 1 1 20 11.5Z"></path>
+            </svg>
+          </span>
+          <div>
+            <strong>Assistente Lactare</strong>
+            <small>Como posso ajudar?</small>
+          </div>
+        </div>
+        <button class="chat-close" type="button" aria-label="Fechar chat" onclick="closeLactareChat()">×</button>
+      </div>
+
+      <div class="lactare-chat-messages" id="lactare-chat-messages">
+        <div class="chat-message bot greeting-message">
+          <div class="bot-avatar">
+            <img src="../../assets/images/lactare-logo.png" alt="Lactare">
+          </div>
+          <div class="bot-greeting-content">
+            <strong>Olá! 👋</strong>
+            <p>Eu sou a Assistente Lactare e estou aqui para ajudar.</p>
+            <p>Como posso ajudar você hoje?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lactare-chat-faq-title">Perguntas frequentes</div>
+      <div class="lactare-chat-quick">
+        <button type="button" onclick="sendLactareQuick('Como funciona a Rede de Apoio?')"><span class="faq-icon">👥</span><span>Como funciona a Rede de Apoio?</span><b>›</b></button>
+        <button type="button" onclick="sendLactareQuick('Como agendar um atendimento?')"><span class="faq-icon">📅</span><span>Como agendar um atendimento?</span><b>›</b></button>
+        <button type="button" onclick="sendLactareQuick('Como atualizar meus dados?')"><span class="faq-icon">👤</span><span>Como atualizar meus dados?</span><b>›</b></button>
+        <button type="button" onclick="sendLactareQuick('Quero falar com a equipe Lactare')"><span class="faq-icon">🎧</span><span>Quero falar com a equipe Lactare</span><b>›</b></button>
+        <button type="button" onclick="sendLactareQuick('Preciso de ajuda com meu atendimento')"><span class="faq-icon">💙</span><span>Preciso de ajuda com meu atendimento</span><b>›</b></button>
+      </div>
+
+      <form class="lactare-chat-input" onsubmit="sendLactareMessage(event)">
+        <input id="lactare-chat-text" type="text" placeholder="Digite sua mensagem..." autocomplete="off" aria-label="Mensagem" />
+        <button type="submit" aria-label="Enviar mensagem">➤</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../../assets/js/api-client.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    var sessaoApoio = LactareAPI.session();
+var apoioAtual = null;
+
+async function carregarPerfilApoio() {
+  if(!sessaoApoio || sessaoApoio.perfil!=='APOIO' || !sessaoApoio.usuarioId){window.location.replace('../login/apoio.html');return;}
+  try {
+    apoioAtual = await LactareAPI.apoio(sessaoApoio.usuarioId);
+    var apoioNome = apoioAtual.nome || 'Nome da família';
+    var apoioTexto = function(id,valor){var elemento=document.getElementById(id);if(elemento)elemento.textContent=valor||'Não informado';};
+    apoioTexto('apoioGreetingTitle','Olá, '+apoioNome+'!');
+    apoioTexto('apoioPerfilNome',apoioNome);
+    apoioTexto('apoioDadosNome',apoioNome);
+    apoioTexto('apoioDadosTelefone',apoioAtual.telefone);
+    apoioTexto('apoioDadosEmail',apoioAtual.email);
+    apoioTexto('apoioPerfilAvatar',apoioNome.charAt(0).toUpperCase());
+  } catch(e) {
+    localStorage.removeItem('lactare_token'); localStorage.removeItem('lactare_session'); window.location.replace('../login/apoio.html');
+  }
+}
+carregarPerfilApoio();
+  </script>
+</body>
+
+</html>

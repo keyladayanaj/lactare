@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lactare — Cadastro da Família</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <style>
+    /* Alteração visual somente do cadastro da família */
+    #screen-cadastro-familia {
+      min-height: 100vh;
+      background: #f5f8fb;
+      padding: 28px 20px 48px;
+      box-sizing: border-box;
+    }
+
+    .familia-wizard {
+      width: min(940px, 100%);
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #d9e4ef;
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0, 50, 100, .08);
+      overflow: hidden;
+    }
+
+    .familia-header {
+      padding: 24px 30px 20px;
+      border-bottom: 1px solid #e4ebf2;
+    }
+
+    .familia-title-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .familia-logo {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .familia-header h1 {
+      margin: 0;
+      color: #07559f;
+      font-size: 25px;
+      line-height: 1.2;
+    }
+
+    .familia-header p {
+      margin: 4px 0 0;
+      color: #58708a;
+      font-size: 14px;
+    }
+
+    .familia-progress-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+      color: #365777;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .familia-progress {
+      height: 7px;
+      background: #e8f0f8;
+      border-radius: 99px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .familia-progress > span {
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: #07559f;
+      border-radius: 99px;
+    }
+
+    .familia-body {
+      padding: 34px 38px 30px;
+    }
+
+    .familia-step {
+      color: #07559f;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .familia-body h2 {
+      margin: 0;
+      color: #07559f;
+      font-size: 27px;
+      line-height: 1.2;
+    }
+
+    .familia-description {
+      margin: 7px 0 22px;
+      color: #58708a;
+      font-size: 13px;
+      line-height: 1.55;
+      max-width: 760px;
+    }
+
+    .familia-notice {
+      background: #eaf3fb;
+      border: 1px solid #c9dcec;
+      color: #365777;
+      border-radius: 6px;
+      padding: 11px 13px;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .familia-section-title {
+      color: #07559f;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: .02em;
+    }
+
+    .familia-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 20px;
+    }
+
+    .familia-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .familia-field label {
+      display: block;
+      color: #365777;
+      font-size: 10.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: .03em;
+    }
+
+    .familia-field input {
+      width: 100%;
+      height: 42px;
+      border: 1px solid #cbd9e6;
+      border-radius: 6px;
+      padding: 0 12px;
+      color: #253b50;
+      background: #fff;
+      outline: none;
+      font-size: 13px;
+    }
+
+    .familia-field input:focus {
+      border-color: #07559f;
+      box-shadow: 0 0 0 2px rgba(7, 85, 159, .08);
+    }
+
+    .familia-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 38px 22px;
+      border-top: 1px solid #e4ebf2;
+    }
+
+    .familia-footer .btn {
+      min-width: 130px;
+      border-radius: 999px;
+      padding: 11px 22px;
+    }
+
+    .familia-footer .btn-primary {
+      background: #07559f;
+      border-color: #07559f;
+    }
+
+    .familia-footer .btn-primary:hover {
+      background: #064986;
+      border-color: #064986;
+    }
+
+    @media (max-width: 700px) {
+      #screen-cadastro-familia {
+        padding: 16px 10px 30px;
+      }
+
+      .familia-header {
+        padding: 20px;
+      }
+
+      .familia-header h1 {
+        font-size: 21px;
+      }
+
+      .familia-header p {
+        font-size: 12px;
+      }
+
+      .familia-body {
+        padding: 26px 20px 24px;
+      }
+
+      .familia-body h2 {
+        font-size: 23px;
+      }
+
+      .familia-form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .familia-field.full {
+        grid-column: auto;
+      }
+
+      .familia-footer {
+        padding: 16px 20px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="screen-cadastro-familia">
+    <div class="familia-wizard">
+      <header class="familia-header">
+        <div class="familia-title-row">
+          <img class="familia-logo" src="../../assets/images/lactare-logo.png" alt="Lactare">
+          <div>
+            <h1>Cadastro da família</h1>
+            <p>Preencha seus dados para acessar a plataforma Lactare.</p>
+          </div>
+        </div>
+
+        <div class="familia-progress-head">
+          <span>Cadastro</span>
+          <strong>1 de 1 — Cadastro</strong>
+        </div>
+        <div class="familia-progress" aria-hidden="true"><span></span></div>
+      </header>
+
+      <section class="familia-body">
+        <div class="familia-step">1 de 1 — Dados da família</div>
+        <h2>Agora, seu cadastro</h2>
+        <p class="familia-description">
+          Preencha seus dados para criar seu acesso à plataforma Lactare e acompanhar sua jornada de apoio.
+        </p>
+
+        <div class="familia-notice">
+          Seus dados são utilizados para identificar sua conta e manter o contato necessário com segurança e privacidade.
+        </div>
+
+        <div class="familia-section-title">DADOS DA FAMÍLIA</div>
+
+        <div class="familia-form-grid">
+          <div class="familia-field">
+            <label for="familia-nome">NOME COMPLETO</label>
+            <input id="familia-nome" placeholder="Ex: Maria Silva" type="text">
+          </div>
+
+          <div class="familia-field">
+            <label for="familia-telefone">TELEFONE</label>
+            <input id="familia-telefone" placeholder="Telefone" type="text">
+          </div>
+
+          <div class="familia-field full">
+            <label for="familia-email">E-MAIL</label>
+            <input id="familia-email" placeholder="familia@email.com" type="text">
+          </div>
+
+          <div class="familia-field">
+            <label for="familia-data-nascimento">DATA DE NASCIMENTO</label>
+            <input id="familia-data-nascimento" type="date">
+          </div>
+
+          <div class="familia-field">
+            <label for="familia-rg">RG</label>
+            <input id="familia-rg" placeholder="RG" type="text" maxlength="15">
+          </div>
+
+          <div class="familia-field">
+            <label for="familia-cpf">CPF</label>
+            <input id="familia-cpf" placeholder="CPF" type="text" maxlength="11">
+          </div>
+
+          <div class="familia-field full">
+            <label for="familia-endereco">ENDEREÇO</label>
+            <input id="familia-endereco" placeholder="Rua, número e complemento" type="text">
+          </div>
+
+          <div class="familia-field">
+            <label for="familia-bairro">BAIRRO</label>
+            <input id="familia-bairro" placeholder="Bairro" type="text">
+          </div>
+
+          <div class="familia-field">
+            <label for="familia-cidade">CIDADE</label>
+            <input id="familia-cidade" placeholder="Cidade" type="text">
+          </div>
+
+          <div class="familia-field">
+            <label for="familia-cep">CEP</label>
+            <input id="familia-cep" placeholder="CEP" type="text" maxlength="9">
+          </div>
+
+          <div class="familia-field">
+            <label for="familia-novo-user">NOME DE USUÁRIO</label>
+            <input id="familia-novo-user" placeholder="familia_maria" type="text">
+          </div>
+
+          <div class="familia-field">
+            <label for="familia-nova-senha">SENHA</label>
+            <input id="familia-nova-senha" placeholder="Senha" type="password">
+          </div>
+
+          <div class="familia-field">
+            <label for="familia-confirma-senha">CONFIRMAR SENHA</label>
+            <input id="familia-confirma-senha" placeholder="Confirmar senha" type="password">
+          </div>
+        </div>
+
+        <div class="login-error" hidden id="familia-cadastro-error">
+          Preencha corretamente todos os campos.
+        </div>
+      </section>
+
+      <footer class="familia-footer">
+        <button class="btn btn-outline" onclick="goToLoginApoio()" type="button">← Voltar</button>
+        <button class="btn btn-primary" onclick="finalizarCadastroFamilia()" type="button">Finalizar cadastro →</button>
+      </footer>
+    </div>
+  </main>
+
+  <script src="../../assets/js/api-client.js"></script>
+  <script src="../../assets/js/script.js"></script>
+</body>
+</html>

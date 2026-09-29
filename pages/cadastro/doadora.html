@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lactare — Cadastro da doadora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <style>
+    /* Somente esta página: cadastro da doadora/nutriz */
+    #screen-cadastro-doadora {
+      min-height: 100vh;
+      background: #f5f8fb;
+      padding: 28px 20px 48px;
+      box-sizing: border-box;
+    }
+
+    .doadora-wizard {
+      width: min(940px, 100%);
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #d9e4ef;
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0, 50, 100, .08);
+      overflow: hidden;
+    }
+
+    .doadora-header {
+      padding: 24px 30px 20px;
+      border-bottom: 1px solid #e4ebf2;
+    }
+
+    .doadora-title-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .doadora-logo {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .doadora-header h1 {
+      margin: 0;
+      color: #07559f;
+      font-size: 25px;
+      line-height: 1.2;
+    }
+
+    .doadora-header p {
+      margin: 4px 0 0;
+      color: #58708a;
+      font-size: 14px;
+    }
+
+    .doadora-progress-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+      color: #365777;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .doadora-progress {
+      height: 7px;
+      background: #e8f0f8;
+      border-radius: 99px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .doadora-progress > span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: #07559f;
+      border-radius: 99px;
+      transition: width .2s ease;
+    }
+
+    .doadora-panel {
+      display: none;
+    }
+
+    .doadora-panel.is-active {
+      display: block;
+    }
+
+    .doadora-body {
+      padding: 34px 38px 30px;
+    }
+
+    .doadora-kicker {
+      color: #07559f;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .doadora-body h2 {
+      color: #07559f;
+      font-size: 28px;
+      line-height: 1.2;
+      margin: 0 0 8px;
+    }
+
+    .doadora-description {
+      margin: 0 0 20px;
+      color: #58708a;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .doadora-notice {
+      background: #eef6ff;
+      border: 1px solid #c9e0f6;
+      color: #315979;
+      border-radius: 6px;
+      padding: 11px 13px;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-bottom: 22px;
+    }
+
+    .doadora-section-title {
+      color: #07559f;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .03em;
+      margin: 20px 0 12px;
+    }
+
+    .doadora-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 18px;
+    }
+
+    .doadora-field label {
+      display: block;
+      color: #365777;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .doadora-field input,
+    .doadora-field select,
+    .doadora-field textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #ccd9e6;
+      border-radius: 6px;
+      background: #fff;
+      color: #193c5d;
+      font: inherit;
+      font-size: 13px;
+      padding: 11px 12px;
+      outline: none;
+    }
+
+    .doadora-field textarea {
+      min-height: 88px;
+      resize: vertical;
+    }
+
+    .doadora-field input:focus,
+    .doadora-field select:focus,
+    .doadora-field textarea:focus {
+      border-color: #07559f;
+      box-shadow: 0 0 0 2px rgba(7, 85, 159, .10);
+    }
+
+    .doadora-field.invalid input,
+    .doadora-field.invalid select,
+    .doadora-field.invalid textarea {
+      border-color: #c23b3b;
+    }
+
+    .doadora-error {
+      color: #a52f2f;
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+    .doadora-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      color: #365777;
+      font-size: 12px;
+      line-height: 1.45;
+      margin: 12px 0;
+    }
+
+    .doadora-check input {
+      margin-top: 2px;
+      accent-color: #07559f;
+      flex: 0 0 auto;
+    }
+
+    .doadora-question {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .doadora-question-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #4e6b88;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    .doadora-question h2 {
+      text-align: center;
+      font-size: 27px;
+      margin-bottom: 26px;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .answer-option {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: 54px;
+      box-sizing: border-box;
+      border: 1px solid #d6e0e9;
+      border-radius: 8px;
+      padding: 0 18px;
+      color: #173f64;
+      background: #fff;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: border-color .15s ease, background .15s ease;
+    }
+
+    .answer-option:hover {
+      border-color: #75aee0;
+    }
+
+    .answer-option.selected {
+      border-color: #3e99e7;
+      background: #eef6ff;
+    }
+
+    .answer-option input {
+      appearance: none;
+      width: 17px;
+      height: 17px;
+      border: 1px solid #9db1c5;
+      border-radius: 50%;
+      margin: 0 13px 0 0;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .answer-option input:checked {
+      border-color: #07559f;
+    }
+
+    .answer-option input:checked::after {
+      content: '';
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #07559f;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+    }
+
+    .doadora-info {
+      margin-top: 18px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: #f0f7ff;
+      color: #45637e;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .doadora-success {
+      text-align: center;
+      padding: 44px 20px 52px;
+    }
+
+    .doadora-success-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #e9f4ff;
+      color: #07559f;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+      font-size: 38px;
+      font-weight: 700;
+    }
+
+    .doadora-success h2 {
+      margin-bottom: 12px;
+    }
+
+    .doadora-success p {
+      max-width: 560px;
+      margin: 0 auto;
+      color: #4f6c87;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .doadora-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      border-top: 1px solid #e4ebf2;
+      padding: 18px 30px;
+      background: #fff;
+    }
+
+    .doadora-btn {
+      border: 1px solid #07559f;
+      border-radius: 22px;
+      padding: 10px 24px;
+      min-width: 110px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      background: #fff;
+      color: #07559f;
+    }
+
+    .doadora-btn.primary {
+      background: #07559f;
+      color: #fff;
+    }
+
+    .doadora-btn.primary:hover {
+      background: #064982;
+    }
+
+    .doadora-btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
+    .doadora-spacer {
+      min-height: 1px;
+    }
+
+    @media (max-width: 720px) {
+      #screen-cadastro-doadora { padding: 12px; }
+      .doadora-header, .doadora-body { padding-left: 20px; padding-right: 20px; }
+      .doadora-footer { padding: 15px 20px; }
+      .doadora-grid { grid-template-columns: 1fr; }
+      .doadora-header h1 { font-size: 21px; }
+      .doadora-body h2, .doadora-question h2 { font-size: 23px; }
+    }
+  </style>
+</head>
+<body>
+  <main id="screen-cadastro-doadora">
+    <div class="doadora-wizard">
+      <header class="doadora-header">
+        <div class="doadora-title-row">
+          <img class="doadora-logo" src="../../assets/images/lactare-logo.png" alt="Lactare">
+          <div>
+            <h1>Cadastro da doadora</h1>
+            <p>Preencha seus dados e, em seguida, responda à triagem para iniciar sua jornada de doação.</p>
+          </div>
+        </div>
+        <div class="doadora-progress-head">
+          <span id="doadora-progress-label">Cadastro e triagem</span>
+          <strong id="doadora-step-label">1 de 2 — Cadastro</strong>
+        </div>
+        <div class="doadora-progress"><span id="doadora-progress-bar"></span></div>
+      </header>
+
+      <!-- CADASTRO 1 -->
+      <section class="doadora-panel is-active" data-panel="1">
+        <div class="doadora-body">
+          <div class="doadora-kicker">1 de 2 — Dados pessoais</div>
+          <h2>Agora, seu cadastro</h2>
+          <p class="doadora-description">Seus dados são usados exclusivamente para conectar você ao banco de leite mais próximo e nunca são compartilhados com terceiros.</p>
+          <div class="doadora-notice">Essas informações ajudam o Lactare a identificar sua região e manter o contato necessário para a jornada de doação.</div>
+          <div class="doadora-section-title">DADOS PESSOAIS</div>
+          <div class="doadora-grid">
+            <div class="doadora-field"><label>Nome completo</label><input id="dados-nome" required placeholder="Digite seu nome completo"></div>
+            <div class="doadora-field"><label>CPF</label><input id="dados-cpf" required maxlength="14" placeholder="000.000.000-00"></div>
+            <div class="doadora-field"><label>Data de nascimento</label><input id="dados-nascimento" required placeholder="DD/MM/AAAA"></div>
+            <div class="doadora-field"><label>Telefone / WhatsApp</label><input id="dados-telefone" required placeholder="(11) 91234-5678"></div>
+            <div class="doadora-field"><label>E-mail</label><input id="dados-email" required type="email" placeholder="seuemail@exemplo.com"></div>
+            <div class="doadora-field"><label>RG</label><input id="dados-rg" required placeholder="00.000.000-0"></div>
+            <div class="doadora-field"><label>Cidade</label><input id="dados-cidade" required placeholder="Digite sua cidade"></div>
+            <div class="doadora-field"><label>CEP</label><input id="dados-cep" required placeholder="00000-000"></div>
+            <div class="doadora-field"><label>Endereço</label><input id="dados-endereco" required placeholder="Rua, número"></div>
+            <div class="doadora-field"><label>Bairro / Região</label><select id="dados-bairro" required><option value="">Selecione</option><option>Centro</option><option>Zona Sul</option><option>Zona Norte</option><option>Zona Leste</option><option>Zona Oeste</option></select></div>
+          </div>
+        </div>
+        <footer class="doadora-footer"><button class="doadora-btn" type="button" disabled>← Voltar</button><button class="doadora-btn primary" type="button" data-next>Continuar →</button></footer>
+      </section>
+
+      <!-- CADASTRO 2 -->
+      <section class="doadora-panel" data-panel="2">
+        <div class="doadora-body">
+          <div class="doadora-kicker">2 de 2 — Complemento</div>
+          <h2>Informações adicionais</h2>
+          <div class="doadora-grid">
+            <div class="doadora-field"><label>Data de nascimento do bebê (opcional)</label><input id="dados-bebe" type="date"></div>
+            <div class="doadora-field"><label>Nome de usuário</label><input id="acesso-usuario" required placeholder="Escolha um usuário"></div>
+            <div class="doadora-field"><label>E-mail de acesso</label><input id="acesso-email" required type="email" placeholder="seuemail@exemplo.com"></div>
+            <div class="doadora-field"><label>Senha</label><input id="acesso-senha" required type="password" placeholder="Crie uma senha"></div>
+          </div>
+          <div class="doadora-field" style="margin-top:16px"><label>Mensagem (opcional)</label><textarea id="dados-mensagem" placeholder="Escreva aqui alguma informação adicional..."></textarea></div>
+          <div class="doadora-section-title">CONSENTIMENTOS</div>
+          <label class="doadora-check"><input id="consent-saude" required type="checkbox"><span>Consinto com a coleta dos meus dados de saúde (triagem) para fins exclusivos de avaliação pelo banco de leite.</span></label>
+          <label class="doadora-check"><input id="consent-contato" required type="checkbox"><span>Aceito que a equipe do Lactare entre em contato via WhatsApp/e-mail para agendar a coleta.</span></label>
+          <label class="doadora-check"><input id="consent-termos" required type="checkbox"><span>Concordo com os <strong>Termos de Uso e Política de Privacidade.</strong></span></label>
+        </div>
+        <footer class="doadora-footer"><button class="doadora-btn" type="button" data-prev>← Voltar</button><button class="doadora-btn primary" type="button" data-next>Continuar para a triagem →</button></footer>
+      </section>
+
+      <!-- TRIAGEM 1 -->
+      <section class="doadora-panel" data-panel="3">
+        <div class="doadora-body doadora-question">
+          <div class="doadora-question-head"><span>Triagem</span><strong>Pergunta 1 de 6</strong></div>
+          <h2>Você está amamentando atualmente?</h2>
+          <div class="answer-list">
+            <label class="answer-option"><input type="radio" name="triagem-amamentando" value="Sim, amamentando">Sim, estou amamentando</label>
+            <label class="answer-option"><input type="radio" name="triagem-amamentando" value="Ainda não">Ainda não</label>
+            <label class="answer-option"><input type="radio" name="triagem-amamentando" value="Não estou mais">Não estou mais</label>
+          </div>
+        </div>
+        <footer class="doadora-footer"><button class="doadora-btn" type="button" data-prev>← Voltar</button><button class="doadora-btn primary" type="button" data-next>Continuar →</button></footer>
+      </section>
+
+      <!-- TRIAGEM 2 -->
+      <section class="doadora-panel" data-panel="4">
+        <div class="doadora-body doadora-question">
+          <div class="doadora-question-head"><span>Triagem</span><strong>Pergunta 2 de 6</strong></div>
+          <h2>Qual a idade aproximada do seu bebê?</h2>
+          <div class="answer-list">
+            <label class="answer-option"><input type="radio" name="triagem-idade" value="Menos de 1 mês">Menos de 1 mês</label>
+            <label class="answer-option"><input type="radio" name="triagem-idade" value="1 a 3 meses">1 a 3 meses</label>
+            <label class="answer-option"><input type="radio" name="triagem-idade" value="3 a 6 meses">3 a 6 meses</label>
+            <label class="answer-option"><input type="radio" name="triagem-idade" value="6 a 12 meses">6 a 12 meses</label>
+            <label class="answer-option"><input type="radio" name="triagem-idade" value="Mais de 12 meses">Mais de 12 meses</label>
+            <label class="answer-option"><input type="radio" name="triagem-idade" value="Não se aplica">Não se aplica</label>
+          </div>
+        </div>
+        <footer class="doadora-footer"><button class="doadora-btn" type="button" data-prev>← Voltar</button><button class="doadora-btn primary" type="button" data-next>Continuar →</button></footer>
+      </section>
+
+      <!-- TRIAGEM 3 -->
+      <section class="doadora-panel" data-panel="5">
+        <div class="doadora-body doadora-question">
+          <div class="doadora-question-head"><span>Triagem</span><strong>Pergunta 3 de 6</strong></div>
+          <h2>Você está tomando algum medicamento?</h2>
+          <div class="answer-list">
+            <label class="answer-option"><input type="radio" name="triagem-medicamento" value="Sim">Sim</label>
+            <label class="answer-option"><input type="radio" name="triagem-medicamento" value="Não">Não</label>
+          </div>
+          <div class="doadora-info">ⓘ Alguns medicamentos podem interferir na doação de leite. Suas respostas nos ajudam a orientar você com segurança.</div>
+        </div>
+        <footer class="doadora-footer"><button class="doadora-btn" type="button" data-prev>← Voltar</button><button class="doadora-btn primary" type="button" data-next>Continuar →</button></footer>
+      </section>
+
+      <!-- TRIAGEM 4 -->
+      <section class="doadora-panel" data-panel="6">
+        <div class="doadora-body doadora-question">
+          <div class="doadora-question-head"><span>Triagem</span><strong>Pergunta 4 de 6</strong></div>
+          <h2>Você fuma?</h2>
+          <div class="answer-list">
+            <label class="answer-option"><input type="radio" name="triagem-fuma" value="Sim">Sim</label>
+            <label class="answer-option"><input type="radio" name="triagem-fuma" value="Não">Não</label>
+          </div>
+        </div>
+        <footer class="doadora-footer"><button class="doadora-btn" type="button" data-prev>← Voltar</button><button class="doadora-btn primary" type="button" data-next>Continuar →</button></footer>
+      </section>
+
+      <!-- TRIAGEM 5 -->
+      <section class="doadora-panel" data-panel="7">
+        <div class="doadora-body doadora-question">
+          <div class="doadora-question-head"><span>Triagem</span><strong>Pergunta 5 de 6</strong></div>
+          <h2>Você realizou exames de sangue (pré-natal ou pós-natal) nos últimos 6 meses?</h2>
+          <div class="answer-list">
+            <label class="answer-option"><input type="radio" name="triagem-exames" value="Sim">Sim</label>
+            <label class="answer-option"><input type="radio" name="triagem-exames" value="Não">Não</label>
+          </div>
+        </div>
+        <footer class="doadora-footer"><button class="doadora-btn" type="button" data-prev>← Voltar</button><button class="doadora-btn primary" type="button" data-next>Continuar →</button></footer>
+      </section>
+
+      <!-- TRIAGEM 6 -->
+      <section class="doadora-panel" data-panel="8">
+        <div class="doadora-body doadora-question">
+          <div class="doadora-question-head"><span>Triagem</span><strong>Pergunta 6 de 6</strong></div>
+          <h2>Você já doou leite anteriormente?</h2>
+          <div class="answer-list">
+            <label class="answer-option"><input type="radio" name="triagem-doou" value="Sim">Sim</label>
+            <label class="answer-option"><input type="radio" name="triagem-doou" value="Não">Não</label>
+          </div>
+        </div>
+        <footer class="doadora-footer"><button class="doadora-btn" type="button" data-prev>← Voltar</button><button class="doadora-btn primary" type="button" id="btn-finalizar-triagem">Finalizar triagem →</button></footer>
+      </section>
+
+      <!-- CONCLUSÃO -->
+      <section class="doadora-panel" data-panel="9">
+        <div class="doadora-success">
+          <div class="doadora-success-icon">✓</div>
+          <h2>Triagem concluída!</h2>
+          <p>Obrigada por responder. Sua triagem foi enviada para a equipe Lactare e está aguardando análise.</p>
+          <div class="doadora-notice" style="margin-top:18px"><strong>Próximo passo</strong><br>A equipe irá analisar suas respostas. Quando sua triagem for aprovada, o agendamento da coleta será liberado.</div>
+        </div>
+        <footer class="doadora-footer"><span class="doadora-spacer"></span><button class="doadora-btn primary" type="button" id="btn-concluir-cadastro">Concluir cadastro →</button></footer>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../assets/js/api-client.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      const panels = Array.from(document.querySelectorAll('.doadora-panel'));
+      const progressBar = document.getElementById('doadora-progress-bar');
+      const progressLabel = document.getElementById('doadora-progress-label');
+      const stepLabel = document.getElementById('doadora-step-label');
+      let current = 1;
+      const total = panels.length;
+
+      function panel(n) { return panels.find(p => Number(p.dataset.panel) === n); }
+
+      function clearErrors(p) {
+        p.querySelectorAll('.doadora-field.invalid').forEach(el => el.classList.remove('invalid'));
+        p.querySelectorAll('.doadora-error').forEach(el => el.remove());
+      }
+
+      function addError(field, text) {
+        const wrapper = field.closest('.doadora-field');
+        if (!wrapper) return;
+        wrapper.classList.add('invalid');
+        const msg = document.createElement('div');
+        msg.className = 'doadora-error';
+        msg.textContent = text || 'Preencha este campo.';
+        wrapper.appendChild(msg);
+      }
+
+      function validateFormPanel(n) {
+        const p = panel(n);
+        clearErrors(p);
+        let ok = true;
+        p.querySelectorAll('[required]').forEach(field => {
+          if (field.type === 'checkbox' && !field.checked) { addError(field, 'Você precisa aceitar este item.'); ok = false; }
+          else if (field.type !== 'checkbox' && !String(field.value || '').trim()) { addError(field, 'Preencha este campo.'); ok = false; }
+        });
+        const cpf = p.querySelector('#dados-cpf');
+        if (cpf && cpf.value && cpf.value.replace(/\D/g, '').length !== 11) { addError(cpf, 'Informe um CPF com 11 números.'); ok = false; }
+        const nasc = p.querySelector('#dados-nascimento');
+        if (nasc && nasc.value.trim() && !isValidBrPastDate(nasc.value.trim())) {
+          addError(nasc, 'Use o formato DD/MM/AAAA com uma data real (ex.: 12/03/1992).'); ok = false;
+        }
+        return ok;
+      }
+
+      function isValidBrPastDate(v) {
+        const m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(v);
+        if (!m) return false;
+        const d = +m[1], mo = +m[2], y = +m[3];
+        const dt = new Date(y, mo - 1, d);
+        if (dt.getFullYear() !== y || dt.getMonth() !== mo - 1 || dt.getDate() !== d) return false;
+        return y >= 1900 && dt < new Date();
+      }
+
+      function validateQuestion(n) {
+        const p = panel(n);
+        const checked = p.querySelector('input[type="radio"]:checked');
+        if (checked) return true;
+        alert('Selecione uma opção para continuar.');
+        return false;
+      }
+
+      function saveDraft() {
+        const data = {
+          nome: document.getElementById('dados-nome').value.trim(),
+          cpf: document.getElementById('dados-cpf').value.trim(),
+          nascimento: document.getElementById('dados-nascimento').value.trim(),
+          telefone: document.getElementById('dados-telefone').value.trim(),
+          email: document.getElementById('dados-email').value.trim(),
+          rg: document.getElementById('dados-rg').value.trim(),
+          cidade: document.getElementById('dados-cidade').value.trim(),
+          cep: document.getElementById('dados-cep').value.trim(),
+          endereco: document.getElementById('dados-endereco').value.trim(),
+          bairro: document.getElementById('dados-bairro').value,
+          bebe: document.getElementById('dados-bebe').value,
+          mensagem: document.getElementById('dados-mensagem').value.trim(),
+          usuario: document.getElementById('acesso-usuario').value.trim(),
+          senha: document.getElementById('acesso-senha').value,
+          emailAcesso: document.getElementById('acesso-email').value.trim(),
+          salvoEm: new Date().toISOString()
+        };
+        return data;
+      }
+
+      async function saveCompleted() {
+        const draft = saveDraft();
+        const answers = {};
+        document.querySelectorAll('input[type="radio"]:checked').forEach(input => answers[input.name] = input.value);
+        const payload = {
+          cpf: draft.cpf.replace(/\D/g, ''), rg: draft.rg.replace(/\D/g, ''), nome: draft.nome, dataNascimento: parseBrDate(draft.nascimento),
+          telefone: draft.telefone, email: draft.emailAcesso || draft.email, endereco: draft.endereco,
+          bairro: draft.bairro, cidade: draft.cidade, cep: draft.cep.replace(/\D/g, ''), usuario: draft.usuario, senha: draft.senha
+        };
+        const btn=document.getElementById('btn-finalizar-triagem');
+        if(btn){btn.disabled=true;btn.textContent='Enviando triagem...';}
+        try {
+          if (!window.__doadoraCriada) {
+            window.__doadoraCriada = await LactareAPI.cadastrarDoadora(payload);
+          }
+          const doadora = window.__doadoraCriada;
+          const auth = await LactareAPI.login(payload.usuario, payload.senha);
+          localStorage.setItem('lactare_token', auth.token);
+          localStorage.setItem('lactare_session', JSON.stringify(auth));
+          const triagem = await LactareAPI.criarTriagem({
+            doadoraId: doadora.id,
+            amamentando: answers['triagem-amamentando'] || 'Não informado',
+            idadeBebe: answers['triagem-idade'] || 'Não informado',
+            medicamento: answers['triagem-medicamento'] || 'Não informado',
+            fuma: answers['triagem-fuma'] || 'Não informado',
+            examesRecentes: answers['triagem-exames'] || 'Não informado',
+            jaDoou: answers['triagem-doou'] || 'Não informado'
+          });
+          localStorage.setItem('lactare_session', JSON.stringify({ perfil:'DOADORA', usuarioId:doadora.id, nome:doadora.nome }));
+          return true;
+        } catch(e) {
+          const err=document.getElementById('cadastro-error');
+          if(err){err.hidden=false;err.textContent=e.message;}
+          else alert(e.message);
+          return false;
+        } finally { if(btn){btn.disabled=false;btn.textContent='Finalizar triagem →';} }
+      }
+
+      const nascInput = document.getElementById('dados-nascimento');
+      if (nascInput) {
+        nascInput.setAttribute('inputmode', 'numeric'); nascInput.setAttribute('maxlength', '10');
+        nascInput.addEventListener('input', function () {
+          const d = this.value.replace(/\D/g, '').slice(0, 8);
+          this.value = d.length > 4 ? d.slice(0, 2) + '/' + d.slice(2, 4) + '/' + d.slice(4) : d.length > 2 ? d.slice(0, 2) + '/' + d.slice(2) : d;
+        });
+      }
+
+      function parseBrDate(value){
+        const p=(value||'').split('/');
+        if(p.length===3) return p[2]+'-'+String(p[1]).padStart(2,'0')+'-'+String(p[0]).padStart(2,'0');
+        return value;
+      }
+
+      function render() {
+        panels.forEach(p => p.classList.toggle('is-active', Number(p.dataset.panel) === current));
+        const pct = ((current - 1) / (total - 1)) * 100;
+        progressBar.style.width = pct + '%';
+        if (current <= 2) {
+          progressLabel.textContent = 'Cadastro e triagem';
+          stepLabel.textContent = current + ' de 2 — Cadastro';
+        } else if (current <= 8) {
+          progressLabel.textContent = 'Triagem';
+          stepLabel.textContent = 'Pergunta ' + (current - 2) + ' de 6';
+        } else {
+          progressLabel.textContent = 'Concluído';
+          stepLabel.textContent = 'Triagem concluída';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      document.querySelectorAll('[data-next]').forEach(btn => {
+        btn.addEventListener('click', function () {
+          if (current <= 2 && !validateFormPanel(current)) return;
+          if (current === 2) saveDraft();
+          if (current >= 3 && current <= 8 && !validateQuestion(current)) return;
+          if (current < total) { current++; render(); }
+        });
+      });
+
+      document.querySelectorAll('[data-prev]').forEach(btn => {
+        btn.addEventListener('click', function () {
+          if (current > 1) { current--; render(); }
+        });
+      });
+
+      document.querySelectorAll('.answer-option input').forEach(input => {
+        input.addEventListener('change', function () {
+          document.querySelectorAll('input[name="' + CSS.escape(this.name) + '"]').forEach(i => i.closest('.answer-option').classList.toggle('selected', i.checked));
+        });
+      });
+
+      document.getElementById('btn-finalizar-triagem').addEventListener('click', async function () {
+        if (!validateQuestion(current)) return;
+        const ok = await saveCompleted();
+        if(ok){ current = 9; render(); }
+      });
+
+      document.getElementById('btn-concluir-cadastro').addEventListener('click', function () {
+        if (typeof goToLogin === 'function') goToLogin();
+        else window.location.href = '../../pages/login/doadora.html';
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>
